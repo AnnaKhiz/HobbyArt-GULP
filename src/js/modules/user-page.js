@@ -50,9 +50,14 @@ export function loadUserContent() {
             })
     }
 
-    if (containerWithData) {
+
+    if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html#favorite') {
+        getFavoritesProducts();
+    } else if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html') {
         getUserData();
     }
+
+
     myData.addEventListener('click', (e) => {
         e.preventDefault();
         getUserData();
@@ -100,14 +105,6 @@ export function loadUserContent() {
         })
 
     });
-// const blockDataUserInfo = document.getElementById('block-data-user-info');
-// console.log(blockDataUserInfo)
-//получаю id элемента, на который кликаю.
-
-
-// function editUserInfo(btnName) {
-//     btnName.addEventListener()
-// }
 
 
     bonuses.addEventListener('click', (e) => {
@@ -128,36 +125,6 @@ export function loadUserContent() {
     favorites.addEventListener('click', (e) => {
         e.preventDefault();
         getFavoritesProducts();
-        // fetch(URL)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         const favArray = data[0].favorites.listItems;
-        //         console.log(favArray)
-        //             containerWithData.innerHTML = '';
-        //             console.log('i got users favorites');
-        //             console.log(favArray);
-        //             favArray.forEach(element => {
-        //                 const newFavoritesTemplate = favoritesTemplate
-        //                     .replace('{{id}}', element.id)
-        //                     .replace('{{image}}', element.photo)
-        //                     .replace('{{product-name}}', element.name)
-        //                     .replace('{{product-price}}', element.price);
-        //                 containerWithData.insertAdjacentHTML('beforeend', `${newFavoritesTemplate}`);
-        //                 if (containerWithData.classList.contains('display-block')){
-        //                     containerWithData.classList.remove('display-block');
-        //                 }
-        //             })
-        //         })
-    })
-
-    favProductHeader.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (localStorage.getItem('token')) {
-            location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html')
-            getFavoritesProducts();
-        } else {
-
-        }
     })
 
     function getFavoritesProducts() {
@@ -165,10 +132,7 @@ export function loadUserContent() {
             .then(res => res.json())
             .then(data => {
                 const favArray = data[0].favorites.listItems;
-                console.log(favArray)
                 containerWithData.innerHTML = '';
-                console.log('i got users favorites');
-                console.log(favArray);
                 favArray.forEach(element => {
                     const newFavoritesTemplate = favoritesTemplate
                         .replace('{{id}}', element.id)
@@ -188,7 +152,6 @@ export function loadUserContent() {
             .then(res => res.json())
             .then(data => {
                 data.forEach(el => {
-                    console.log(el.mailing)
                     if (el.mailing == 'false') {
                         containerWithData.innerHTML = mailingTemplate;
                         const subscribe = document.getElementById('subscribe');
@@ -237,7 +200,6 @@ export function loadUserContent() {
             })
             .catch(error => console.log(error));
     }
-
 
     storyOrders.addEventListener('click', (e) => {
         e.preventDefault();
@@ -339,5 +301,25 @@ export function loadUserContent() {
         containerWithData.innerHTML = reviewTemplate;
     })
 }
+
+// export function getFavProducts() {
+//     const favProductHeader = document.getElementById('favorite-header');
+//
+//     favProductHeader.addEventListener('click', (e) => {
+//         e.preventDefault();
+//         // console.log('clicked')
+//         if (localStorage.getItem('token')) {
+//             // history.pushState(null, null, 'main-user-page.html')
+//             window.location.replace('main-user-page.html');
+//         } else {
+//
+//             return false
+//         }
+//         // if (location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
+//         //     getFavoritesProducts();
+//         // }
+//
+//     })
+// }
 
 

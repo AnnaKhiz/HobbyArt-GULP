@@ -1,6 +1,6 @@
 export function logInFunction() {
     document.addEventListener('DOMContentLoaded', (e) => {
-
+        const URL = 'http://localhost:3000/users/';
         let modalCallBtn = [...document.querySelectorAll(`a[data-modal="callModal"]`)];
 
         const modalTemplate = document.getElementById('modal');
@@ -10,6 +10,9 @@ export function logInFunction() {
         const loginFormTemplate = document.getElementById('login-form-template').innerHTML;
         const registrationFormTemplate = document.getElementById('regist-form-template').innerHTML;
         const bodyPage = document.getElementsByTagName('body')[0];
+        const favProductHeader = document.getElementById('favorite-header');
+
+
 
 
         let modalRegistrationLogin;
@@ -72,7 +75,9 @@ export function logInFunction() {
         function openLogInPage(element) {
             element.forEach(elem => {
                 if (localStorage.getItem('token')) {
-                    elem.innerText = "Кабинет"
+                    elem.innerText = "Кабинет";
+                    favProductHeader.innerText = "Избранное";
+
                 }
                 elem.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -111,7 +116,7 @@ export function logInFunction() {
             return registrationButton = document.getElementById('regist-button');
         }
 
-        function noName() {
+        function callRegistTemplate() {
             getElem();
             registrationButton.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -120,13 +125,13 @@ export function logInFunction() {
                 loginButton.addEventListener('click', (e) => {
                     e.preventDefault();
                     contentInModalWindow.innerHTML = loginFormTemplate;
-                    noName();
+                    callRegistTemplate();
                     callFormForgotPassword();
                 });
             });
         }
 
-        noName();
+        callRegistTemplate();
 
         function callFormForgotPassword() {
             const modalRegistrationForgotButton = document.getElementById('modal-registration-forgot-button');
@@ -145,6 +150,16 @@ export function logInFunction() {
             bodyPage.classList.remove('fixed');
             window.location.reload();
         });
+
+
+        favProductHeader.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (localStorage.getItem('token')) {
+                window.location.replace('main-user-page.html#favorite');
+            } else {
+                openLogInPage(modalCallBtn);
+            }
+        })
     });
 
     const forgotPasswordFormTemplate = document.getElementById('forgot-password-form-template').innerHTML;
@@ -203,4 +218,6 @@ export function logInFunction() {
     }
 
     exitUserPage();
+
+
 }
