@@ -50,6 +50,9 @@ export function loadUserContent() {
             })
     }
 
+    if (containerWithData) {
+        getUserData();
+    }
     myData.addEventListener('click', (e) => {
         e.preventDefault();
         getUserData();
