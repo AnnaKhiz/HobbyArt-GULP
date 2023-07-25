@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+@@include('html/head.html', {"title": "Каталог"})
+<body id="body">
+@@include('html/header.html')
+@@include('html/burger.html')
+<main class="main">
+    @@include('html/main-banner.html')
+    <section class="main__product-page">
+        <div class="container">
+            <section class="main__product-page-breadcrumbs">
+                <ul class="main__product-page-breadcrumbs-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><span class="arrow-symbol">&#8594</span></li>
+                    <li><a href="index.html#catalog">Каталог</a></li>
+                    <li><span class="arrow-symbol">&#8594</span></li>
+                    <li>Макраме</li>
+                </ul>
+            </section>
+            <section class="main__product-page-price-block">
+                <div class="main__product-page-price-block-btn">
+                    <a href="#">Цена &#8595</a>
+                </div>
+                <div class="main__product-page-price-block-btn">
+                    <a href="#">Цена &#8593</a>
+                </div>
+            </section>
+            <section class="main__product-page-container">
+                @@include('html/sidebar-search.html')
+                @@include('html/product-page-content.html')
+            </section>
+        </div>
+    </section>
+</main>
+@@include('html/footer.html')
+<!--<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>-->
+<!--<script src="js/swiper.js"></script>-->
+<!--<script src="js/burger.js"></script>-->
+
+@@include('html/script-templates.html')
+<script src="js/app.min.js"></script>
+
+
+<!--<script src="js/modal-registration.js" defer></script>-->
+
+</body>
+</html>

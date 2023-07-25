@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+		  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+	<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+			integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous" ></script>
+	<link rel="stylesheet" href="css/style.css">
+	<title>Личный кабинет</title>
+</head>
+<body>
+<header class="header" id="header">
+    <section class="header__contacts">
+        <div class="container">
+            <ul class="header__contacts-list">
+                <li><a href="tel:+79247652820" class="header__contacts-tel">+7 (924) 765 28 20</a></li>
+                <li>г. Якутск, ул. Петра Алексеева, д. 6, ТЦ “Олонхо”</li>
+                <li>Ежедневно с 10:00 до 19:00</li>
+            </ul>
+
+        </div>
+    </section>
+    <section class="header__menu">
+        <div class="container">
+            <div class="header__menu-container">
+                <nav class="header__menu-nav">
+                    <ul id="menu-links">
+                        <li ><a href="index.html#catalog">Каталог</a></li>
+                        <li ><a href="../delivery.html">Оплата и доставка</a></li>
+                        <li ><a href="bonus.html">Бонусная программа</a></li>
+                        <li ><a href="about.html">О компании</a></li>
+                        <li ><a href="#footer">Контакты</a></li>
+                    </ul>
+                </nav>
+                    <a href="index.html" class="header__menu-logo">
+                        <img src="img/logo.png" alt="logo">
+                    </a>
+                <div class="header__menu-subitem">
+                    <form action="#" method="get" class="header__menu-search elem-sub">
+                        <input type="text" placeholder="Поиск товара">
+                    </form>
+                    <a href="" class="header__menu-enterButton elem-sub" id="callModal" data-modal="callModal">
+                        Войти
+                    </a>
+                    <a href="" class="header__menu-favoriteButton elem-sub" id="favorite-header">
+                        Избранное
+                    </a>
+                    <a href="basket.html" class="header__menu-basketButton elem-sub">
+                        Корзина
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="modal" id="modal">
+    <div class="modal__login">
+        <div class="modal__registration-block login">
+            <a href="#" id="closeModal" class="modal__registration-closeLink link-style login">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 7L25 25" stroke="#EC6F5D" stroke-width="2"></path>
+                    <path d="M25 7L7 25" stroke="#EC6F5D" stroke-width="2"></path>
+                </svg>
+            </a>
+            <div class="scroll_on" id="scroll-on-content">
+
+            </div>
+           </div>
+        </div>
+    </div>
+</div>
+</header>
+
+<div class="menu__btn" id="callBurger">
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+<div id="burger" class="burger">
+    <div class="burger__container">
+        <a href="#"  id="close" class="burger__container-closeLink">
+
+        </a>
+        <ul class="burger__list-menu">
+            <li class="burger__item">
+                <a href="index.html#catalog">
+                    Каталог
+                </a>
+            </li>
+            <li class="burger__item">
+                <a href="../delivery.html">
+                    Оплата и доставка
+                </a>
+            </li>
+            <li class="burger__item">
+                <a href="bonus.html">
+                    Бонусная программа
+                </a>
+            </li>
+            <li class="burger__item">
+                <a href="about.html">
+                    О компании
+                </a>
+            </li>
+            <li class="burger__item">
+                <a href="index.html#footer">
+                    Контакты
+                </a>
+            </li>
+            <li class="burger__item address-block">
+                <p>г. Якутск, ул. Петра Алексеева, д. 6, ТЦ “Олонхо”</p>
+                <p>Ежедневно с 10:00 до 19:00</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<main class="main">
+    <section class="main__banner">
+    <div class="container swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="main__banner-container">
+                    <div class="main__banner-item image">
+                        <img src="img/yarn-image.png" alt="yarn image">
+                    </div>
+                    <div class="main__banner-item text-block">
+                        <h2 class="main__banner-item-label">
+                            Пряжа Macrametr
+                        </h2>
+                        <p class="main__banner-item-text">
+                            Повседневная практика показывает, что укрепление и развитие внутренней структуры обеспечивает широкому кругу (специалистов) участие в формировании форм воздействия.
+                        </p>
+                        <a href="" class="main__banner-item-button">
+                            В каталог
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="main__banner-container">
+                    <div class="main__banner-item image">
+                        <img src="img/yarn-image.png" alt="yarn image">
+                    </div>
+                    <div class="main__banner-item text-block">
+                        <h2 class="main__banner-item-label">
+                            Пряжа Macrametr 2
+                        </h2>
+                        <p class="main__banner-item-text">
+                            Повседневная практика показывает, что укрепление и развитие внутренней структуры обеспечивает широкому кругу (специалистов) участие в формировании форм воздействия.
+                        </p>
+                        <a href="" class="main__banner-item-button">
+                            В каталог
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="main__banner-container">
+                    <div class="main__banner-item image">
+                        <img src="img/yarn-image.png" alt="yarn image">
+                    </div>
+                    <div class="main__banner-item text-block">
+                        <h2 class="main__banner-item-label">
+                            Пряжа Macrametr 3
+                        </h2>
+                        <p class="main__banner-item-text">
+                            Повседневная практика показывает, что укрепление и развитие внутренней структуры обеспечивает широкому кругу (специалистов) участие в формировании форм воздействия.
+                        </p>
+                        <a href="" class="main__banner-item-button">
+                            В каталог
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+    <section class="main__user-page">
+        <div class="container">
+            <section class="main__user-page-breadcrumbs">
+                <ul class="main__user-page-breadcrumbs-list">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><span class="arrow-symbol">&#8594</span></li>
+                    <li>Личный кабинет</li>
+                </ul>
+            </section>
+            <section class="main__user-page-container">
+                <h2 class="main__user-page-content-label">Личный кабинет</h2>
+
+                <div class="main__user-page-content">
+                    <div class="main__user-page-content-block first-block" id="user-page-content-block">
+
+    <div class="main__user-page-content-user-info">
+        <div class="main__user-page-content-user-photo" id="auth-user-photo">
+            <img src="img/user-photo.png" alt="user-photo">
+        </div>
+        <p class="main__user-page-content-user-name" id="auth-user-name">
+            Ольга Иванова
+        </p>
+    </div>
+
+    <ul class="main__user-page-content-user-list">
+        <li><a href="#" id="my-data">Мои данные</a></li>
+        <li><a href="" id="bonuses">Бонусный счет</a></li>
+        <li><a href="" id="favorites">Избранные товары</a></li>
+        <li><a href="" id="story-orders">История заказов</a></li>
+        <li><a href="" id="mailing">Рассылка</a></li>
+        <li><a href="" id="review">Отзывы</a></li>
+    </ul>
+    <a href="" class="main__user-page-content-user-exit" id="user-page-exit">
+        Выйти из личного кабинета
+    </a>
+</div>
+
+                    <div class="main__user-page-content-block second-block main__user-page-content" id="user-page-date-block">
+<!--                        <div class="main__user-page-content" id="user-page-flex-block"></div>-->
+<!--                    //= user-data-template.html-->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+</main>
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer__container">
+
+            <div class="footer__item contacts">
+                <div class="footer__item-logo">
+                    <img src="img/logo.png" alt="image logo">
+                </div>
+                <ul>
+                    <li><a href="tel:+79247652820">+7 (924) 765 28 20</a></li>
+                    <li>г. Якутск, ул. Петра Алексеева, д. 6, ТЦ “Олонхо”</li>
+                    <li>Ежедневно с 10:00 до 19:00</li>
+                    <li><a href="mailto:@hobbyart_dv">@hobbyart_dv</a></li>
+                </ul>
+            </div>
+
+            <nav class="footer__item navigation">
+                <ul>
+                    <li><a href="index.html#catalog">Каталог</a></li>
+                    <li><a href="">Акции</a></li>
+                    <li><a href="index.html#popular-new">Новинки</a></li>
+                    <li><a href="index.html#popular-new">Популярное</a></li>
+                    <li><a href="guarantee.html">Гарантия и возврат</a></li>
+                    <li><a href="delivery.html">Оплата и доставка</a></li>
+                    <li><a href="bonus.html">Бонусная программа</a></li>
+                    <li><a href="about.html">О компании</a></li>
+                    <li><a href="index.html#benefits">Преимущества</a></li>
+                    <li><a href="" data-modal="callModal">Личный кабинет</a></li>
+                </ul>
+            </nav>
+
+            <div class="footer__item subscribe">
+                <h3 class="footer__item-label">
+                    Узнавайте первым о новинках и новостях
+                </h3>
+                <form action="#" method="get" class="footer__item-form">
+                    <input type="email" placeholder="Ваш Email">
+                    <button type="submit">подписаться</button>
+                </form>
+                <p class="footer__item-text">
+                    Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности
+                </p>
+                <p class="footer__item-copyright">
+                    © 2012-2021 ХОББИ АРТ — официальный интернет-магазин товаров для хобби. Все права защищены. Условия использования и политика конфиденциальности
+                </p>
+            </div>
+            
+        </div>
+    </div>
+</footer>
+
+<!--<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>-->
+<!--<script src="js/swiper.js"></script>-->
+<!--<script src="js/burger.js"></script>-->
+<script type="text/template" id="login-form-template" defer>
+    <div class="scroll_on" id="login-inner-content" >
+        <form action="#" class="modal__registration-form login" id="login-form">
+            <h2 class="modal__registration-form-label login">
+                Войти в личный кабинет
+            </h2>
+            <div class="modal__registration-form-error-block" id="enter-error-block">
+
+            </div>
+            <input type="text" name="email" id="user-email" placeholder="Email" value="eve.holt@reqres.in">
+            <input type="password" name="password" id="user-password" placeholder="Пароль" value="pistol">
+            <div class="modal__registration-subitem-ch">
+                <input type="checkbox" name="save-info" id="checkbox-save-user">
+                <label for="checkbox-save-user" class="checkbox-label">Запомнить меня</label>
+            </div>
+
+            <div class="modal__registration-subitem">
+                <a href="#" class="modal__registration-form-button" id="modal-registration-login">Войти</a>
+                <a href="#" class="modal__registration-block-text" id="modal-registration-forgot-button">
+                    Забыли пароль?
+                </a>
+            </div>
+        </form>
+        <div class="modal__login-block-register">
+            <p class="modal__login-block-text">
+                Вы еще не зарегистрированы?
+            </p>
+            <a href="#" class="modal__login-block-button" id="regist-button">
+                Регистрация
+            </a>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="regist-form-template" defer>
+    <div class="scroll_on" id="regist-inner-content">
+        <form action="#" class="modal__registration-form" id="registration-form">
+            <h2 class="modal__registration-form-label">
+                Регистрация
+            </h2>
+            <input type="text" name="name" id="user-name" placeholder="Имя">
+            <input type="text" name="last-name" id="user-last-name" placeholder="Фамилия">
+            <input type="text" name="sur-name" id="user-sur-name" placeholder="Отчество">
+            <input type="tel" name="phone" id="regist-user-phone" placeholder="Номер телефона">
+            <input type="email" name="email" id="user-email" placeholder="E-mail">
+            <input type="text" name="password" id="regist-user-password" placeholder="Придумайте пароль">
+            <input type="text" name="password-confirm" id="user-confirm-password" placeholder="Повторите пароль">
+            <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
+            <button class="modal__registration-form-button">Зарегистрироваться</button>
+        </form>
+        <div class="modal__registration-block-login">
+            <p class="modal__registration-block-text">
+                Есть аккаунт?
+            </p>
+            <a href="#" class="modal__registration-block-button" id="login-button">
+                войти
+            </a>
+        </div>
+    </div>
+</script>
+<script type="text/template" id="forgot-password-form-template" defer>
+    <div class="scroll_on" id="forgot-password-inner-content">
+        <form action="#" class="modal__registration-form forgot-password" id="forgot-password-form">
+            <h2 class="modal__registration-form-label">
+                Забыли пароль?
+            </h2>
+            <input type="email" name="forgot-password-email" id="forgot-password-email" placeholder="E-mail">
+            <span class="modal__registration-form-message">На E-mail придет письмо со ссылкой на смену пароля</span>
+            <a href="#" class="forgot-password-button" id="forgot-password-button">
+                Отправить
+            </a>
+        </form>
+    </div>
+</script>
+<script type="text/template" id="user-data-template" defer>
+
+    <div class="main__user-page-content-editable-content" >
+        <p class="main__user-page-content-user-name data-page">
+            Мои данные
+        <div class="message-block" id="message-block"> </div>
+        </p>
+
+        <div class="main__user-page-content-block-data" id="block-data-user-info">
+
+            <ul class="main__user-page-content-user-data">
+                <li>
+                    <input type="text" placeholder="Имя:" value="{{user-name}}" id="user-name" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-name"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="Фамилия:" value="{{user-last-name}}" id="user-surname" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="Отчество:" value="{{user-sur-name}}" id="user-surname-2" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname-2"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="Дата рождения:" value="{{birth-date}}" id="user-birth-date" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-birth-date"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+            </ul>
+            <ul class="main__user-page-content-user-data">
+                <li>
+                    <input type="text" placeholder="Номер телефона:" value="{{phone-number}}" id="user-phone" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-phone"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="E-mail:" value="{{email}}" id="user-page-email" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-email"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="text" placeholder="Адрес:" value="{{address}}" id="user-address" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-address"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+                <li>
+                    <input type="password" placeholder="Пароль:" value="{{password}}" id="user-page-password" >
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-password"><img src="img/edit.svg" alt="">Изменить</a>
+                </li>
+            </ul>
+        </div>
+
+        <a href="" class="main__user-page-content-user-save-button" id="save-edited-data-btn">Сохранить данные</a>
+
+    </div>
+
+</script>
+<script type="text/template" id="bonuses-template" defer>
+
+    <div class="main__user-page-content-editable-content" >
+        <p class="main__user-page-content-user-name data-page bonuses">
+            Бонусный счет
+        </p>
+        <p class="main__user-page-content-bonuses">
+            На вашем счете <span>{{bonuses}} бонусов</span>, которые вы можете потратить.
+        </p>
+    </div>
+
+</script>
+<script type="text/template" id="block-header-template" defer>
+    <p class="main__user-page-content-user-name data-page story-orders">
+        {{header-template}}
+    </p>
+</script>
+<script type="text/template" id="mailing-template" defer>
+
+    <div class="main__user-page-content-editable-content" >
+        <p class="main__user-page-content-user-name data-page mailing">
+            Рассылка
+        </p>
+        <p class="main__user-page-content-mailing">
+            Вы не подписаны на рассылку
+        </p>
+        <div class="main__user-page-content-mailing-block">
+            <p class="main__user-page-content-mailing-subscribe">
+                Подписаться на рассылку о новинках и акциях
+            </p>
+            <form action="#" method="get" class="footer__item-form main__user-page-content-mailing-form">
+                <input type="email" placeholder="Ваш Email">
+                <button type="submit" id="subscribe">подписаться</button>
+            </form>
+        </div>
+
+        <p class="footer__item-text main__user-page-content-mailing-text">
+            Нажимая на кнопку, вы соглашаетесь с политикой конфиденциальности
+        </p>
+    </div>
+
+</script>
+<script type="text/template" id="no-mailing-template" defer>
+
+    <div class="main__user-page-content-editable-content" >
+        <p class="main__user-page-content-user-name data-page mailing">
+            Рассылка
+        </p>
+        <p class="main__user-page-content-mailing">
+            Вы подписаны на рассылку о новинках и акциях
+        </p>
+        <div class="main__user-page-content-mailing-block">
+            <p class="main__user-page-content-mailing-subscribe">
+                Хотите отписаться от рассылки?
+            </p>
+            <a href="" class="main__user-page-content-mailing cancel" id="cancel-mailing">Да, отписаться</a>
+        </div>
+
+    </div>
+
+</script>
+<script type="text/template" id="favorites-template" defer>
+
+        <div class="main__product-page-content-item" id="item-{{id}}">
+            <div class="main__product-page-content-item-header">
+    <svg class="red-color" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14.434C7.88951 14.4336 7.78224 14.3967 7.69495 14.3289C4.9145 12.1686 2.9992 10.3083 1.65898 8.47301C-0.0512953 6.12763 -0.441358 3.96228 0.498793 2.03698C1.1689 0.661755 3.09421 -0.463425 5.34457 0.19168C6.41752 0.501599 7.35364 1.16623 8 2.07698C8.64636 1.16623 9.58248 0.501599 10.6554 0.19168C12.9008 -0.453424 14.8311 0.661755 15.5012 2.03698C16.4414 3.96228 16.0513 6.12763 14.341 8.47301C13.0008 10.3083 11.0855 12.1686 8.30505 14.3289C8.21776 14.3967 8.11049 14.4336 8 14.434ZM4.06437 1.00681C3.52891 0.98597 2.99788 1.11135 2.52829 1.36949C2.0587 1.62763 1.66828 2.00879 1.39894 2.47204C0.623813 4.0623 0.97387 5.83258 2.46911 7.87791C4.05815 9.92753 5.91887 11.7512 8 13.2988C10.0808 11.7528 11.9415 9.93076 13.5309 7.88291C15.0311 5.83258 15.3762 4.0623 14.6011 2.47705C14.101 1.47689 12.6007 0.681758 10.9305 1.15183C10.3949 1.31011 9.89841 1.57876 9.47294 1.9405C9.04747 2.30223 8.70245 2.74904 8.46007 3.25217C8.4224 3.34389 8.3583 3.42234 8.27594 3.47755C8.19357 3.53276 8.09666 3.56224 7.9975 3.56224C7.89834 3.56224 7.80142 3.53276 7.71906 3.47755C7.63669 3.42234 7.5726 3.34389 7.53493 3.25217C7.29438 2.74778 6.94994 2.29993 6.52421 1.93797C6.09847 1.57601 5.60104 1.30811 5.06453 1.15183C4.73946 1.05742 4.40286 1.00861 4.06437 1.00681Z" fill="url(#paint0_linear_111_777)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_777" x1="-3.45946" y1="-9.02123" x2="19.9092" y2="-3.28645" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="2.78261" cy="2.78261" r="2.78261" fill="url(#paint0_linear_111_778)"/>
+        <circle cx="10.6674" cy="2.78261" r="2.78261" fill="url(#paint1_linear_111_778)"/>
+        <circle cx="18.5507" cy="2.78261" r="2.78261" fill="url(#paint2_linear_111_778)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_778" x1="-1.20329" y1="-3.47826" x2="7.01181" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_111_778" x1="6.68148" y1="-3.47826" x2="14.8966" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_111_778" x1="14.5648" y1="-3.47826" x2="22.7799" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
+            <div class="main__product-page-content-item-img favorites-img">
+                <a href="">
+                    <img src="{{image}}" alt="card image">
+                </a>
+            </div>
+            <div class="main__product-page-content-item-label">
+                <a href="#">{{product-name}}</a>
+            </div>
+            <div class="main__product-page-content-item-color-variants">
+                <svg width="97" height="20" viewBox="0 0 97 20" fill="red" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M86.08 10.88H83.104V13.792H82.096V10.88H79.12V9.936H82.096V7.008H83.104V9.936H86.08V10.88ZM90.9791 9.392C92.6005 9.392 93.7791 9.68533 94.5151 10.272C95.2618 10.848 95.6351 11.6587 95.6351 12.704C95.6351 13.3547 95.4805 13.936 95.1711 14.448C94.8725 14.96 94.4191 15.3653 93.8111 15.664C93.2031 15.952 92.4565 16.096 91.5711 16.096C90.7711 16.096 90.0085 15.968 89.2831 15.712C88.5685 15.4453 87.9925 15.0933 87.5551 14.656L88.1151 13.744C88.4885 14.128 88.9791 14.4427 89.5871 14.688C90.1951 14.9227 90.8511 15.04 91.5551 15.04C92.4831 15.04 93.1978 14.832 93.6991 14.416C94.2111 14 94.4671 13.4453 94.4671 12.752C94.4671 11.984 94.1791 11.4027 93.6031 11.008C93.0378 10.6133 92.0778 10.416 90.7231 10.416H88.3391L88.9151 4.8H95.0431V5.824H89.9231L89.5391 9.392H90.9791Z" fill="#424242"/>
+                    <circle cx="8.5" cy="9.5" r="8.5" fill="#696837"/>
+                    <circle cx="46.5" cy="9.5" r="8.5" fill="#D8C1AA"/>
+                    <circle cx="27.5" cy="9.5" r="8.5" fill="#81292F"/>
+                    <circle cx="65.5" cy="9.5" r="8.5" fill="#EED53A"/>
+                </svg>
+            </div>
+            <div class="main__product-page-content-item-price">
+                {{product-price}}
+            </div>
+            <a href="" class="main__product-page-content-item-btnBuy">
+                В корзину
+            </a>
+        </div>
+
+
+
+</script>
+<script type="text/template" id="story-orders-template" defer>
+
+<!--    <div class="main__user-page-content-editable-content" >-->
+<!--        <p class="main__user-page-content-user-name data-page story-orders">-->
+<!--            История заказов-->
+<!--        </p>-->
+
+        <div class="main__user-page-content-story-container" id="block-item-{{id}}">
+            <div class="main__user-page-content-story-container-flex">
+                <div class="main__user-page-content-story-block">
+                    <p class="main__user-page-content-story-desc">
+                        Заказ № {{number}} от {{data}} {{timeCreated}}, {{sumQuantity}} товара на сумму {{total}} ₽
+                    </p>
+                    <a href="" class="main__user-page-content-story-link" id="view-more-{{id}}" data-id="view-more-{{id}}" data-arrow="arrow-{{id}}" data-order-items="order-items-{{id}}">
+                        <span >Подробнее о заказе</span><img src="img/arrow-down.svg" alt="" >
+                    </a>
+                </div>
+                <div class="main__user-page-content-story-block block-right">
+                    <p class="main__user-page-content-story-desc right-block">
+                        <span>Заказ выполнен</span> {{dataFinished}}
+                    </p>
+                    <a href="" class="main__user-page-content-story-repeat-link">
+                        Повторить заказ
+                    </a>
+                </div>
+            </div>
+
+            <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}">
+
+            </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="order-items-template" defer>
+
+    <div class="main__user-page-content-story-container-items " id="story-items-{{id}}" >
+        <div class="main__user-page-content-story-container-items-flex">
+            <div class="main__user-page-content-story-container-items-block left-block">
+                <div class="main__user-page-content-story-container-items-img">
+                    <img src="{{image}}" alt="image card">
+                </div>
+                <p class="main__user-page-content-story-container-items-name">
+                    {{item-name}}
+                </p>
+            </div>
+            <div class="main__user-page-content-story-container-items-block right-block">
+                <p class="main__user-page-content-story-container-items-sum">
+                    {{quantity}} шт
+                </p>
+                <p class="main__user-page-content-story-container-items-price">
+                    {{price}} ₽
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="review-template" defer>
+
+    <div class="main__user-page-content-editable-content" >
+        <p class="main__user-page-content-user-name data-page review">
+            Мои отзывы
+        </p>
+        <div class="main__user-page-content-review-container">
+            <div class="main__user-page-content-review-block rating-block">
+                <img src="img/rating.png" alt="rating stars">
+                <p class="main__user-page-content-review-data">
+                    13.06.2021 12:30
+                </p>
+            </div>
+            <div class="main__user-page-content-review-block info-block">
+                <div class="main__user-page-content-review-img">
+                    <img src="img/image-card-item4.png" alt="image card">
+                </div>
+                <div class="main__user-page-content-review-info">
+                    <p>Шпагат Macrametr 4 мм, 100 нитей</p>
+                    <p>Комментарий: <span>Хороший шпагат</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="main__user-page-content-review-container">
+
+            <div class="main__user-page-content-review-block rating-block">
+                <img src="img/rating.png" alt="rating stars">
+                <p class="main__user-page-content-review-data">
+                    13.06.2021 12:35
+                </p>
+            </div>
+            <div class="main__user-page-content-review-block info-block">
+                <div class="main__user-page-content-review-img">
+                    <img src="img/image-card-item3.png" alt="image card">
+                </div>
+                <div class="main__user-page-content-review-info">
+                    <p>Пряжа трикотажная Arachna «Слинг Принт»</p>
+                    <p>Комментарий: <span>Пряжа понравилась, по качеству отличная)</span></p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</script>
+
+<script type="text/template" id="sent-order-template" defer>
+    <div class="container">
+        <div class="main__basket-order-close">
+            <a href="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="85" height="86" viewBox="0 0 85 86" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.4945 31.3143C30.8461 30.9627 31.323 30.7651 31.8203 30.7651C32.3176 30.7651 32.7945 30.9627 33.1461 31.3143L43.7527 41.9209C44.1044 42.2725 44.3019 42.7495 44.3019 43.2467C44.3019 43.744 44.1044 44.2209 43.7527 44.5726L33.1461 55.1792C32.7945 55.5308 32.3176 55.7283 31.8203 55.7283C31.323 55.7283 30.8461 55.5308 30.4945 55.1792C30.1429 54.8275 29.9453 54.3506 29.9453 53.8533C29.9453 53.3561 30.1429 52.8791 30.4945 52.5275L39.7753 43.2467L30.4945 33.966C30.1429 33.6143 29.9453 33.1374 29.9453 32.6401C29.9453 32.1429 30.1429 31.6659 30.4945 31.3143Z" fill="url(#paint0_linear_112_354)"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M41.1014 44.5726C40.7498 44.2209 40.5522 43.744 40.5522 43.2467C40.5522 42.7495 40.7498 42.2725 41.1014 41.9209L51.708 31.3143C52.0596 30.9627 52.5366 30.7651 53.0338 30.7651C53.5311 30.7651 54.008 30.9627 54.3597 31.3143C54.7113 31.6659 54.9088 32.1429 54.9088 32.6401C54.9088 33.1374 54.7113 33.6143 54.3597 33.966L45.0789 43.2467L54.3597 52.5275C54.7113 52.8791 54.9088 53.3561 54.9088 53.8533C54.9088 54.3506 54.7113 54.8275 54.3597 55.1792C54.008 55.5308 53.5311 55.7283 53.0338 55.7283C52.5366 55.7283 52.0596 55.5308 51.708 55.1792L41.1014 44.5726Z" fill="url(#paint1_linear_112_354)"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_112_354" x1="24.5478" y1="15.1631" x2="61.3977" y2="23.3212" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#976464"/>
+                            <stop offset="1" stop-color="#CFA5A5"/>
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_112_354" x1="24.5478" y1="15.1631" x2="61.3977" y2="23.3212" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#976464"/>
+                            <stop offset="1" stop-color="#CFA5A5"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </a>
+        </div>
+        <div class="main__basket-order-feedback">
+
+            <div class="main__basket-order-feedback-success">
+                <svg xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43" fill="none">
+                    <path d="M8.95801 19.7082L19.708 30.4582L37.6247 12.5415" stroke="url(#paint0_linear_112_358)" stroke-width="3.58333" stroke-linecap="round" stroke-linejoin="round"/>
+                    <defs>
+                        <linearGradient id="paint0_linear_112_358" x1="2.75981" y1="1.34358" x2="42.2014" y2="15.3144" gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#976464"/>
+                            <stop offset="1" stop-color="#CFA5A5"/>
+                        </linearGradient>
+                    </defs>
+                </svg>
+                <p class="main__basket-order-feedback-success-text">
+                    Благодарим за покупку!
+                </p>
+            </div>
+            <p class="main__basket-order-feedback-desc">
+                В ближайшее время с вами свяжется менеджер для подтверждения заказа
+            </p>
+            <a href="" class="main__basket-order-feedback-link" data-modal="callModal">
+                личный кабинет
+            </a>
+        </div>
+
+        <div class="main__product-details-recommend main__basket-order-feedback-recommend">
+            <h2 class="main__product-details-recommend-label">
+                Вам может понравиться
+            </h2>
+            <div class="main__product-details-recommend-flex">
+                <div class="main__product-details-recommend-flex-item">
+                    <div class="main__product-page-content-item-header">
+    <svg class="red-color" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14.434C7.88951 14.4336 7.78224 14.3967 7.69495 14.3289C4.9145 12.1686 2.9992 10.3083 1.65898 8.47301C-0.0512953 6.12763 -0.441358 3.96228 0.498793 2.03698C1.1689 0.661755 3.09421 -0.463425 5.34457 0.19168C6.41752 0.501599 7.35364 1.16623 8 2.07698C8.64636 1.16623 9.58248 0.501599 10.6554 0.19168C12.9008 -0.453424 14.8311 0.661755 15.5012 2.03698C16.4414 3.96228 16.0513 6.12763 14.341 8.47301C13.0008 10.3083 11.0855 12.1686 8.30505 14.3289C8.21776 14.3967 8.11049 14.4336 8 14.434ZM4.06437 1.00681C3.52891 0.98597 2.99788 1.11135 2.52829 1.36949C2.0587 1.62763 1.66828 2.00879 1.39894 2.47204C0.623813 4.0623 0.97387 5.83258 2.46911 7.87791C4.05815 9.92753 5.91887 11.7512 8 13.2988C10.0808 11.7528 11.9415 9.93076 13.5309 7.88291C15.0311 5.83258 15.3762 4.0623 14.6011 2.47705C14.101 1.47689 12.6007 0.681758 10.9305 1.15183C10.3949 1.31011 9.89841 1.57876 9.47294 1.9405C9.04747 2.30223 8.70245 2.74904 8.46007 3.25217C8.4224 3.34389 8.3583 3.42234 8.27594 3.47755C8.19357 3.53276 8.09666 3.56224 7.9975 3.56224C7.89834 3.56224 7.80142 3.53276 7.71906 3.47755C7.63669 3.42234 7.5726 3.34389 7.53493 3.25217C7.29438 2.74778 6.94994 2.29993 6.52421 1.93797C6.09847 1.57601 5.60104 1.30811 5.06453 1.15183C4.73946 1.05742 4.40286 1.00861 4.06437 1.00681Z" fill="url(#paint0_linear_111_777)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_777" x1="-3.45946" y1="-9.02123" x2="19.9092" y2="-3.28645" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="2.78261" cy="2.78261" r="2.78261" fill="url(#paint0_linear_111_778)"/>
+        <circle cx="10.6674" cy="2.78261" r="2.78261" fill="url(#paint1_linear_111_778)"/>
+        <circle cx="18.5507" cy="2.78261" r="2.78261" fill="url(#paint2_linear_111_778)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_778" x1="-1.20329" y1="-3.47826" x2="7.01181" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_111_778" x1="6.68148" y1="-3.47826" x2="14.8966" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_111_778" x1="14.5648" y1="-3.47826" x2="22.7799" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
+                    <a href="#" class="main__product-details-recommend-flex-img">
+                        <img src="img/image-card-item4.png" alt="image card">
+                    </a>
+                    <a href="" class="main__product-details-recommend-flex-label">
+                        Пряжа Arachna "Macrame MINI"
+                    </a>
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="97" height="20" viewBox="0 0 97 20" fill="none">
+                            <path d="M86.08 10.88H83.104V13.792H82.096V10.88H79.12V9.936H82.096V7.008H83.104V9.936H86.08V10.88ZM95.4956 14.976V16H87.6396V15.184L92.2956 10.624C92.8823 10.048 93.277 9.552 93.4796 9.136C93.693 8.70933 93.7996 8.28267 93.7996 7.856C93.7996 7.19467 93.5703 6.68267 93.1116 6.32C92.6636 5.94667 92.0183 5.76 91.1756 5.76C89.8636 5.76 88.845 6.176 88.1196 7.008L87.3036 6.304C87.741 5.792 88.2956 5.39733 88.9676 5.12C89.6503 4.84267 90.4183 4.704 91.2716 4.704C92.413 4.704 93.3143 4.976 93.9756 5.52C94.6476 6.05333 94.9836 6.78933 94.9836 7.728C94.9836 8.304 94.8556 8.85867 94.5996 9.392C94.3436 9.92533 93.8583 10.5387 93.1436 11.232L89.3356 14.976H95.4956Z" fill="#424242"/>
+                            <circle cx="8.5" cy="9.5" r="8.5" fill="#FAF9F6"/>
+                            <circle cx="27.5" cy="9.5" r="8.5" fill="#EBD5BC"/>
+                            <circle cx="46.5" cy="9.5" r="8.5" fill="#0395AF"/>
+                            <circle cx="65.5" cy="9.5" r="8.5" fill="#F09482"/>
+                        </svg>
+                    </a>
+
+                    <p class="main__product-details-recommend-flex-price">
+                        1053 ₽
+                    </p>
+                    <a href="" class="main__product-details-recommend-flex-btn">
+                        В корзину
+                    </a>
+                </div>
+                <div class="main__product-details-recommend-flex-item">
+                    <div class="main__product-page-content-item-header">
+    <svg class="red-color" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14.434C7.88951 14.4336 7.78224 14.3967 7.69495 14.3289C4.9145 12.1686 2.9992 10.3083 1.65898 8.47301C-0.0512953 6.12763 -0.441358 3.96228 0.498793 2.03698C1.1689 0.661755 3.09421 -0.463425 5.34457 0.19168C6.41752 0.501599 7.35364 1.16623 8 2.07698C8.64636 1.16623 9.58248 0.501599 10.6554 0.19168C12.9008 -0.453424 14.8311 0.661755 15.5012 2.03698C16.4414 3.96228 16.0513 6.12763 14.341 8.47301C13.0008 10.3083 11.0855 12.1686 8.30505 14.3289C8.21776 14.3967 8.11049 14.4336 8 14.434ZM4.06437 1.00681C3.52891 0.98597 2.99788 1.11135 2.52829 1.36949C2.0587 1.62763 1.66828 2.00879 1.39894 2.47204C0.623813 4.0623 0.97387 5.83258 2.46911 7.87791C4.05815 9.92753 5.91887 11.7512 8 13.2988C10.0808 11.7528 11.9415 9.93076 13.5309 7.88291C15.0311 5.83258 15.3762 4.0623 14.6011 2.47705C14.101 1.47689 12.6007 0.681758 10.9305 1.15183C10.3949 1.31011 9.89841 1.57876 9.47294 1.9405C9.04747 2.30223 8.70245 2.74904 8.46007 3.25217C8.4224 3.34389 8.3583 3.42234 8.27594 3.47755C8.19357 3.53276 8.09666 3.56224 7.9975 3.56224C7.89834 3.56224 7.80142 3.53276 7.71906 3.47755C7.63669 3.42234 7.5726 3.34389 7.53493 3.25217C7.29438 2.74778 6.94994 2.29993 6.52421 1.93797C6.09847 1.57601 5.60104 1.30811 5.06453 1.15183C4.73946 1.05742 4.40286 1.00861 4.06437 1.00681Z" fill="url(#paint0_linear_111_777)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_777" x1="-3.45946" y1="-9.02123" x2="19.9092" y2="-3.28645" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="2.78261" cy="2.78261" r="2.78261" fill="url(#paint0_linear_111_778)"/>
+        <circle cx="10.6674" cy="2.78261" r="2.78261" fill="url(#paint1_linear_111_778)"/>
+        <circle cx="18.5507" cy="2.78261" r="2.78261" fill="url(#paint2_linear_111_778)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_778" x1="-1.20329" y1="-3.47826" x2="7.01181" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_111_778" x1="6.68148" y1="-3.47826" x2="14.8966" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_111_778" x1="14.5648" y1="-3.47826" x2="22.7799" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
+                    <a href="#" class="main__product-details-recommend-flex-img">
+                        <img src="img/image-card-item5.png" alt="image card">
+                    </a>
+                    <a href="" class="main__product-details-recommend-flex-label">
+                        Шнур "Gamma" 0.8 мм, 50 м
+                    </a>
+                    <a href="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="98" height="20" viewBox="0 0 98 20" fill="none">
+                            <path d="M86.08 10.88H83.104V13.792H82.096V10.88H79.12V9.936H82.096V7.008H83.104V9.936H86.08V10.88ZM97.6801 13.056H95.4401V16H94.2881V13.056H87.9681V12.224L93.9041 4.8H95.1841L89.4561 12.032H94.3201V9.44H95.4401V12.032H97.6801V13.056Z" fill="#424242"/>
+                            <circle cx="8.5" cy="9.5" r="8.5" fill="#E5D8CB"/>
+                            <circle cx="27.5" cy="9.5" r="8.5" fill="#C51212"/>
+                            <circle cx="46.5" cy="9.5" r="8.5" fill="#FC9257"/>
+                            <circle cx="65.5" cy="9.5" r="8.5" fill="#1C1C1C"/>
+                        </svg>
+                    </a>
+
+                    <p class="main__product-details-recommend-flex-price">
+                        852 ₽
+                    </p>
+                    <a href="" class="main__product-details-recommend-flex-btn">
+                        В корзину
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</script>
+
+<script type="text/template" id="popup-template" defer>
+    <div class="container">
+        <form class="popup-form" id="popup-form">
+            <p class="popup-text">Комментарий</p>
+            <div class="popup-system-message" id="system-messages"></div>
+            <textarea id="popup-textarea" class="popup-textarea" rows="6" cols="50" value="" name="comment-text" placeholder="Введите текст..." autofocus maxlength="50"></textarea>
+            <div class="popup-message-window" id="popup-message-window">
+                Длина сообщения должна быть 10-50 символов.
+                Осталось символов <span id="symbol-count">50</span>
+            </div>
+            <button class="popup-button" id="popup-submit">Отправить</button>
+        </form>
+    </div>
+</script>
+
+<script src="js/app.min.js"></script>
+
+
+<!--<script src="js/modal-registration.js" defer></script>-->
+<!--<script type="application/json" src="./database%20json/database-json.json" defer></script>-->
+
+<!--<script  src="js/user-page.js" defer></script>-->
+
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+.swiper
+  overflow: hidden
+  &-button-next, &-rtl &-button-prev
+    right: 187px
+    @media screen and (max-width: 1024px)
+      right: 75px
+    @media screen and (max-width: 980px)
+      right: 35px
+    @media screen and (max-width: 767px)
+      right: 25px
+    //@media screen and (max-width: 374px)
+      right: 15px
+  &-button-next, &-button-prev
+    bottom: 37px
+    top: auto
+    @media screen and (max-width: 980px)
+      bottom: 20px
+    @media screen and (max-width: 767px)
+      bottom: 15px
+  &-horizontal > &-pagination-bullets, &-pagination-bullets.swiper-pagination-horizontal, &-pagination-custom, &-pagination-fraction
+    bottom: 37px
+    right: 212px
+    left: auto
+    width: fit-content
+    @media screen and (max-width: 1024px)
+      right: 100px
+    @media screen and (max-width: 980px)
+      bottom: 20px
+      right: 50px
+    @media screen and (max-width: 767px)
+      bottom: 15px
+      right: 40px
+    //@media screen and (max-width: 374px)
+      right: 30px
+  &-button-prev, &-rtl &-button-next
+    right: 262px
+    left: auto
+    @media screen and (max-width: 1024px)
+      right: 149px
+    @media screen and (max-width: 980px)
+      right: 89px
+    @media screen and (max-width: 767px)
+      right: 79px
+    //@media screen and (max-width: 374px)
+      right: 69px
+  //&-slide-prev, &-slide-next, &-slide-duplicate-prev, &-slide-duplicate-active
+    visibility: hidden
+
+.swiperTwo
+  position: relative
+  overflow: hidden
+.swiper3
+  //position: relative
+  overflow: hidden
+.main__slider-popular-container > .swiper-slide
+  width: 20%
+
+  //overflow: hidden
+  //@media screen and (max-width: 1440px)
+    width: 17%
+
+.swiper-button-next-2, .swiper-button-prev-2, .swiper-button-next-3, .swiper-button-prev-3
+  position: absolute
+  top: 50%
+  width: calc(var(--swiper-navigation-size)/ 44 * 27)
+  height: var(--swiper-navigation-size)
+  margin-top: calc(0px - (var(--swiper-navigation-size)/ 2))
+  z-index: 10
+  cursor: pointer
+  display: flex
+  align-items: center
+  justify-content: center
+  color: var(--swiper-navigation-color,var(--swiper-theme-color))
+.swiper-button-prev-2, .swiper-rtl .swiper-button-next-2
+  left: 85px
+  right: auto
+  @media screen and (max-width: 1876px)
+    left: 48%
+  @media screen and (max-width: 677px)
+    left: 45%
+.swiper-button-prev-3, .swiper-rtl .swiper-button-next-3
+  left: -43px
+  right: auto
+  @media screen and (max-width: 1876px)
+    left: 48%
+  @media screen and (max-width: 677px)
+    left: 45%
+.swiper-button-next-2, .swiper-rtl .swiper-button-prev-2
+  right: 85px
+  left: auto
+  @media screen and (max-width: 1876px)
+    right: 48%
+  @media screen and (max-width: 677px)
+    right: 45%
+.swiper-button-next-3, .swiper-rtl .swiper-button-prev-3
+  right: -43px
+  left: auto
+  @media screen and (max-width: 1876px)
+    right: 48%
+  @media screen and (max-width: 677px)
+    right: 45%
+.swiper-button-next-2, .swiper-button-prev-2
+  bottom: calc(50% - 64px - 43px + 64px - 17px)
+  top: auto
+  @media screen and (max-width: 1876px)
+    bottom: 30px
+.swiper-button-next-3, .swiper-button-prev-3
+  bottom: 50%
+  @media screen and (max-width: 1876px)
+    bottom: -30px
+    top: auto
+
+.swiper-button-prev-2:after, .swiper-rtl .swiper-button-next-2:after, .swiper-button-prev-3:after, .swiper-rtl .swiper-button-next-3:after
+  content: 'prev'
+.swiper-button-next-2:after, .swiper-button-prev-2:after, .swiper-button-next-3:after, .swiper-button-prev-3:after
+  font-family: swiper-icons
+  font-size: var(--swiper-navigation-size)
+  text-transform: none!important
+  letter-spacing: 0
+  font-variant: initial
+  line-height: 1
+.swiper-button-next-2:after, .swiper-rtl .swiper-button-prev-2:after, .swiper-button-next-3:after, .swiper-rtl .swiper-button-prev-3:after
+  content: 'next'
+.swiper-button-next-2:after, .swiper-button-prev-2:after, .swiper-button-next-3:after, .swiper-button-prev-3:after
+  font-family: swiper-icons
+  font-size: var(--swiper-navigation-size)
+  text-transform: none!important
+  letter-spacing: 0
+  font-variant: initial
+  line-height: 1
+
+body
+  //line-height: 0
+  --swiper-navigation-size: 17px
+  --swiper-theme-color: #976464
+

@@ -1,0 +1,117 @@
+@import "mixins"
+@import "variables"
+@import "burger"
+
+.modal, .modal-regist
+  position: fixed
+  top: 110%
+  left: 0
+  right: 0
+  bottom: 0
+  background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+  z-index: 4
+  &.show
+    top: 0
+  &__login-block
+    &-register
+      text-align: center
+    &-text
+      @include textSmall (1rem, 1.25rem, $colorTextMain)
+      margin-bottom: 10px
+    &-button
+      @include buttonWithBorder
+      width: fit-content
+      margin: 0 auto
+  &__registration-subitem
+    display: flex
+    align-items: center
+    justify-content: center
+    column-gap: 24px
+    &-ch
+      display: flex
+      align-items: center
+      margin-bottom: 40px
+
+  &__registration-closeLink
+    position: absolute
+    top: 25px
+    right: 25px
+  &__registration-block
+    position: relative
+    width: 600px
+    height: fit-content
+    //height: 850px
+    background: $colorTextButton
+    box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+    border-radius: 20px
+    margin: 50px auto
+    padding: 50px 108px 50px 108px
+    &-login
+      display: flex
+      align-items: center
+      justify-content: center
+      column-gap: 20px
+    &-text
+      @include textSmall (1rem, 1.25rem, $colorTextMain)
+    &-button
+      @include buttonWithBorder
+  &__registration-form
+    width: 100%
+    //text-align: center
+    &-error-block
+      color: $errorText
+      text-align: center
+      margin-bottom: 15px
+    & input:not(input[type="checkbox"])
+      display: block
+      margin: 0 auto 24px auto
+      width: 100%
+      @include input-style
+      background: $colorTextButton
+      &::placeholder
+        @include textSmall (0.875rem, 1.0625rem, $colorTextMain)
+    &-message
+      text-align: left
+      margin-bottom: 40px
+      display: block
+      @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
+    &-button
+      @include button
+      text-align: center
+    &-label
+      @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+      margin-bottom: 40px
+      text-align: center
+    &:after
+      content: ''
+      display: block
+      height: 1px
+      background: $grayLinkColor
+      margin: 40px 0
+    &.login
+      & input[type="checkbox"]
+        margin-right: 16px
+        width: 30px
+        height: 30px
+        border: 0.9px solid #BDBDBD
+        border-radius: 3px
+      & label.checkbox-label
+        text-align: left
+        @include textSmall (1rem, 1.25rem, $colorTextMain)
+    &.forgot-password
+      &:after
+        content: ''
+        height: 0px
+        background: none
+      & a
+        @include button
+        display: block
+        margin: 0 auto
+        width: fit-content
+.fixed
+  overflow: hidden
+  width: 100%
+.scroll
+  overflow: auto
+.error-message
+  @include textSmall (1rem, 1.25rem, $colorTextMain)

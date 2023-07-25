@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+@@include('html/head.html', {"title": "О компании"})
+<body id="body">
+@@include('html/header.html')
+@@include('html/burger.html')
+<main class="main">
+    @@include('html/main-banner.html')
+    <section class="main__delivery__page">
+        <div class="container">
+            @@include('html/breadcrumbs.html', {"label": "О компании"})
+            <section class="main__delivery__page-container">
+                @@include('html/sidebar.html')
+                <div class="main__content" id="main-content">
+                    <div class="main__delivery__page-content" >
+                        <div class="main__delivery__page-content-block">
+                            <h2 class="main__delivery__page-content-label">
+                                О компании
+                            </h2>
+                            <div class="main__delivery__page-content-text-block">
+                                <div class="main__delivery__page-content-photo">
+                                    <img src="img/photo-about.png" alt="photo about">
+                                </div>
+                                <p class="main__delivery__page-content-text">Доброго времени! Рады видеть вас на нашем сайте!</p>
+                                <p class="main__delivery__page-content-text">Наш магазин работает с 2012 года.</p>
+                                <p class="main__delivery__page-content-text">Мы как и многие, были увлечены различными видами творчества, любили пробовать и 
+                                    создавать, что-то новое, но вот выбора материалов тогда в нашем городе не было. И тогда мы не остановились, и наши увлечения
+                                    к творчеству и рукоделию переросли в любимое дело и мы открыли небольшой магазинчик.</p>
+                                <p class="main__delivery__page-content-text">Мы постарались создать уютное и удобное место, где каждый из вас сможет найти для
+                                    себя нужные материалы и инструменты для воплощения своих задумок и идей.
+                                    Каждый день мы находимся в поисках новых и качественных товаров для вас.</p>
+                                <p class="main__delivery__page-content-text">И вот, в 2021 году, мы запускаем наш сайт, чтобы вам было ещё удобнее совершать покупки невыходя из дома.</p>
+                                <p class="main__delivery__page-content-text">Мы продолжаем расти и развиваться.</p>
+                                <p class="main__delivery__page-content-text">Спасибо, что вы с нами!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+    </section>
+</main>
+@@include('html/footer.html')
+<!--<script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>-->
+<!--<script src="js/swiper.js"></script>-->
+<!--<script src="js/burger.js"></script>-->
+@@include('html/script-templates.html')
+<script src="js/app.min.js"></script>
+<!--<script src="js/modal-registration.js" defer></script>-->
+</body>
+</html>

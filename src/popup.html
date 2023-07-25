@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('html/head.html', {"title": "Комментарий"})
+<body id="body">
+
+    <div class="container">
+        <form class="popup-form" id="popup-form">
+            <p class="popup-text">Комментарий</p>
+            <textarea class="popup-textarea" rows="6" cols="50" value="" name="comment-text" placeholder="Введите текст..." autofocus maxlength="130"></textarea>
+            <div class="popup-message-window" id="popup-message-window"></div>
+            <button class="popup-button">Отправить</button>
+        </form>
+    </div>
+<script src="js/app.min.js"></script>
+</body>
+</html>

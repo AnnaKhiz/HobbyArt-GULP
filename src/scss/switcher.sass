@@ -1,0 +1,38 @@
+@import "variables"
+
+.switcher-button
+  text-align: center
+  @media screen and (max-width: 424px)
+    margin-bottom: 20px
+  &.hidden
+    display: none
+.switch-btn
+  display: inline-block
+  width: 72px
+  height: 34px
+  border-radius: 65px
+  background: $switcherColor
+  z-index: 0
+  padding: 0
+  border: none
+  cursor: pointer
+  position: relative
+  transition-duration: 300ms
+  &:after
+    content: ""
+    height: 34px
+    width: 36px
+    border-radius: 50px
+    background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+    top: 0px
+    left: 0px
+    transition-duration: 300ms
+    position: absolute
+    z-index: 1
+.switch-on
+  background: $switcherColor
+  &.active
+    background: green
+  &:after
+    content: ''
+    left: 35px

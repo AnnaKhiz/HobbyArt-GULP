@@ -1,0 +1,45 @@
+<header class="header" id="header">
+    <section class="header__contacts">
+        <div class="container">
+            <ul class="header__contacts-list">
+                <li><a href="tel:+79247652820" class="header__contacts-tel">+7 (924) 765 28 20</a></li>
+                <li>г. Якутск, ул. Петра Алексеева, д. 6, ТЦ “Олонхо”</li>
+                <li>Ежедневно с 10:00 до 19:00</li>
+            </ul>
+
+        </div>
+    </section>
+    <section class="header__menu">
+        <div class="container">
+            <div class="header__menu-container">
+                <nav class="header__menu-nav">
+                    <ul id="menu-links">
+                        <li ><a href="index.html#catalog">Каталог</a></li>
+                        <li ><a href="../delivery.html">Оплата и доставка</a></li>
+                        <li ><a href="bonus.html">Бонусная программа</a></li>
+                        <li ><a href="about.html">О компании</a></li>
+                        <li ><a href="#footer">Контакты</a></li>
+                    </ul>
+                </nav>
+                    <a href="index.html" class="header__menu-logo">
+                        <img src="img/logo.png" alt="logo">
+                    </a>
+                <div class="header__menu-subitem">
+                    <form action="#" method="get" class="header__menu-search elem-sub">
+                        <input type="text" placeholder="Поиск товара">
+                    </form>
+                    <a href="" class="header__menu-enterButton elem-sub" id="callModal" data-modal="callModal">
+                        Войти
+                    </a>
+                    <a href="" class="header__menu-favoriteButton elem-sub" id="favorite-header">
+                        Избранное
+                    </a>
+                    <a href="basket.html" class="header__menu-basketButton elem-sub">
+                        Корзина
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    @@include('login.html')
+</header>

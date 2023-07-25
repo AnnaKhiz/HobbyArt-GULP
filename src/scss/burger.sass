@@ -1,0 +1,99 @@
+@import "variables"
+@import "mixins"
+
+.burger
+  z-index: 3
+  position: fixed
+  @include trans
+  &__container
+    @include trans
+    width: 100%
+    transform: translateY(-100%)
+    height: 100vh
+    max-width: 100%
+    opacity: 0
+    pointer-events: none
+    position: fixed
+    left: 0%
+    bottom: 0%
+    overflow: hidden
+    padding: 53px 20px
+    background: $buttonBgRegular
+  &.show .burger__container
+    opacity: 1
+    transform: translateY(0)
+    pointer-events: initial
+    @include trans
+  &__item a
+    @include textSmallBold (1.5rem, 1.8125rem, $colorTextButton)
+    text-align: center
+    display: block
+    padding: 15px 0
+    //background: linear-gradient(168deg, #976464 -20.03%, #CFA5A5 106.75%)
+  &__item a:hover, &__item a:active
+    color: $colorTextMain
+  &.show
+    top: 0
+  &__list-menu
+    display: none
+    @media screen and (max-width: 780px)
+      display: block
+      height: 65vh
+    & li
+      margin: 10px 0
+      @include textSmallBold (1.5rem, 1.8125rem, $colorTextButton)
+      text-align: center
+      display: block
+      padding: 15px 0
+      background: linear-gradient(168deg, #976464 -20.03%, #CFA5A5 106.75%)
+      &:hover, &:active
+        background: linear-gradient(354deg, #976464 -20.03%, #CFA5A5 106.75%)
+        box-shadow: inset 1px 1px 17px 7px rgba(255,255,255,0.2)
+      &.address-block
+        background: none
+        color: $colorTextMain
+      & p
+        margin-bottom: 10px
+
+.menu__btn
+  z-index: 23
+  position: absolute
+  right: 22px
+  top: 4px
+  width: 40px
+  height: 40px
+  overflow: hidden
+  display: none
+  @media screen and (max-width: 780px)
+    display: block
+  & span
+    width: 40px
+    height: 2px
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    background-color: $colorTextButton
+    @include trans
+    &:nth-of-type(2)
+      top: calc(50% - 10px)
+    &:nth-of-type(3)
+      top: calc(50% + 10px)
+  &.active span:nth-of-type(1)
+    display: none
+  &.active span:nth-of-type(2)
+    top: 50%
+    transform: translate(-50%, 0%) rotate(45deg)
+    background-color: $colorTextButton
+  &.active span:nth-of-type(3)
+    top: 50%
+    transform: translate(-50%, 0%) rotate(-45deg)
+    background-color: $colorTextButton
+.fixed
+  overflow: hidden
+  width: 100%
+.scroll
+  overflow: auto
+
+#menu__toggle
+  opacity: 0

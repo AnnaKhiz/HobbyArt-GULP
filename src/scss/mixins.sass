@@ -1,0 +1,158 @@
+@import "variables"
+@import "fonts"
+
+@mixin sectionLabel
+  font: 600 normal 1.75rem/2.6875rem 'Spectral SC' //28/43px
+  text-transform: uppercase
+  color: $colorTextMain
+
+@mixin itemLabel
+  font: 600 normal 1.5rem/2.3125rem 'Spectral SC' //24/37px
+  text-transform: uppercase
+  color: $colorTextMain
+
+@mixin textSmall ($fz, $lh, $color)
+  font: 400 normal $fz 'Montserrat'
+  line-height: $lh
+  color: $color
+
+@mixin textArticle ($fz, $lh, $color)
+  font: 300 normal $fz 'Montserrat'
+  line-height: $lh
+  color: $color
+
+@mixin textMenuBold
+  font: 600 normal 1rem/1.5rem 'Montserrat' //16/20rem
+  color: $colorTextMain
+
+@mixin textSmallBold ($fz, $lh, $color)
+  font: 600 normal $fz 'Montserrat'
+  line-height: $lh
+  color: $color
+
+@mixin textMediumBold ($fz, $lh, $color)
+  font: 500 normal $fz 'Montserrat'
+  line-height: $lh
+  color: $color
+
+@mixin textBlock-width ($width)
+  max-width: $width
+  overflow: hidden
+
+@mixin textButton
+  font: 600 normal 1rem/1.5rem 'Spectral SC'
+  text-transform: uppercase
+
+@mixin button //кнопка цветная
+  background: $buttonBgRegular
+  border-radius: 49px
+  padding: 13px 45px
+  @include textButton
+  color: $colorTextButton
+  &:hover
+    background: $buttonBgHover
+  &:active
+    background: $buttonBgRegular
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+    text-fill-color: transparent
+
+@mixin headerContactsIcon ($url, $top, $left)
+  content: $url
+  position: absolute
+  top: $top
+  left: $left
+  z-index: 1
+
+@mixin trans
+  transition: all ease-in-out 0.3s
+
+@mixin buttonWithBorder
+  display: block
+  padding: 10px 38px
+  @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+  border: 1px solid $grayLinkColor
+  border-radius: 46px
+  @include trans
+  position: relative
+  z-index: 0
+  &:hover
+    @include trans
+    background: $buttonBgRegular
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+    text-fill-color: transparent
+    border: 1px solid #CFA5A5
+  &:active
+    @include trans
+    background: $buttonBgRegular
+    -webkit-background-clip: inherit
+    -webkit-text-fill-color: white
+    background-clip: inherit
+    text-fill-color: white
+    color: $colorTextButton
+
+@mixin headerContactEllipse ($digit, $top, $left)
+  content: $digit //variable for counting favorite, basket
+  position: absolute
+  top: $top
+  left: $left
+  z-index: 2
+  @include textSmall (0.625rem, 0.75rem, $colorCounter)
+  width: 17px
+  height: 17px
+  background-color: #D3D3B5
+  border-radius: 50%
+  -webkit-text-fill-color: $colorCounter
+  text-fill-color: $colorCounter
+  display: flex
+  justify-content: center
+  align-items: center
+
+@mixin input-style
+  //max-width: 198px
+  padding: 10px 38px 10px 18px
+  border: 1px solid $grayLinkColor
+  border-radius: 46px
+  background-color: #E8E8E8
+  &:hover
+    @include trans
+    background: $buttonBgRegular
+    -webkit-background-clip: text
+    -webkit-text-fill-color: transparent
+    background-clip: text
+    text-fill-color: transparent
+    border: 1px solid #CFA5A5
+  &:focus
+    @include trans
+    background: $buttonBgRegular
+    -webkit-background-clip: inherit
+    -webkit-text-fill-color: white
+    background-clip: inherit
+    text-fill-color: white
+    color: $colorTextButton
+  &::placeholder
+    //display: inline
+    //padding: 10px 18px
+    @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+
+@mixin coloredLink
+  background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+  -webkit-background-clip: text
+  -webkit-text-fill-color: transparent
+  background-clip: text
+  text-fill-color: transparent
+
+@mixin basket-labels
+  @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+  margin-bottom: 32px
+
+
+
+
+
+
+
+

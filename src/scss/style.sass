@@ -1,0 +1,1783 @@
+@import "fonts"
+@import "mixins"
+@import "variables"
+@import "style-reset"
+@import "swiper"
+@import "switcher"
+@import "burger"
+@import "modal"
+
+body
+  background-color: #E8E8E8
+
+
+//*
+  border: 1px solid black
+.container
+  max-width: 1650px
+  padding: 0 15px
+  margin: 0 auto
+  @media screen and (max-width: 1600px)
+    max-width: 1330px
+  @media screen and (max-width: 1440px)
+    max-width: 1170px
+  @media screen and (max-width: 1366px)
+    max-width: 1246px
+  @media screen and (max-width: 1280px)
+    max-width: 1160px
+
+.header
+  &__contacts
+    background: $buttonBgRegular
+    &-list
+      display: flex
+      justify-content: space-between
+      & li, & li a
+        @include textSmall (0.875rem, 1.1875rem, $colorTextButton)
+        padding: 13px 0
+        @include trans
+      & li
+        position: relative
+        margin-left: 22px
+        &:first-of-type
+          & a:hover
+            @include trans
+            color: #2c2c2c
+          &:before
+            @include headerContactsIcon (url("../img/phone.svg"), 16px, -21px)
+          //@media screen and (max-width: 768px)
+            display: none
+        &:nth-of-type(2)
+          &:before
+            @include headerContactsIcon (url("../img/map.svg"), 16px, -21px)
+          @media screen and (max-width: 780px)
+            display: none
+        &:last-of-type
+          &:before
+            @include headerContactsIcon (url("../img/clock.svg"), 16px, -21px)
+          @media screen and (max-width: 780px)
+            display: none
+  &__menu
+    &-container
+      display: flex
+      column-gap: 26px
+      align-items: center
+      padding: 45px 0 80px 0
+      position: relative
+      @media screen and (max-width: 1600px)
+        display: block
+        text-align: center
+        justify-content: center
+      @media screen and (max-width: 780px)
+        padding: 45px 0
+    &-logo img
+      @media screen and (max-width: 1600px)
+        margin-bottom: 30px
+    &-subitem
+      display: flex
+      align-items: center
+      column-gap: 26px
+      @media screen and (max-width: 1600px)
+        justify-content: center
+        column-gap: 10px
+      @media screen and (max-width: 700px)
+        flex-wrap: wrap
+        column-gap: 33px
+        row-gap: 10px
+      & > .elem-sub
+        @media screen and (max-width: 700px)
+          width: 30%
+        @media screen and (max-width: 570px)
+          width: 45%
+          column-gap: 0
+        @media screen and (max-width: 424px)
+          width: 60%
+    &-enterButton, &-favoriteButton, &-basketButton
+      @include buttonWithBorder
+      position: relative
+      z-index: 0
+    &-enterButton
+      &:before
+        @include headerContactsIcon (url('../img/human.svg'), 12px, 20px)
+    &-favoriteButton
+      display: flex
+      position: relative
+      &:before
+        @include headerContactsIcon (url('../img/heart.svg'), 12px, 20px)
+      &:after
+        @include headerContactEllipse ('2', -6px, calc(100% - 13%))
+    &-basketButton
+      display: flex
+      &:before
+        @include headerContactsIcon (url('../img/basket.svg'), 12px, 20px)
+      &:after
+        @include headerContactEllipse ('1', -6px, calc(100% - 13%))
+
+    &-nav
+      @media screen and (max-width: 780px)
+        display: none
+      & ul
+        display: flex
+        column-gap: 25px
+        @media screen and (max-width: 1600px)
+          justify-content: center
+          margin-bottom: 30px
+        & a
+          @include trans
+          @include textMenuBold
+          &:hover
+            color: #976464
+            @include trans
+    &-search
+      position: relative
+      max-width: 198px
+      &:before
+        @include headerContactsIcon (url('../img/loop.svg'), calc(50% - 6.5px ), calc(100% - 15%))
+        z-index: 2
+        @media screen and (max-width: 600px)
+          @include headerContactsIcon (url('../img/loop.svg'), calc(50% - 6.5px ), calc(100% - 20%))
+      & input
+        @include input-style
+        width: 100%
+  &.bg-white .header__menu-search input
+    background-color: $colorTextButton
+
+
+.main
+  &__banner
+    &:after
+      content: url("../img/letters-circle.svg")
+      position: absolute
+      top: 176px
+      right: 275px
+      transform: rotate(22.12deg)
+      z-index: 2
+      animation: rotateCircle 20s linear infinite normal 0s none
+      -webkit-animation: rotateCircle 20s linear infinite normal 0s none
+      @media screen and (max-width: 1600px)
+        top: 300px
+        right: 186px
+      @media screen and (max-width: 1366px)
+        right: 120px
+      @media screen and (max-width: 1260px)
+        display: none
+      @keyframes rotateCircle
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(360deg)
+      @-webkit-keyframes rotateCircle
+        0%
+          transform: rotate(0deg)
+        100%
+          transform: rotate(360deg)
+    &-container
+      background: url("../img/bg-banner.png"), $bg-color-banner no-repeat
+      //box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.05)
+      border-radius: 20px
+      display: flex
+      align-items: center
+      position: relative
+      z-index: 1
+      @media screen and (max-width: 767px)
+        display: block
+        text-align: center
+    &-item
+      &.image
+        margin-left: 130px
+        position: relative
+        @media screen and (max-width: 1600px)
+          margin-left: 0
+        @media screen and (max-width: 980px)
+          max-width: 45%
+          & img
+            width: 100%
+        @media screen and (max-width: 767px)
+          margin: auto
+          max-width: 100%
+
+        &:after
+          content: url("../img/banner-arrow.svg")
+          position: absolute
+          bottom: 98px
+          right: -68px
+          @media screen and (max-width: 1600px)
+            bottom: 35px
+            right: 20px
+      &.text-block
+        margin-left: 120px
+        @media screen and (max-width: 1600px)
+          margin-left: 0
+        @media screen and (max-width: 767px)
+          padding-bottom: 10px
+      &-label
+        @include sectionLabel
+        margin-bottom: 48px
+        @media screen and (max-width: 980px)
+          font-size: 1.4rem
+          line-height: 2rem
+          margin-bottom: 30px
+        @media screen and (max-width: 767px)
+          margin-bottom: 10px
+          width: 100%
+      &-text
+        @include textSmall (1.125rem, 1.6875rem, rgba(94, 92, 90, 0.8))
+        margin-bottom: 48px
+        @include textBlock-width (446px)
+        @media screen and (max-width: 980px)
+          font-size: 1rem
+          line-height: 1.4rem
+          margin-bottom: 30px
+        @media screen and (max-width: 767px)
+          margin: 0px auto 10px auto
+          max-width: 90%
+      &-button
+        @include button
+        @media screen and (max-width: 980px)
+          font-size: 1rem
+          line-height: 1rem
+          padding: 10px 30px
+        @media screen and (max-width: 767px)
+          display: block
+          width: fit-content
+          margin: auto
+        @media screen and (max-width: 374px)
+          padding: 10px 15px
+
+  &__slider-popular
+    position: relative
+    padding-bottom: 64px
+    &-container
+
+      //
+      display: flex
+      //justify-content: space-between
+
+    &-item
+      font-size: 0
+      position: relative
+      @media screen and (max-width: 1440px)
+        width: 17%
+      &:before
+        content: ''
+        background: linear-gradient(180deg, rgba(80, 80, 80, 0.08) 50.1%, rgba(46, 46, 46, 0.59) 100%)
+        border-radius: 20px
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+      & img
+        border-radius: 20px
+        width: 100%
+      & p
+        @include textSmallBold (1.125rem, 1.375rem, $colorTextButton)
+        @include textBlock-width (192px)
+        position: absolute
+        bottom: 24px
+        left: 34px
+        @media screen and (max-width: 677px)
+          left: 14px
+    &-switcher
+      padding: 64px 0
+      display: flex
+      justify-content: center
+      align-items: center
+      column-gap: 40px
+      @media screen and (max-width: 780px)
+        padding: 45px 0
+      @media screen and (max-width: 533px)
+        column-gap: 0
+        justify-content: space-between
+      @media screen and (max-width: 424px)
+        display: block
+        text-align: center
+      &-label
+        @include sectionLabel
+        text-transform: uppercase
+        @media screen and (max-width: 533px)
+          font-size: 1.3rem
+          line-height: 2rem
+        &.red-text
+          background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+          -webkit-background-clip: text
+          -webkit-text-fill-color: transparent
+          background-clip: text
+          text-fill-color: transparent
+          //@media screen and (max-width: 424px)
+            margin-bottom: 20px
+        &#switcher-label-1
+          @media screen and (max-width: 424px)
+            margin-bottom: 20px
+  &__catalog
+    padding: 64px 0
+    position: relative
+    @media screen and (max-width: 1876px)
+      padding: 34px 0 64px 0
+    @media screen and (max-width: 1023px)
+      padding: 34px 0 45px 0
+    &-fon-img
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 0
+      width: 100%
+    //&:after
+      content: url("/img/text-katalog.png")
+      position: absolute
+      top: 33px
+      left: 0
+      z-index: 0
+    &-label
+      @include sectionLabel
+      margin-bottom: 64px
+      text-align: center
+      @media screen and (max-width: 768px)
+        margin-bottom: 45px
+    &-container
+      display: flex
+      justify-content: space-between
+      align-items: center
+      flex-wrap: wrap
+      row-gap: 40px
+      column-gap: 40px
+      @media screen and (max-width: 1280px)
+        row-gap: 20px
+        column-gap: 20px
+      @media screen and (max-width: 1024px)
+        justify-content: center
+        column-gap: 34px
+        row-gap: 34px
+      @media screen and (max-width: 768px)
+        justify-content: space-between
+        //column-gap: 28px
+        //row-gap: 28px
+    &-item
+      overflow: hidden
+      display: flex
+      flex-direction: column
+      width: 23%
+      min-height: 280px
+      position: relative
+      padding: 34px 0 0 32px
+      z-index: 1
+      background-color: $colorTextButton
+      box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+      border-radius: 20px
+      @include trans
+      @media screen and (max-width: 1600px)
+        width: 22%
+      @media screen and (max-width: 1280px)
+        width: 23%
+        padding: 10px 0 0 20px
+      @media screen and (max-width: 1024px)
+        width: 31%
+      @media screen and (max-width: 1023px)
+        width: 30%
+        padding: 10px 0 0 20px
+      @media screen and (max-width: 767px)
+        width: 47%
+        padding: 34px 0 0 32px
+      @media screen and (max-width: 609px)
+        width: 70%
+        margin: auto
+      @media screen and (max-width: 425px)
+        width: 100%
+
+      &:hover
+        @include trans
+        background: $bg-color-banner
+      &-subitem
+        margin-top: auto
+        display: flex
+        align-items: flex-end
+        justify-content: space-between
+      & img
+        position: absolute
+        bottom: -10px
+        right: -39px
+        z-index: -1
+
+
+      &-label
+        @include itemLabel
+        margin-bottom: 4px
+        @media screen and (max-width: 768px)
+          font-size: 1.4rem
+          line-height: 1.3rem
+      &-price
+        @include textSmall (1rem, 1.4375rem, rgba(94, 92, 90, 0.8))
+      &-link
+        @include textSmallBold (1rem, 1.4375rem, #976464)
+        margin-bottom: 37px
+        position: relative
+        z-index: 1
+        text-shadow: 1px 1px 0px $colorTextButton
+        @include trans
+        //&:before
+          content: ''
+          width: 100%
+          height: 25px
+          border-radius: 20px
+          position: absolute
+          top: 0
+          left: 0
+          background-color: rgba(253, 253, 253, 0.5)
+          z-index: -1 //??
+        &:hover
+          @include trans
+          color: $colorTextButton
+          text-shadow: 1px 1px 0px black
+
+  &__preferences
+    padding: 64px 0
+    @media screen and (max-width: 768px)
+      padding: 45px 0
+    &-label
+      @include sectionLabel
+      margin-bottom: 64px
+      text-align: center
+      @media screen and (max-width: 768px)
+        margin-bottom: 45px
+    &-container
+      display: flex
+      justify-content: space-between
+      align-items: flex-start
+      column-gap: 80px
+      @media screen and (max-width: 1279px)
+        column-gap: 20px
+      @media screen and (max-width: 1023px)
+        flex-wrap: wrap
+        row-gap: 20px
+        align-items: flex-start
+    &-item
+      width: 33.333%
+      display: flex
+      align-items: center
+      column-gap: 35px
+      position: relative
+      justify-content: space-between
+      &:first-of-type:after
+        @include headerContactsIcon (url("../img/pref-delivery.svg"), calc(50% - 62px/2), 30px)
+        @media screen and (max-width: 374px)
+          top: 10%
+          left: calc(50% - 81px/2)
+      &:nth-of-type(2):after
+        @include headerContactsIcon (url("../img/pref-knit.svg"), calc(50% - 69px/2), 40px)
+        @media screen and (max-width: 374px)
+          top: 10%
+          left: calc(50% - 72px/2)
+      &:last-of-type
+        &:after
+          @include headerContactsIcon (url("../img/pref-bonus.svg"), calc(50% - 64px/2), 40px)
+          @media screen and (max-width: 374px)
+            top: 10%
+            left: calc(50% - 64px/2)
+        @media screen and (max-width: 1023px)
+          margin: auto
+      @media screen and (max-width: 1279px)
+        column-gap: 20px
+      @media screen and (max-width: 1023px)
+        width: 48%
+      @media screen and (max-width: 700px)
+        width: 80%
+        margin: auto
+      @media screen and (max-width: 725px)
+        width: 100%
+      @media screen and (max-width: 374px)
+        display: block
+        text-align: center
+    &-subitem
+      &-label
+        @include itemLabel
+        margin-bottom: 8px
+      &-text
+        @include textSmall (1rem, 1.375rem, $colorTextMain)
+        @include textBlock-width (405px)
+  &__instagram
+    padding: 64px 0
+    text-align: center
+    @media screen and (max-width: 768px)
+      padding: 45px 0
+    &-label
+      @include sectionLabel
+      margin-bottom: 64px
+      //text-align: center
+      @media screen and (max-width: 768px)
+        margin-bottom: 45px
+    &-gallery-container
+
+      display: grid
+      //grid-auto-flow: row
+      //grid-template-columns: repeat(auto-fit, minmax(250px, 1fr))
+      grid-template-columns: repeat(4, 1fr)
+      //grid-template-rows: repeat(3, 1fr)
+      column-gap: 20px
+      row-gap: 20px
+      margin-bottom: 64px
+      @media screen and (max-width: 1024px)
+        column-gap: 10px
+        row-gap: 10px
+      @media screen and (max-width: 375px)
+        margin-bottom: 30px
+      //&-feedback
+        &:after
+          @include headerContactsIcon (url("../img/insta-comments.svg"), calc(50% - 37px/2), 53%)
+          cursor: pointer
+          @media screen and (max-width: 650px)
+            display: none
+        &:before
+          @include headerContactsIcon ('0', calc(50% - 37px/2), 59%)
+          @include textSmallBold (1.625rem, 2.25rem, $colorTextButton)
+          @media screen and (max-width: 1600px)
+            left: 61%
+          @media screen and (max-width: 1024px)
+            left: 62%
+          @media screen and (max-width: 1000px)
+            left: 65%
+          @media screen and (max-width: 650px)
+            display: none
+      &-likes-btn
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        column-gap: 10px
+        position: absolute
+        top: calc(50% - 37px/2)
+        left: 38%
+        cursor: pointer
+        @include textSmallBold (1.625rem, 2.25rem, $colorTextButton)
+        @include trans
+        @media screen and (max-width: 1600px)
+          left: 36%
+        @media screen and (max-width: 1024px)
+          left: 32%
+        @media screen and (max-width: 1000px)
+          left: 29%
+        @media screen and (max-width: 650px)
+          display: none
+        & svg path
+          fill: white
+          &:hover
+            fill: $likesBtnColor
+            @include trans
+        & .clicked-like
+          fill: $likesBtnColor
+      &-comments
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        column-gap: 10px
+        position: absolute
+        top: calc(50% - 37px/2)
+        left: 55%
+        cursor: pointer
+        @include textSmallBold (1.625rem, 2.25rem, $colorTextButton)
+        @include trans
+        @media screen and (max-width: 1600px)
+          left: 55%
+        @media screen and (max-width: 1024px)
+          left: 56%
+        @media screen and (max-width: 1000px)
+          left: 60%
+        @media screen and (max-width: 650px)
+          display: none
+      //&-likes-comment
+      //  position: relative
+      //  & svg
+      //    position: absolute
+      //    top: calc(50% - 37px/2)
+      //    left: 53%
+      //    cursor: pointer
+      & img
+        width: 100%
+        height: 100%
+        object-fit: cover
+      & .big-image-1
+        grid-area: 1 / 1 / 3 / 3
+        position: relative
+        //&:after
+        //  @include headerContactsIcon (url("../img/insta-comments.svg"), calc(50% - 37px/2), 53%)
+        //  cursor: pointer
+        //  @media screen and (max-width: 650px)
+        //    display: none
+
+        //& + div
+          //&:before
+          //  @include headerContactsIcon ('34', calc(50% - 37px/2), 44%)
+          //  @include textSmallBold (1.625rem, 2.25rem, $colorTextButton)
+          //  @media screen and (max-width: 1024px)
+          //    left: 41%
+          //  @media screen and (max-width: 650px)
+          //    display: none
+          //&:before
+          //  @include headerContactsIcon ('0', calc(50% - 37px/2), 59%)
+          //  @include textSmallBold (1.625rem, 2.25rem, $colorTextButton)
+          //  @media screen and (max-width: 1600px)
+          //    left: 61%
+          //  @media screen and (max-width: 1024px)
+          //    left: 62%
+          //  @media screen and (max-width: 1000px)
+          //    left: 65%
+          //  @media screen and (max-width: 650px)
+          //    display: none
+      & .big-image-2
+        grid-area: 2 / 3 / 4 / 5
+      & .small-image-1
+        grid-area: 1 / 3 / 2 / 4
+      & .small-image-2
+        grid-area: 1 / 4 / 2 / 5
+      & .small-image-3
+        grid-area: 3 / 1 / 4 / 2
+      & .small-image-4
+        grid-area: 3 / 2 / 4 / 3
+    &-button
+      @include button
+      & span
+        text-transform: none
+  &__feedback
+    padding: 64px 0
+    text-align: center
+    position: relative
+    @media screen and (max-width: 768px)
+      padding: 45px 0
+    & img
+      position: absolute
+      top: 0
+      left: 0
+      z-index: -1
+      width: 100%
+    //&:after
+      content: url("/img/questions-image.png")
+      position: absolute
+      top: 0
+      left: 0
+      z-index: 0
+    &-label
+      @include sectionLabel
+      margin-bottom: 64px
+      @media screen and (max-width: 768px)
+        margin-bottom: 45px
+    &-form
+      display: flex
+      align-items: flex-start
+      justify-content: center
+      @media screen and (max-width: 767px)
+        display: block
+      & input
+        @include input-style
+        padding: 17px 38px 16px 18px
+        margin-right: 32px
+        @media screen and (max-width: 767px)
+          margin-bottom: 20px
+          margin-right: 0
+    &-subform
+      display: inline-block
+      text-align: left
+      @media screen and (max-width: 767px)
+        text-align: center
+        display: block
+      & button
+        @include button
+        margin-bottom: 8px
+        @media screen and (max-width: 767px)
+
+          width: 226px
+      & p
+        @include textSmall (0.75rem, 1.0625rem, #525252)
+        @include textBlock-width (241px)
+        @media screen and (max-width: 767px)
+          margin: auto
+
+  &__delivery__page
+    &-breadcrumbs
+      margin: 64px 0
+      &-list
+        display: flex
+        column-gap: 8px
+        align-items: center
+        li:not(:nth-of-type(2))
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+        li:nth-of-type(2) span
+          color: $colorTextMain
+        li a
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+          &:hover
+            text-decoration: underline
+            @include trans
+    &-sidebar
+      ul li
+        position: relative
+        width: 390px
+        height: 100px
+        box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+        border-radius: 20px
+        background: $colorTextButton
+        margin-bottom: 24px
+        @include trans
+        &:hover, &:checked
+          background: linear-gradient(59.75deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
+          @include trans
+        &:first-of-type:after
+          @include headerContactsIcon (url('../img/catalog-img-link1.png'), 0, 60%)
+        &:nth-of-type(2):after
+          @include headerContactsIcon (url('../img/catalog-img-link2.png'), 6%, 66%)
+        a
+          display: block
+          padding: 40px 49px 38px
+          @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+    &-container
+      display: flex
+      column-gap: 80px
+      align-items: flex-start
+      margin-bottom: 99px
+    &-label
+      @include sectionLabel
+      margin-bottom: 40px
+    &-content
+      &-photo
+        margin-bottom: 32px
+        width: 800px
+        height: 427px
+        border-radius: 20px
+        & img
+          width: 100%
+          height: auto
+          object-fit: cover
+      &-label
+        @include sectionLabel
+        margin-bottom: 40px
+      &-text-block
+        margin-bottom: 48px
+        ul li
+          list-style: inside
+          margin-left: 10px
+      &-text
+        @include textSmall (1.125rem, 1.6875rem, $colorTextMain)
+        margin-bottom: 15px
+        @include textBlock-width (860px)
+  &__product-page
+    &-breadcrumbs
+      margin: 64px 0 32px 0
+      &-list
+        display: flex
+        column-gap: 8px
+        align-items: center
+        li:nth-of-type(5)
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+        li:nth-of-type(2) span, li:nth-of-type(4) span
+          color: $colorTextMain
+        li a
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+          @include trans
+          &:hover
+            text-decoration: underline
+            @include trans
+    &-price-block
+      margin-bottom: 30px
+      display: flex
+      justify-content: flex-end
+      align-items: center
+      column-gap: 15px
+      &-btn a
+        @include buttonWithBorder
+    &-container
+      display: flex
+      column-gap: 80px
+      align-items: flex-start
+      margin-bottom: 99px
+    &-sidebar
+      &-title
+        @include textMenuBold
+        margin-bottom: 10px
+      &-block
+        margin-bottom: 20px
+        & li
+          @include textSmall (0.875rem, 1.0625rem, $colorTextMain)
+          margin-bottom: 14px
+          & input
+            margin-right: 8px
+        &:not(:last-of-type):after
+          content: ''
+          display: block
+          height: 1px
+          background: $grayLinkColor
+          margin: 27px 0 20px 0
+      &-button
+        @include trans
+        @include buttonWithBorder
+        padding: 12px 42px
+        border-radius: 49px
+        @include textButton
+        margin: 0 auto 16px auto
+        &-style-color
+          @include button
+          color: $colorTextButton
+          display: block
+          margin: 0 auto 16px auto
+      &-message
+        @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+        text-align: center
+    &-content
+      display: flex
+      column-gap: 30px
+      row-gap: 30px
+      flex-wrap: wrap
+      align-items: center
+      justify-content: flex-start
+      width: 100%
+      flex-wrap: wrap
+      &-item
+        min-width: 245px
+        max-width: 300px
+        flex: 0 0 18%
+        padding: 30px
+        background: $colorTextButton
+        box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+        border-radius: 20px
+        //width: calc(20% - 24px)
+        &-header
+          display: flex
+          justify-content: space-between
+          align-items: center
+          margin-bottom: 13px
+          & svg
+            fill: red
+            cursor: pointer
+            &.red-color:hover
+              & path
+                fill: red
+        &-img
+          max-width: 200px/img
+          height: 200px
+          margin-bottom: 16px
+          overflow: hidden
+          display: flex
+          align-items: center
+          object-fit: contain
+          & img
+            width: 100%
+            height: auto
+            object-fit: contain
+        &-label
+          @include textBlock-width (166px)
+          height: 40px
+          margin-bottom: 17px
+          & a
+            @include textSmall (1rem, 1.0625rem, $colorTextMain)
+        &-color-variants
+          margin-bottom: 18px
+          cursor: pointer
+        &-price
+          display: block
+          @include textMenuBold
+          margin-bottom: 16px
+          @include textBlock-width (166px)
+          height: 20px
+          &.price-old
+            text-decoration: line-through
+            font-weight: 400
+          & .price-sale
+            margin-left: 10px
+            display: inline-block
+            @include textMenuBold
+            background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            background-clip: text
+            text-fill-color: transparent
+        &-btnBuy
+          position: relative
+          @include buttonWithBorder
+          padding: 10px 0
+          text-align: center
+          //&:active
+          //  fill: white
+          &:before
+            @include headerContactsIcon (url('../img/basket.svg'), calc(50% - 8.5px), 15%)
+  &__user-page
+    &-breadcrumbs
+      margin: 64px 0
+      &-list
+        display: flex
+        column-gap: 8px
+        align-items: center
+        li:not(:nth-of-type(2))
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+        li:nth-of-type(2) span
+          color: $colorTextMain
+        li a
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+          &:hover
+            text-decoration: underline
+            @include trans
+    &-content
+      display: flex
+      align-items: flex-start
+      background: $colorTextButton
+      box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+      border-radius: 20px
+      margin-bottom: 99px
+      &-block
+        padding: 56px 64px 40px
+        align-items: center
+        &.first-block
+          position: relative
+          &:after
+            content: ""
+            top: 56px
+            right: 0
+            position: absolute
+            width: 1px
+            height: 645px
+            display: block
+            background-color: $grayLinkColor
+        &.second-block
+          width: 70%
+          text-align: center
+        &-data
+          display: flex
+          column-gap: 40px
+          margin-bottom: 40px
+      &-label
+        @include sectionLabel
+        margin-bottom: 48px
+      &-user-info
+        display: flex
+        margin-bottom: 40px
+        align-items: center
+        column-gap: 24px
+      &-user-name
+        @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+        &.data-page, .bonuses, .mailing, .story-orders, .review
+          margin-top: 38px
+          margin-bottom: 40px
+          text-align: left
+      &-user-list
+        & li a
+          @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
+          @include trans
+          display: block
+          border-radius: 20px
+          background: transparent
+          padding: 17px 0px
+          &:hover, &:active
+            @include trans
+            color: $colorTextButton
+            padding-left: 32px
+            background: linear-gradient(59.75deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
+        & li:last-of-type
+          margin-bottom: 138px
+      &-user-exit
+        @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
+        padding-left: 27px
+        position: relative
+        &:before
+          content: url("../img/exit.png")
+          top: 0
+          left: 0
+          position: absolute
+
+      &-user-data
+        width: 50%
+        & li:not(:last-of-type)
+          margin-bottom: 27px
+          width: 100%
+        & li
+          position: relative
+          & input
+            padding: 17px 32px 16px 32px
+            border: 1px solid $grayLinkColor
+            border-radius: 83px
+            width: 100%
+            @include textSmallBold (0.875rem, 1.0625rem, $colorTextMain)
+            //background-repeat: no-repeat
+            //background-position: 95%
+            //background-image: url("/img/edit.png")
+            &::placeholder
+              @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+      &-user-edit-link
+        @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+        position: absolute
+        top: 17px
+        right: 32px
+        & img
+          margin-right: 5px
+
+      &-user-save-button
+        @include button
+      &-bonuses
+        text-align: left
+        @include textSmall (1.125rem, 1.5625rem, $blackText)
+        & span
+          color: #976464
+          font-weight: bold
+      &-mailing
+        text-align: left
+        @include textSmall (1.125rem, 1.5625rem, $blackText)
+        margin-bottom: 56px
+        &.cancel
+          display: block
+          text-align: left
+          @include button
+          width: fit-content
+        &-subscribe
+          @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+          margin-bottom: 32px
+          text-align: left
+        &-form, &-text
+          text-align: left
+
+        &-block
+          max-width: 460px
+      &-story
+        &-container
+          background: #FAF9F9
+          border-radius: 20px
+          padding: 32px
+          margin-bottom: 40px
+          &-flex
+            display: flex
+            justify-content: space-between
+            margin-bottom: 40px
+          &-items
+
+            &-flex
+              display: flex
+              justify-content: space-between
+              align-items: center
+              margin-bottom: 15px
+            &-block
+              display: flex
+              align-items: center
+              &.left-block
+                justify-content: left
+                column-gap: 24px
+              &.right-block
+                justify-content: right
+                column-gap: 137px
+            &-img
+              width: 200px
+              height: auto
+              object-fit: contain
+              & img
+                width: 100%
+            &-name
+              @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+              text-align: left
+            &-sum
+              @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+            &-price
+              @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+          &-block
+            &.non-visible
+              display: none
+        &-desc
+          margin-bottom: 17px
+          @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+          &.right-block
+            margin-bottom: 18px
+            @include textSmall (1rem, 1.375rem, $grayLinkColor)
+            & span
+              @include coloredLink
+              @include textSmallBold (1rem, 1.25rem, $linkGradientColor)
+        &-link
+          @include textSmallBold (1.125rem, 1.375rem, $linkGradientColor)
+          @include coloredLink
+          display: flex
+          align-items: center
+          column-gap: 10px
+
+        &-repeat-link
+          text-decoration: underline
+          @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
+        &-block
+          text-align: left
+          &.block-right
+            text-align: right
+      &-review
+        &-container
+          padding: 32px
+          margin-bottom: 24px
+          background: $bgReviewItem
+          border-radius: 20px
+        &-block
+          display: flex
+          align-items: center
+
+          &.rating-block
+            justify-content: space-between
+            margin-bottom: 26px
+          &.info-block
+            justify-content: left
+        &-img
+          width: 200px
+          height: 200px
+          object-fit: contain
+          margin-right: 22px
+          display: flex
+          justify-content: center
+          align-items: center
+          & img
+            border-radius: 50%
+            width: 100%
+        &-info
+          text-align: left
+          & p:first-of-type
+            @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+            margin-bottom: 16px
+            &+p
+              @include textMediumBold (1.125rem, 1.375rem, $colorTextMain)
+              & span
+                @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+        &-data
+          @include textMediumBold (0.875rem, 1.0625rem, $grayLinkColor)
+          border: 1px solid $grayLinkColor
+          border-radius: 76px
+          padding: 17px 45px
+  &__product-details
+    padding-bottom: 103px
+    &-breadcrumbs
+      margin-top: 0px
+
+    &-about
+      margin-bottom: 41px
+      &-flex
+        display: flex
+        column-gap: 44px
+        justify-content: center
+        align-items: end
+      &-item
+        width: 50%
+        &-image
+          margin-bottom: 26px
+          & img
+            width: 90%
+            height: auto
+        &.left-item
+          text-align: center
+        &-text
+          //padding-top: 14px
+          &-header
+            @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+            margin-bottom: 24px
+          &-desc
+            @include textArticle (1.125rem, 1.375rem, $colorTextMain)
+            margin-bottom: 40px
+            @include textBlock-width (1120px)
+        &-options
+          &-header
+            @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+            margin-bottom: 32px
+          &-flex
+            display: flex
+            justify-content: flex-start
+            column-gap: 123px
+            align-items: start
+            &-list
+              margin-bottom: 32px
+              &.column-left li
+                @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+                position: relative
+                margin-bottom: 48px
+                &:after
+                  content: ''
+                  display: block
+                  width: 430px
+                  height: 1px
+                  background-color: $grayLinkColor
+                  position: absolute
+                  top: 48px
+                  left: 0
+              &.column-right li
+                @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+                margin-bottom: 48px
+        &-basket
+          &-flex
+            display: flex
+            column-gap: 40px
+            align-items: center
+            justify-content: flex-start
+            //margin-bottom: 107px
+            &-price
+              @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+            &-count
+              @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+              border-radius: 46px
+              border: 1px solid $grayLinkColor
+              padding: 10px
+              & span:not(:last-of-type)
+                margin-right: 10px
+            &-btn
+              @include button
+    &-feedback
+      margin-bottom: 40px
+      &-rel
+        position: relative
+      &-label
+        @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+        margin-bottom: 32px
+      &-container
+        border-radius: 20px
+        background: $bgReviewItem
+        padding: 40px
+      &-flex
+        display: flex
+        align-items: center
+        justify-content: space-between
+        margin-bottom: 23px
+        &-item
+          &.data
+            border-radius: 76px
+            border: 1px solid $grayLinkColor
+            $colorTextButton: #FFF
+            padding: 17px 25px
+            @include textMediumBold (0.875rem, 1.0625rem, $grayLinkColor)
+          &.user
+            @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+            margin-bottom: 8px
+      &-comment
+        text-align: center
+        @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+        & span
+          @include textMediumBold (1.125rem, 1.375rem, $colorTextMain)
+          margin-right: 8px
+
+    &-recommend
+      margin-bottom: 103px
+      &-label
+        @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+        margin-bottom: 32px
+      &-flex
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        column-gap: 28px
+        &-img
+          display: flex
+          justify-content: center
+          text-align: center
+          //width: 200px
+          height: 200px
+          overflow: hidden
+          object-fit: contain
+          & img
+            //text-align: center
+            width: 100%
+            height: auto
+
+        &-item
+          padding: 20px
+          border-radius: 20px
+          background: $colorTextButton
+          box-shadow: 0px 0px 30px 0px rgba(68, 68, 68, 0.05)
+        &-label
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+          margin-bottom: 16px
+          display: block
+          @include textBlock-width (200px)
+          max-height: 40px
+        & svg
+          margin-bottom: 16px
+        &-price
+          margin-bottom: 16px
+          @include textMenuBold
+        &-btn
+          @include buttonWithBorder
+          text-align: center
+          position: relative
+          &:before
+            content: url("../img/basket.svg")
+            position: absolute
+            top: calc(50% - 9px)
+            left: calc(50% - 75px + 11px)
+  &__basket
+    padding-bottom: 103px
+    &-order
+      &-close
+        text-align: right
+        margin-bottom: 27px
+      &-feedback
+        margin: 0 auto 62px auto
+        max-width: 500px
+        text-align: center
+
+        &-success
+          display: flex
+          justify-content: center
+          align-items: center
+          column-gap: 10px
+          margin-bottom: 37px
+          &-text
+            @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+        &-desc
+          @include textSmall (1rem, 1.25rem, $colorTextMain)
+          //@include textBlock-width (320px)
+          max-height: 50px
+          margin-bottom: 32px
+          text-align: center
+        &-link
+          @include button
+        &-recommend
+          margin-bottom: 0px
+
+
+    &-info
+      display: flex
+      justify-content: space-between
+      align-items: start
+      & input
+        @include input-style
+        background-color: $colorTextButton
+        padding: 10px 0 10px 18px
+        &:not(#del-phone), &:not(#del-email)
+          margin-bottom: 24px
+        &#del-phone, &#del-email
+          margin-bottom: 8px
+        &#street
+          width: 40%
+        &#city
+          width: 75%
+        &#comment
+          width: 100%
+        &#house, &#apartment, &#code
+          width: 25%
+        &#subscribe-basket
+          width: 30px
+          height: 30px
+          border-radius: 6.643px
+          margin-bottom: 0
+        &#cash, &#online
+          margin-bottom: 0
+        &::placeholder
+          @include textSmall (0.875rem, 1.0625rem, #E8E8E8)
+      &-delivery
+        margin-bottom: 64px
+
+        &-label
+          @include basket-labels
+        &-method
+          width: 75%
+          position: relative
+          &:after
+            content: url("../img/eva_arrow-ios-upward-outline.jpg")
+            position: absolute
+            right: 9px
+            top: 5px
+            z-index: 2
+            pointer-events: none
+
+          &:before
+            content: ""
+            border-radius: 50%
+            width: 15px
+            height: 15px
+            background-color: #FFFFFF
+            position: absolute
+            right: 2px
+            top: 15px
+            pointer-events: none
+        & select
+          display: block
+          margin-bottom: 24px
+          width: 100%
+          border: 1px solid $grayLinkColor
+          border-radius: 46px
+          background-color: $colorTextButton
+          padding: 10px 0 10px 18px
+          color: #E8E8E8
+          &:hover
+            transition: all ease-in-out 0.3s
+            background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
+            -webkit-background-clip: text
+            -webkit-text-fill-color: transparent
+            background-clip: text
+            text-fill-color: transparent
+            border: 1px solid #CFA5A5
+
+        &-subflex
+          display: flex
+          justify-content: space-between
+          column-gap: 16px
+
+      &-user
+        margin-bottom: 64px
+        &-label
+          @include basket-labels
+        &-subflex
+          display: flex
+          justify-content: space-between
+          align-items: center
+          column-gap: 16px
+          & input
+            width: 33.333%
+        & #del-phone
+          width: calc(33.333% - 8px)
+        &-text
+          margin-bottom: 27px
+          @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
+        &-checkbox
+          display: flex
+          align-items: center
+          justify-content: flex-start
+          column-gap: 16px
+          &-text
+            @include textSmall (1rem, 1.25rem, $colorTextMain)
+      &-payment
+        &-label
+          @include basket-labels
+        &-radio
+          &-btn
+            display: flex
+            align-items: center
+            justify-content: flex-start
+            column-gap: 16px
+            margin-bottom: 8px
+            & input
+              width: 31px
+              height: 31px
+          &-text
+            @include textSmall (1rem, 1.25rem, $colorTextMain)
+      &-item
+        width: 50%
+        &-label
+          @include basket-labels
+
+          position: relative
+          &:after
+            content: ''
+            position: absolute
+            top: 100%
+            left: 0
+            width: 100%
+            height: 1px
+            background-color: $grayLinkColor
+            margin: 24px 0
+        & form
+          max-width: 692px
+        &-product
+          display: flex
+          justify-content: space-between
+          align-items: center
+          column-gap: 30px
+          &-count
+            margin-bottom: 17px
+          &-img
+            width: 200px
+            height: 200px
+            object-fit: contain
+            display: flex
+            justify-content: center
+            align-items: center
+            & img
+              width: 100%
+              height: auto
+          &-name
+            @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+            @include textBlock-width (260px)
+            max-height: 50px
+          &-price
+            @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+        &-order
+          padding: 30px 40px 45px 40px
+          border-radius: 20px
+          background-color: $bgReviewItem
+          margin-bottom: 113px
+          &-label
+            @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+            margin-bottom: 32px
+          &-promo
+            display: flex
+            justify-content: space-between
+            column-gap: 16px
+            align-items: center
+            margin-bottom: 8px
+            & input#promo
+              width: 60%
+              padding: 17px 0 16px 24px
+              margin-bottom: 0
+            & button
+              @include button
+          &-text
+            @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
+            margin-bottom: 23px
+          &-bonuses
+            display: flex
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 32px
+            &-text
+              @include textSmall (1rem, 1.25rem, $colorTextMain)
+              & span
+                @include textSmallBold (1.125rem, 1.375rem, #976464)
+            & a
+              @include textSmall (1rem, 1.25rem, $grayLinkColor)
+              text-decoration: underline
+          &-total
+            margin-bottom: 23px
+            &-item
+              display: flex
+              justify-content: space-between
+              align-items: center
+              margin-bottom: 16px
+              position: relative
+              &:not(.total):after
+                content: ""
+                position: absolute
+                top: 30px
+                left: 0
+                height: 1px
+                background-color: $colorLineBasket
+                width: 100%
+              &:nth-of-type(3)
+                margin-bottom: 24px
+              &-text
+                @include textBlock-width (180px)
+                //width: 20%
+                @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+              &-sum
+                //width: 10%
+                text-align: right
+                @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+              &-desc
+                @include textSmall (1rem, 1.25rem, $colorTextMain)
+                & span
+                  @include textSmallBold (1.125rem, 1.375rem, #976464)
+
+              &-final
+                @include textSmall (3.25rem, 3.9375rem, $colorTextMain)
+          &-submit
+            display: flex
+            justify-content: space-between
+            align-items: center
+            & a
+              @include button
+            &-text
+              @include textSmall (0.75rem, 0.9375rem, $colorTextDesc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.footer
+  padding: 64px 0
+  background: linear-gradient(59.75deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
+  @media screen and (max-width: 768px)
+    padding: 45px 0
+  &__container
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+    @media screen and (max-width: 1024px)
+      flex-wrap: wrap
+      column-gap: 20px
+      row-gap: 20px
+    @media screen and (max-width: 768px)
+      column-gap: 0px
+  &__item
+    @media screen and (max-width: 1600px)
+      width: 33.333%
+    @media screen and (max-width: 1280px)
+      width: 34.333%
+
+    &-logo
+      max-width: 99px
+      height: auto
+      margin-bottom: 56px
+      @media screen and (max-width: 1280px)
+        margin-bottom: 25px
+      @media screen and (max-width: 1024px)
+        margin: 0 auto 25px auto
+      & img
+        width: 100%
+        object-fit: cover
+    &.contacts
+      @media screen and (max-width: 1280px)
+        width: 30.333%
+      @media screen and (max-width: 1024px)
+        width: 100%
+        margin-bottom: 20px
+      & li
+        position: relative
+        @include textSmall (1rem, 1.5rem, $colorTextMain)
+        margin-bottom: 19px
+        margin-left: 33px
+        & a
+          @include textSmall (1rem, 1.5rem, $colorTextMain)
+          @include trans
+          &:hover
+            @include trans
+            color: #976464
+        &:first-of-type:before
+          @include headerContactsIcon (url("../img/phone-filled.svg"), 1px, -33px)
+        &:nth-of-type(2):before
+          @include headerContactsIcon (url("../img/map-filled.svg"), 1px, -33px)
+        &:nth-of-type(3):before
+          @include headerContactsIcon (url("../img/clock-filled.svg"), 1px, -33px)
+        &:last-of-type:before
+          @include headerContactsIcon (url("../img/instagram-icon-ft.svg"), 1px, -33px)
+    &.navigation
+      @media screen and (max-width: 1280px)
+        width: 35.333%
+      @media screen and (max-width: 1024px)
+        width: 48%
+      @media screen and (max-width: 768px)
+        width: 52%
+      @media screen and (max-width: 767px)
+        width: 100%
+        margin: 0 auto 30px auto
+      @media screen and (max-width: 400px)
+        text-align: center
+      & ul
+        columns: 2
+        column-gap: 120px
+        @media screen and (max-width: 1600px)
+          column-gap: 0
+        @media screen and (max-width: 400px)
+          columns: 1
+      & li
+        &:not(:nth-of-type(5n))
+          margin-bottom: 38px
+          @media screen and (max-width: 1024px)
+            margin-bottom: 31px
+        &:nth-of-type(5n)
+          @media screen and (max-width: 400px)
+            margin-bottom: 31px
+        &:last-of-type
+          margin-bottom: 0
+        & a
+          @include textMenuBold
+          @include trans
+          &:hover
+            @include trans
+            color: #976464
+    &.subscribe
+      @include textBlock-width (455px)
+      @media screen and (max-width: 1024px)
+        width: 48%
+        margin: auto
+      @media screen and (max-width: 767px)
+        width: 100%
+        @include textBlock-width (100%)
+        text-align: center
+    &-label
+      @include textMenuBold
+      margin-bottom: 31px
+    &-form, .main__user-page-content-mailing-form
+      position: relative
+      & input
+        @include input-style
+        background-color: $colorTextButton
+        margin-bottom: 8px
+        max-width: 100%
+        width: 100%
+        padding: 16px 226px 17px 18px
+        &:focus
+          -webkit-background-clip: text
+          -webkit-text-fill-color: transparent
+          background-clip: text
+          text-fill-color: transparent
+        @media screen and (max-width: 767px)
+          padding: 16px 18px 17px 18px
+          width: 226px
+      & button
+        @include button
+        position: absolute
+        top: 0
+        right: 0
+        @media screen and (max-width: 767px)
+          position: static
+          margin: 0 auto 20px auto
+    &-text, .main__user-page-content-mailing-text
+      @include textSmall (0.75rem, 1.0625rem, #525252)
+      margin-bottom: 40px
+      @media screen and (max-width: 767px)
+        margin-bottom: 20px
+    &-copyright
+      @include textSmall (1rem, 1.375rem, #525252)
+
+
+.rotate
+  display: inline-block
+  transform: rotate(180deg)
+  -webkit-transform: rotate(180deg)
+  -moz-transform: rotate(180deg)
+
+.display-block
+  display: block
+
+.message-block
+  margin-bottom: 10px
+  color: red
+
+.bg-white
+  background-color: $colorTextButton
+.bl-hidden
+  display: none
+//.plus, .minus, .result
+//  pointer-events: none
+.popup
+  &-form
+    text-align: center
+    padding: 30px
+  &-system-message
+    height: 30px
+    @include textSmallBold (1rem, 1.2rem, $errorText)
+    margin-bottom: 20px
+    margin-top: -10px
+  &-text
+    @include textSmallBold (1.75rem, 2.6875rem, $colorTextMain)
+    margin-bottom: 20px
+  &-textarea
+    display: block
+    padding: 10px
+    width: 100%
+    resize: none
+    margin-bottom: 5px
+    @include textSmall (1rem, 1.2rem, $colorTextMain)
+    &::placeholder
+      @include textSmall (1rem, 1.2rem, $grayLinkColor)
+  &-message-window
+    text-align: left
+    margin-bottom: 20px
+    @include textSmall (0.7rem, 1rem, $grayLinkColor)
+    & span
+      color: $colorTextMain
+
+  &-button
+    @include button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
