@@ -21,8 +21,12 @@ export function userBasket() {
         const headerBlock = document.getElementById('header');
         headerBlock.classList.add('bg-white');
 
-        const itemsArray = [...document.querySelectorAll('[data-check="count-block"]')];
+        let itemsArray = [...document.querySelectorAll('[data-count="count-block"]')];
         countTotalPrice(itemsArray);
+
+        let delButtonsArray = [...document.querySelectorAll('[data-delete="basket-item-delete"]')];
+        console.log(delButtonsArray)
+        deleteItem(delButtonsArray)
 
         document.addEventListener('click', (e) => {
             let dataId = e.target.dataset.name;
@@ -31,6 +35,7 @@ export function userBasket() {
             let element = document.querySelector(`[data-name="${dataId}"]>span.result`);
             //беру из строки сумму товара без обозначения валюты
             let elPrice = document.querySelector(`[data-name="${dataId}"]+[data-price="basket-item-price"]`);
+            // console.log(elPrice)
             let priceDigit = elPrice.innerText.replace(regexp, "");
             //записываю в дата атрибут блока изначальную стоимость товара
             if (!elPrice.dataset.currentCount) {
@@ -41,21 +46,26 @@ export function userBasket() {
             }
 
             //считаю + и - и вывожу итоговую сумму по каждому товару
-            if (e.target.classList.contains('plus')) {
-                element.innerText = ++element.innerText;
-                let multPrices = dataPrice * element.innerText;
-                elPrice.innerText = `${multPrices} ₽`;
-                countTotalPrice(itemsArray);
-            } else if (e.target.classList.contains('minus')) {
-                if (element.innerText <= 1) {
-                    element.innerText = '1';
-                    elPrice.innerText = `${dataPrice} ₽`;
+            if (e.target.dataset.name) {
+                itemsArray = [...document.querySelectorAll('[data-count="count-block"]')];
+                // countPlusMinus(element, elPrice, priceDigit, countTotalPrice, itemsArray, e.target);
+                if (e.target.classList.contains('plus')) {
+                    element.innerText = ++element.innerText;
+                    let multPrices = dataPrice * element.innerText;
+                    elPrice.innerText = `${multPrices} ₽`;
                     countTotalPrice(itemsArray);
-                } else {
-                    element.innerText = element.innerText - 1;
-                    elPrice.innerText = `${priceDigit - dataPrice} ₽`;
-                    countTotalPrice(itemsArray);
+                } else if (e.target.classList.contains('minus')) {
+                    if (element.innerText <= 1) {
+                        element.innerText = '1';
+                        elPrice.innerText = `${dataPrice} ₽`;
+                        countTotalPrice(itemsArray);
+                    } else {
+                        element.innerText = element.innerText - 1;
+                        elPrice.innerText = `${priceDigit - dataPrice} ₽`;
+                        countTotalPrice(itemsArray);
+                    }
                 }
+
             }
 
         });
@@ -74,17 +84,24 @@ export function userBasket() {
             })
         }
 
+        function deleteItem(array) {
+            let itemsDelArray;
+            array.forEach((element) => {
+                element.addEventListener('click', (e) => {
+                    totalSumDigit = +0;
+                    e.preventDefault();
+                    searchElem = element.parentElement.parentElement;
+                    searchElem.remove();
+                    if (!searchElem.isConnected) {
+                        let delButtonsArray = [...document.querySelectorAll('[data-delete="basket-item-delete"]')];
+                        if (delButtonsArray.length < 3) {
+                            itemsDelArray = [...document.querySelectorAll('[data-count="count-block"]')];
+                            countTotalPrice(itemsDelArray);
+                        }
+                    }
+
+                })
+            })
+        }
     });
-
 }
-
-
-
-
-
-
-
-
-
-
-
