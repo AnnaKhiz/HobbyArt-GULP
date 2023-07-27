@@ -37,13 +37,13 @@
             <h2 class="modal__registration-form-label">
                 Регистрация
             </h2>
-            <input type="text" name="name" id="user-name" placeholder="Имя">
-            <input type="text" name="last-name" id="user-last-name" placeholder="Фамилия">
-            <input type="text" name="sur-name" id="user-sur-name" placeholder="Отчество">
-            <input type="tel" name="phone" id="regist-user-phone" placeholder="Номер телефона">
-            <input type="email" name="email" id="user-email" placeholder="E-mail">
-            <input type="text" name="password" id="regist-user-password" placeholder="Придумайте пароль">
-            <input type="text" name="password-confirm" id="user-confirm-password" placeholder="Повторите пароль">
+            <input type="text" name="name" id="user-name-reg" placeholder="Имя">
+            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия">
+            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество">
+            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона">
+            <input type="email" name="email" id="user-email-reg" placeholder="E-mail">
+            <input type="text" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль">
+            <input type="text" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль">
             <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
             <button class="modal__registration-form-button">Зарегистрироваться</button>
         </form>
@@ -84,48 +84,62 @@
             <ul class="main__user-page-content-user-data">
                 <li>
                     <input type="text" placeholder="Имя:" value="{{user-name}}" id="user-name" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-name"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-name">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
                 <li>
                     <input type="text" placeholder="Фамилия:" value="{{user-last-name}}" id="user-surname" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname">
+                        <img src="img/edit.svg" alt="">Изменить</a>
                 </li>
                 <li>
                     <input type="text" placeholder="Отчество:" value="{{user-sur-name}}" id="user-surname-2" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname-2"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-surname-2">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
                 <li>
                     <input type="text" placeholder="Дата рождения:" value="{{birth-date}}" id="user-birth-date" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-birth-date"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-birth-date">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
             </ul>
             <ul class="main__user-page-content-user-data">
                 <li>
                     <input type="text" placeholder="Номер телефона:" value="{{phone-number}}" id="user-phone" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-phone"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-phone">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
                 <li>
                     <input type="text" placeholder="E-mail:" value="{{email}}" id="user-page-email" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-email"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-email">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
                 <li>
                     <input type="text" placeholder="Адрес:" value="{{address}}" id="user-address" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-address"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-address">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
                 <li>
                     <input type="password" placeholder="Пароль:" value="{{password}}" id="user-page-password" >
-                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-password"><img src="img/edit.svg" alt="">Изменить</a>
+                    <a href="" class="main__user-page-content-user-edit-link" data-input="user-page-password">
+                        <img src="img/edit.svg" alt="">Изменить
+                    </a>
                 </li>
             </ul>
         </div>
 
-        <a href="" class="main__user-page-content-user-save-button" id="save-edited-data-btn">Сохранить данные</a>
-
+        <a href="" class="main__user-page-content-user-save-button" id="save-edited-data-btn">
+            Сохранить данные
+        </a>
     </div>
-
 </script>
 <script type="text/template" id="bonuses-template" defer>
-
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page bonuses">
             Бонусный счет
@@ -134,7 +148,6 @@
             На вашем счете <span>{{bonuses}} бонусов</span>, которые вы можете потратить.
         </p>
     </div>
-
 </script>
 <script type="text/template" id="block-header-template" defer>
     <p class="main__user-page-content-user-name data-page story-orders">
@@ -213,44 +226,33 @@
                 В корзину
             </a>
         </div>
-
-
-
 </script>
 <script type="text/template" id="story-orders-template" defer>
-
-<!--    <div class="main__user-page-content-editable-content" >-->
-<!--        <p class="main__user-page-content-user-name data-page story-orders">-->
-<!--            История заказов-->
-<!--        </p>-->
-
-        <div class="main__user-page-content-story-container" id="block-item-{{id}}">
-            <div class="main__user-page-content-story-container-flex">
-                <div class="main__user-page-content-story-block">
-                    <p class="main__user-page-content-story-desc">
-                        Заказ № {{number}} от {{data}} {{timeCreated}}, {{sumQuantity}} товара на сумму {{total}} ₽
-                    </p>
-                    <a href="" class="main__user-page-content-story-link" id="view-more-{{id}}" data-id="view-more-{{id}}" data-arrow="arrow-{{id}}" data-order-items="order-items-{{id}}">
-                        <span >Подробнее о заказе</span><img src="img/arrow-down.svg" alt="" >
-                    </a>
-                </div>
-                <div class="main__user-page-content-story-block block-right">
-                    <p class="main__user-page-content-story-desc right-block">
-                        <span>Заказ выполнен</span> {{dataFinished}}
-                    </p>
-                    <a href="" class="main__user-page-content-story-repeat-link">
-                        Повторить заказ
-                    </a>
-                </div>
+    <div class="main__user-page-content-story-container" id="block-item-{{id}}">
+        <div class="main__user-page-content-story-container-flex">
+            <div class="main__user-page-content-story-block">
+                <p class="main__user-page-content-story-desc">
+                    Заказ № {{number}} от {{data}} {{timeCreated}}, {{sumQuantity}} товара на сумму {{total}} ₽
+                </p>
+                <a href="" class="main__user-page-content-story-link" id="view-more-{{id}}" data-id="view-more-{{id}}" data-arrow="arrow-{{id}}" data-order-items="order-items-{{id}}">
+                    <span >Подробнее о заказе</span><img src="img/arrow-down.svg" alt="" >
+                </a>
             </div>
-
-            <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}">
-
+            <div class="main__user-page-content-story-block block-right">
+                <p class="main__user-page-content-story-desc right-block">
+                    <span>Заказ выполнен</span> {{dataFinished}}
+                </p>
+                <a href="" class="main__user-page-content-story-repeat-link">
+                    Повторить заказ
+                </a>
             </div>
-    </div>
+        </div>
 
+        <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}">
+
+        </div>
+</div>
 </script>
-
 <script type="text/template" id="order-items-template" defer>
 
     <div class="main__user-page-content-story-container-items " id="story-items-{{id}}" >
@@ -276,7 +278,6 @@
     </div>
 
 </script>
-
 <script type="text/template" id="review-template" defer>
 
     <div class="main__user-page-content-editable-content" >

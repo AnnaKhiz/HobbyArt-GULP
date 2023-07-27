@@ -2674,6 +2674,9 @@ body {
   column-gap: 40px;
   margin-bottom: 40px;
 }
+.main__user-page-content-editable-content {
+  width: 100%;
+}
 .main__user-page-content-label {
   font: 600 normal 1.75rem/2.6875rem "Spectral SC";
   text-transform: uppercase;
