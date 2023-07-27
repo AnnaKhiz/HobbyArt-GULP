@@ -2756,6 +2756,12 @@ body {
   column-gap: 40px;
   margin-bottom: 40px;
 }
+@media screen and (max-width: 1200px) {
+  .main__user-page-content-block-data {
+    display: block;
+    width: 100%;
+  }
+}
 .main__user-page-content-editable-content {
   width: 100%;
 }
@@ -2815,6 +2821,12 @@ body {
 }
 .main__user-page-content-user-data {
   width: 50%;
+}
+@media screen and (max-width: 1200px) {
+  .main__user-page-content-user-data {
+    width: 100%;
+    margin-bottom: 27px;
+  }
 }
 .main__user-page-content-user-data li:not(:last-of-type) {
   margin-bottom: 27px;
