@@ -16,3 +16,17 @@ export function callBurgerMenu() {
         menu.classList.toggle('active');
     });
 }
+
+export function catalogAdapt(){
+    const sidebar = document.getElementById('sidebar');
+    const sidebarMenu = document.getElementById('sidebar-menu');
+    sidebarMenu.classList.add('bl-hidden');
+    if (window.screen.width < 768) {
+
+        sidebar.addEventListener('click', (e) => {
+            e.preventDefault();
+            sidebarMenu.classList.toggle('bl-hidden');
+            sidebar.classList.toggle('sidebar-button')
+        })
+    }
+}

@@ -720,20 +720,48 @@ body
           @include trans
         &:first-of-type:after
           @include headerContactsIcon (url('../img/catalog-img-link1.png'), 0, 60%)
+          @media screen and (max-width: 920px)
+            display: none
         &:nth-of-type(2):after
           @include headerContactsIcon (url('../img/catalog-img-link2.png'), 6%, 66%)
+          @media screen and (max-width: 920px)
+            display: none
         a
           display: block
           padding: 40px 49px 38px
           @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+          @media screen and (max-width: 920px)
+            padding: 40px 20px 38px
+            text-align: center
+        @media screen and (max-width: 1028px)
+          widht: 340px
+        @media screen and (max-width: 920px)
+          width: 100%
     &-container
       display: flex
       column-gap: 80px
       align-items: flex-start
       margin-bottom: 99px
+      @media screen and (max-width: 1028px)
+        //display: block
+        column-gap: 50px
+      @media screen and (max-width: 768px)
+        display: block
     &-label
       @include sectionLabel
       margin-bottom: 40px
+      @media screen and (max-width: 1028px)
+        font-size: 1.5rem
+        line-height: 2rem
+        margin-bottom: 25px
+        padding: 30px
+        height: 0
+      @media screen and (max-width: 768px)
+        text-align: center
+        height: 100px
+        box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+        border-radius: 20px
+        background: $colorTextButton
     &-content
       &-photo
         margin-bottom: 32px
@@ -747,15 +775,24 @@ body
       &-label
         @include sectionLabel
         margin-bottom: 40px
+        @media screen and (max-width: 1028px)
+          font-size: 1.5rem
+          line-height: 2rem
+        @media screen and (max-width: 768px)
+          text-align: center
       &-text-block
         margin-bottom: 48px
         ul li
           list-style: inside
           margin-left: 10px
+        @media screen and (max-width: 1028px)
+          margin-bottom: 25px
       &-text
         @include textSmall (1.125rem, 1.6875rem, $colorTextMain)
         margin-bottom: 15px
         @include textBlock-width (860px)
+        @media screen and (max-width: 1028px)
+          @include textSmall (1rem, 1.3rem, $colorTextMain)
   &__product-page
     &-breadcrumbs
       margin: 64px 0 32px 0
@@ -1769,7 +1806,8 @@ body
   &-button
     @include button
 
-
+.sidebar-button
+  background: $sideBarButton
 
 
 

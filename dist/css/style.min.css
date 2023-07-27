@@ -2276,12 +2276,22 @@ body {
   left: 60%;
   z-index: 1;
 }
+@media screen and (max-width: 920px) {
+  .main__delivery__page-sidebar ul li:first-of-type:after {
+    display: none;
+  }
+}
 .main__delivery__page-sidebar ul li:nth-of-type(2):after {
   content: url("../img/catalog-img-link2.png");
   position: absolute;
   top: 6%;
   left: 66%;
   z-index: 1;
+}
+@media screen and (max-width: 920px) {
+  .main__delivery__page-sidebar ul li:nth-of-type(2):after {
+    display: none;
+  }
 }
 .main__delivery__page-sidebar ul li a {
   display: block;
@@ -2290,17 +2300,61 @@ body {
   line-height: 1.375rem;
   color: #424242;
 }
+@media screen and (max-width: 920px) {
+  .main__delivery__page-sidebar ul li a {
+    padding: 40px 20px 38px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-sidebar ul li {
+    widht: 340px;
+  }
+}
+@media screen and (max-width: 920px) {
+  .main__delivery__page-sidebar ul li {
+    width: 100%;
+  }
+}
 .main__delivery__page-container {
   display: flex;
   column-gap: 80px;
   align-items: flex-start;
   margin-bottom: 99px;
 }
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-container {
+    column-gap: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__delivery__page-container {
+    display: block;
+  }
+}
 .main__delivery__page-label {
   font: 600 normal 1.75rem/2.6875rem "Spectral SC";
   text-transform: uppercase;
   color: #424242;
   margin-bottom: 40px;
+}
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-label {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 25px;
+    padding: 30px;
+    height: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__delivery__page-label {
+    text-align: center;
+    height: 100px;
+    box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05);
+    border-radius: 20px;
+    background: #FFFFFF;
+  }
 }
 .main__delivery__page-content-photo {
   margin-bottom: 32px;
@@ -2319,12 +2373,28 @@ body {
   color: #424242;
   margin-bottom: 40px;
 }
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-content-label {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__delivery__page-content-label {
+    text-align: center;
+  }
+}
 .main__delivery__page-content-text-block {
   margin-bottom: 48px;
 }
 .main__delivery__page-content-text-block ul li {
   list-style: inside;
   margin-left: 10px;
+}
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-content-text-block {
+    margin-bottom: 25px;
+  }
 }
 .main__delivery__page-content-text {
   font: 400 normal 1.125rem "Montserrat";
@@ -2333,6 +2403,13 @@ body {
   margin-bottom: 15px;
   max-width: 860px;
   overflow: hidden;
+}
+@media screen and (max-width: 1028px) {
+  .main__delivery__page-content-text {
+    font: 400 normal 1rem "Montserrat";
+    line-height: 1.3rem;
+    color: #424242;
+  }
 }
 .main__product-page-breadcrumbs {
   margin: 64px 0 32px 0;
@@ -4073,4 +4150,8 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+
+.sidebar-button {
+  background: linear-gradient(10deg, #a77272 -29.03%, #CFA5A5 97.75%);
 }

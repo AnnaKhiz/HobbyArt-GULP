@@ -11,6 +11,7 @@ import * as popup from "./modules/popup.js";
 
 flsFunctions.isWebp();
 burger.callBurgerMenu();
+burger.catalogAdapt();
 logInFunc.logInFunction();
 // userPage.getFavProducts();
 
