@@ -21,7 +21,7 @@ export function catalogAdapt(){
     const sidebar = document.getElementById('sidebar');
     const sidebarMenu = document.getElementById('sidebar-menu');
 
-    if (window.screen.width < 768) {
+    if (window.screen.width <= 768) {
         sidebarMenu.classList.add('bl-hidden');
         sidebar.addEventListener('click', (e) => {
             e.preventDefault();
