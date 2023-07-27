@@ -21,12 +21,12 @@ export function catalogAdapt(){
     const sidebar = document.getElementById('sidebar');
     const sidebarMenu = document.getElementById('sidebar-menu');
 
-    if (window.screen.width <= 768) {
+    if (window.screen.width <= 768 && sidebar) {
         sidebarMenu.classList.add('bl-hidden');
         sidebar.addEventListener('click', (e) => {
             e.preventDefault();
             sidebarMenu.classList.toggle('bl-hidden');
-            sidebar.classList.toggle('sidebar-button')
+            sidebar.classList.toggle('user-block-header');
         })
     }
 }

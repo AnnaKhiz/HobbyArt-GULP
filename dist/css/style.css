@@ -2591,6 +2591,12 @@ body {
   box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05);
   border-radius: 20px;
 }
+@media screen and (max-width: 768px) {
+  .main__product-page-content-item {
+    flex: 0 0 100%;
+    margin: 0px auto 20px auto;
+  }
+}
 .main__product-page-content-item-header {
   display: flex;
   justify-content: space-between;
@@ -2611,6 +2617,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
   object-fit: contain;
 }
 .main__product-page-content-item-img img {
@@ -2730,9 +2737,24 @@ body {
   border-radius: 20px;
   margin-bottom: 99px;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content {
+    display: block;
+  }
+}
 .main__user-page-content-block {
   padding: 56px 64px 40px;
   align-items: center;
+}
+@media screen and (max-width: 850px) {
+  .main__user-page-content-block {
+    padding: 56px 45px 40px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-block {
+    position: relative;
+  }
 }
 .main__user-page-content-block.first-block {
   position: relative;
@@ -2747,9 +2769,24 @@ body {
   display: block;
   background-color: #BDBDBD;
 }
+@media screen and (max-width: 1200px) {
+  .main__user-page-content-block.first-block:after {
+    height: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-block.first-block:after {
+    display: none;
+  }
+}
 .main__user-page-content-block.second-block {
   width: 70%;
-  text-align: center;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-block.second-block {
+    width: 100%;
+    padding: 10px 45px 40px;
+  }
 }
 .main__user-page-content-block-data {
   display: flex;
@@ -2764,6 +2801,11 @@ body {
 }
 .main__user-page-content-editable-content {
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-editable-content {
+    text-align: center;
+  }
 }
 .main__user-page-content-label {
   font: 600 normal 1.75rem/2.6875rem "Spectral SC";
@@ -2787,6 +2829,17 @@ body {
   margin-bottom: 40px;
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-name.data-page, .main__user-page-content-user-name .bonuses, .main__user-page-content-user-name .mailing, .main__user-page-content-user-name .story-orders, .main__user-page-content-user-name .review {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-list {
+    text-align: center;
+  }
+}
 .main__user-page-content-user-list li a {
   font: 600 normal 1.125rem "Montserrat";
   line-height: 1.375rem;
@@ -2806,6 +2859,11 @@ body {
 .main__user-page-content-user-list li:last-of-type {
   margin-bottom: 138px;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-list li:last-of-type {
+    margin-bottom: 0;
+  }
+}
 .main__user-page-content-user-exit {
   font: 600 normal 1.125rem "Montserrat";
   line-height: 1.375rem;
@@ -2813,11 +2871,31 @@ body {
   padding-left: 27px;
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-exit {
+    position: absolute;
+    top: 15px;
+    right: 45px;
+  }
+}
 .main__user-page-content-user-exit:before {
   content: url("../img/exit.png");
   top: 0;
   left: 0;
   position: absolute;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-exit:before {
+    content: url("../img/exit_mobile.png");
+    top: 70px;
+    left: -50px;
+  }
+}
+@media screen and (max-width: 530px) {
+  .main__user-page-content-user-exit:before {
+    top: -4px;
+    left: -10px;
+  }
 }
 .main__user-page-content-user-data {
   width: 50%;
@@ -2878,11 +2956,22 @@ body {
   background-clip: text;
   text-fill-color: transparent;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-user-save-button {
+    width: fit-content;
+    margin: auto;
+  }
+}
 .main__user-page-content-bonuses {
   text-align: left;
   font: 400 normal 1.125rem "Montserrat";
   line-height: 1.5625rem;
   color: #000000;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-bonuses {
+    text-align: center;
+  }
 }
 .main__user-page-content-bonuses span {
   color: #976464;
@@ -2894,6 +2983,12 @@ body {
   line-height: 1.5625rem;
   color: #000000;
   margin-bottom: 56px;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing {
+    text-align: center;
+    margin-bottom: 20px;
+  }
 }
 .main__user-page-content-mailing.cancel {
   display: block;
@@ -2923,11 +3018,44 @@ body {
   margin-bottom: 32px;
   text-align: left;
 }
-.main__user-page-content-mailing-form, .main__user-page-content-mailing-text {
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing-subscribe {
+    text-align: center;
+  }
+}
+.main__user-page-content-mailing-form {
   text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing-form {
+    text-align: center;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing-form > input.email-mailing {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+.main__user-page-content-mailing-text {
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing-text {
+    text-align: center;
+    width: 100%;
+  }
 }
 .main__user-page-content-mailing-block {
   max-width: 460px;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-mailing-block {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 .main__user-page-content-story-container {
   background: #FAF9F9;
@@ -2940,15 +3068,40 @@ body {
   justify-content: space-between;
   margin-bottom: 40px;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-flex {
+    display: block;
+  }
+}
 .main__user-page-content-story-container-items-flex {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-items-flex {
+    display: block;
+    box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05);
+    border-radius: 20px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .main__user-page-content-story-container-items-flex {
+    padding: 10px;
+    overflow: hidden;
+  }
+}
 .main__user-page-content-story-container-items-block {
   display: flex;
   align-items: center;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-items-block {
+    display: block;
+    text-align: center;
+  }
 }
 .main__user-page-content-story-container-items-block.left-block {
   justify-content: left;
@@ -2963,6 +3116,11 @@ body {
   height: auto;
   object-fit: contain;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-items-img {
+    margin: 0px auto 10px auto;
+  }
+}
 .main__user-page-content-story-container-items-img img {
   width: 100%;
 }
@@ -2972,10 +3130,21 @@ body {
   color: #424242;
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-items-name {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
 .main__user-page-content-story-container-items-sum {
   font: 400 normal 1.125rem "Montserrat";
   line-height: 1.375rem;
   color: #424242;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-container-items-sum {
+    margin-bottom: 10px;
+  }
 }
 .main__user-page-content-story-container-items-price {
   font: 600 normal 1.5rem "Montserrat";
@@ -3029,8 +3198,18 @@ body {
 .main__user-page-content-story-block {
   text-align: left;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-block {
+    margin-bottom: 20px;
+  }
+}
 .main__user-page-content-story-block.block-right {
   text-align: right;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-story-block.block-right {
+    text-align: left;
+  }
 }
 .main__user-page-content-review-container {
   padding: 32px;
@@ -3042,9 +3221,31 @@ body {
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-block {
+    display: block;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-block img {
+    margin-bottom: 10px;
+  }
+}
 .main__user-page-content-review-block.rating-block {
   justify-content: space-between;
   margin-bottom: 26px;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-block.rating-block {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-block.rating-block {
+    margin: 0 auto 20px auto;
+    width: 50%;
+  }
 }
 .main__user-page-content-review-block.info-block {
   justify-content: left;
@@ -3052,18 +3253,32 @@ body {
 .main__user-page-content-review-img {
   width: 200px;
   height: 200px;
-  object-fit: contain;
+  border-radius: 50%;
   margin-right: 22px;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  object-fit: contain;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-img {
+    margin: 0 auto 20px auto;
+  }
 }
 .main__user-page-content-review-img img {
-  border-radius: 50%;
   width: 100%;
 }
 .main__user-page-content-review-info {
   text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .main__user-page-content-review-info {
+    text-align: center;
+    max-width: 360px;
+    overflow: hidden;
+    margin: auto;
+  }
 }
 .main__user-page-content-review-info p:first-of-type {
   font: 600 normal 1.125rem "Montserrat";
@@ -3088,6 +3303,11 @@ body {
   border: 1px solid #BDBDBD;
   border-radius: 76px;
   padding: 17px 45px;
+}
+@media screen and (max-width: 530px) {
+  .main__user-page-content-review-data {
+    padding: 17px 15px;
+  }
 }
 .main__product-details {
   padding-bottom: 103px;
@@ -4171,4 +4391,9 @@ body {
 
 .sidebar-button {
   background: linear-gradient(10deg, #a77272 -29.03%, #CFA5A5 97.75%);
+}
+
+.user-block-header {
+  background: linear-gradient(223deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%);
+  border-radius: 50px 20px 20px 50px;
 }
