@@ -1,5 +1,5 @@
 export function changeMainPageContent() {
-    const URL = 'http://localhost:3000/comments';
+    const API_URL = 'https://reqres.in/api/users/2';
     const commentInsta = document.getElementById('comments-popup');
     // console.log(commentInsta)
 
@@ -45,7 +45,7 @@ export function changeMainPageContent() {
 
         popupSubmit.addEventListener('click', (e) => {
             e.preventDefault();
-            fetch(`${URL}/1`, {
+            fetch(API_URL, {
                 method: 'PATCH',
                 body: JSON.stringify({
                     text: popupTextarea.value,

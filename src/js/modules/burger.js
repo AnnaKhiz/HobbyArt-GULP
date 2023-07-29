@@ -26,7 +26,7 @@ export function catalogAdapt(){
         sidebar.addEventListener('click', (e) => {
             e.preventDefault();
             sidebarMenu.classList.toggle('bl-hidden');
-            sidebar.classList.toggle('user-block-header');
+            sidebar.classList.toggle('sidebar-button');
         })
     }
 }

@@ -209,9 +209,9 @@ export function logInFunction() {
                 e.preventDefault();
                 if (localStorage.getItem('token')) {
                     localStorage.removeItem('token');
-                    window.location.replace('../index.html');
+                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
                 } else {
-                    window.location.replace('../index.html');
+                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
                 }
             })
         }

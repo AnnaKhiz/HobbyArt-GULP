@@ -7,7 +7,7 @@ import * as slider from "./modules/swiper.js";
 import * as switcher from "./modules/switcher.js";
 import * as userPage from "./modules/user-page.js";
 import * as linksContent from "./modules/main-menu-pages.js";
-import * as popup from "./modules/popup.js";
+
 
 flsFunctions.isWebp();
 burger.callBurgerMenu();

@@ -1,5 +1,6 @@
 export function loadUserContent() {
-    const URL = 'http://localhost:3000/users/';
+    const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
+    const APIURL = 'https://reqres.in/api/users/2';
     const userDataTemplate = document.getElementById('user-data-template').innerHTML;
     const bonusesTemplate = document.getElementById('bonuses-template').innerHTML;
     const mailingTemplate = document.getElementById('mailing-template').innerHTML;
@@ -43,9 +44,10 @@ export function loadUserContent() {
     function getUserData() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                // console.log('i got users data');
+                console.log(result.users);
+                let data = result.users;
                 data.forEach((element, i) => {
                     const newUserDataTemplate = userDataTemplate
                         .replace('{{user-name}}', element.firstName)
@@ -84,16 +86,17 @@ export function loadUserContent() {
         document.getElementById(e.target.dataset.input).focus();
         // console.log(document.getElementById(e.target.dataset.input).focus());
         let editButtonClicked = document.getElementById(e.target.id);
-        editButtonClicked.innerHTML = '<img src="../img/edit.svg" alt=\\"\\">';
+        editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">';
 
         const saveEditedDataBtn = document.getElementById('save-edited-data-btn');
         //save editted data (button save)
         saveEditedDataBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
-            fetch(`${URL}1`, {
+            fetch(APIURL, {
                 method: 'PATCH',
                 body: JSON.stringify({
+                    id: "1",
                     firstName: document.getElementById('user-name').value,
                     lastName: document.getElementById('user-surname').value,
                     surName: document.getElementById('user-surname-2').value,
@@ -104,16 +107,20 @@ export function loadUserContent() {
                     password: document.getElementById('user-page-password').value,
                 }),
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+
                 }
             })
                 .then(res => {
+                    if (res.status === 200) {
+                        editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">Изменить'
+                        saveEditedDataBtn.innerText = 'Сохранено';
+                        setTimeout(() => {
+                            saveEditedDataBtn.innerText = 'Сохранить данные';
+                        }, 2000);
+                    }
                     // editButtonClicked.innerText = 'Изменить';
-                    editButtonClicked.innerHTML = '<img src="../img/edit.svg" alt=\\"\\">Изменить'
-                    saveEditedDataBtn.innerText = 'Сохранено';
-                    setTimeout(() => {
-                        saveEditedDataBtn.innerText = 'Сохранить данные';
-                    }, 2000);
+
                 })
                 .catch(err => {
                     console.log(err);
@@ -126,9 +133,10 @@ export function loadUserContent() {
         e.preventDefault();
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                console.log('i got users bonuses');
+                console.log(result.users);
+                let data = result.users;
                 data.forEach(element => {
                     console.log(element.bonuses);
                     const newBonusesTemplate = bonusesTemplate.replace('{{bonuses}}', element.bonuses);
@@ -145,7 +153,9 @@ export function loadUserContent() {
     function getFavoritesProducts() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                console.log(result.users);
+                let data = result.users;
                 const favArray = data[0].favorites.listItems;
                 containerWithData.innerHTML = '';
                 favArray.forEach(element => {
@@ -165,7 +175,9 @@ export function loadUserContent() {
     function getDataForMailing() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                console.log(result.users);
+                let data = result.users;
                 data.forEach(el => {
                     if (el.mailing == 'false') {
                         containerWithData.innerHTML = mailingTemplate;
@@ -192,7 +204,7 @@ export function loadUserContent() {
     })
 
     function changeMailingStatus(button, status, template) {
-        fetch(`${URL}1`, {
+        fetch(APIURL, {
             method: 'PATCH',
             body: JSON.stringify({
                 mailing: status,
@@ -221,7 +233,9 @@ export function loadUserContent() {
         let orderItemsBlockContent = []
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                console.log(result.users);
+                let data = result.users;
                 containerWithData.innerHTML = '';
                 newOrdersArr = data.map(element => {
                     newListArr = element.orders.list;
@@ -273,7 +287,9 @@ export function loadUserContent() {
 
                         fetch(URL)
                             .then(res => res.json())
-                            .then(data => {
+                            .then(result => {
+                                console.log(result.users);
+                                let data = result.users;
                                 //массив из заказов
                                 newOrdersArr = data.map((element, index) => {
                                     newListArr = element.orders.list;
