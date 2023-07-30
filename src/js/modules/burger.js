@@ -42,3 +42,13 @@ export function showFilters() {
         });
     }
 }
+
+export function editLinkText() {
+    const linkUp = document.getElementById('price-up-link');
+    const linkDown = document.getElementById('price-down-link');
+    const sidebarElement = document.getElementById('search-sidebar');
+    if (window.screen.width <= 500 && sidebarElement) {
+        linkUp.innerText = '↓';
+        linkDown.innerText = '↑';
+    }
+}

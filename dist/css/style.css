@@ -2449,6 +2449,11 @@ body {
   align-items: center;
   column-gap: 15px;
 }
+@media screen and (max-width: 500px) {
+  .main__product-page-price-block {
+    justify-content: center;
+  }
+}
 .main__product-page-price-block-btn a {
   display: block;
   padding: 10px 38px;
@@ -2484,6 +2489,24 @@ body {
     display: block;
   }
 }
+.main__product-page-price-block-filter-button {
+  background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
+  border-radius: 49px;
+  padding: 13px 45px;
+  font: 600 normal 1rem/1.5rem "Spectral SC";
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.main__product-page-price-block-filter-button:hover {
+  background: linear-gradient(102.48deg, #7B4646 -29.03%, #BF9191 97.75%);
+}
+.main__product-page-price-block-filter-button:active {
+  background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
 .main__product-page-container {
   display: flex;
   column-gap: 80px;
@@ -2504,6 +2527,11 @@ body {
     position: relative;
   }
 }
+@media screen and (max-width: 768px) and (max-width: 540px) {
+  .main__product-page-sidebar-search {
+    justify-content: center;
+  }
+}
 .main__product-page-sidebar-title {
   font: 600 normal 1rem/1.5rem "Montserrat";
   color: #424242;
@@ -2517,6 +2545,11 @@ body {
     display: inline-block;
     width: 24%;
     vertical-align: top;
+  }
+}
+@media screen and (max-width: 768px) and (max-width: 540px) {
+  .main__product-page-sidebar-block {
+    width: 35%;
   }
 }
 .main__product-page-sidebar-block li {

@@ -13,6 +13,7 @@ flsFunctions.isWebp();
 burger.callBurgerMenu();
 burger.catalogAdapt();
 burger.showFilters();
+burger.editLinkText();
 logInFunc.logInFunction();
 // userPage.getFavProducts();
 

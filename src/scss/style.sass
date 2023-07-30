@@ -820,12 +820,16 @@ body
       justify-content: flex-end
       align-items: center
       column-gap: 15px
+      @media screen and (max-width: 500px)
+        justify-content: center
       &-btn a
         @include buttonWithBorder
       &-filter
         &.bl-hidden
           @media screen and (max-width: 768px)
             display: block
+        &-button
+          @include button
     &-container
       display: flex
       column-gap: 80px
@@ -845,6 +849,8 @@ body
           justify-content: space-between
           align-items: flex-start
           position: relative
+          @media screen and (max-width: 540px)
+            justify-content: center
       &-title
         @include textMenuBold
         margin-bottom: 10px
@@ -854,6 +860,9 @@ body
           display: inline-block
           width: 24%
           vertical-align: top
+          @media screen and (max-width: 540px)
+            width: 35%
+
         & li
           @include textSmall (0.875rem, 1.0625rem, $colorTextMain)
           margin-bottom: 14px
