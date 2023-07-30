@@ -797,7 +797,6 @@ body
         @media screen and (max-width: 1028px)
           @include textSmall (1rem, 1.3rem, $colorTextMain)
   &__product-page
-
     &-breadcrumbs
       margin: 64px 0 32px 0
       &-list
@@ -1364,16 +1363,28 @@ body
     padding-bottom: 103px
     &-breadcrumbs
       margin-top: 0px
+      @media screen and (max-width: 500px)
+        margin-bottom: 20px
+      & li a, & li:last-of-type
+        @media screen and (max-width: 400px)
+          font-size: 0.8rem
+        @media screen and (max-width: 350px)
+          font-size: 0.7rem
 
     &-about
-      margin-bottom: 41px
+      margin-bottom: 40px
       &-flex
         display: flex
         column-gap: 44px
         justify-content: center
         align-items: end
+        @media screen and (max-width: 1090px)
+          display: block
+          text-align: center
       &-item
         width: 50%
+        @media screen and (max-width: 1090px)
+          width: 100%
         &-image
           margin-bottom: 26px
           & img
@@ -1381,6 +1392,8 @@ body
             height: auto
         &.left-item
           text-align: center
+          @media screen and (max-width: 1090px)
+            margin-bottom: 26px
         &-text
           //padding-top: 14px
           &-header
@@ -1399,6 +1412,10 @@ body
             justify-content: flex-start
             column-gap: 123px
             align-items: start
+            @media screen and (max-width: 1090px)
+              justify-content: center
+            @media screen and (max-width: 500px)
+              column-gap: 20px
             &-list
               margin-bottom: 32px
               &.column-left li
@@ -1414,6 +1431,8 @@ body
                   position: absolute
                   top: 48px
                   left: 0
+                  @media screen and (max-width: 500px)
+                    display: none
               &.column-right li
                 @include textSmall (1.125rem, 1.375rem, $colorTextMain)
                 margin-bottom: 48px
@@ -1423,9 +1442,14 @@ body
             column-gap: 40px
             align-items: center
             justify-content: flex-start
-            //margin-bottom: 107px
+            @media screen and (max-width: 1090px)
+              justify-content: center
+            @media screen and (max-width: 530px)
+              display: block
             &-price
               @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+              @media screen and (max-width: 530px)
+                margin-bottom: 15px
             &-count
               @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
               border-radius: 46px
@@ -1433,24 +1457,41 @@ body
               padding: 10px
               & span:not(:last-of-type)
                 margin-right: 10px
+              @media screen and (max-width: 530px)
+                margin-right: 10px
             &-btn
               @include button
+              @media screen and (max-width: 400px)
+                padding: 13px 10px
     &-feedback
       margin-bottom: 40px
+      @media screen and (max-width: 1090px)
+        margin-bottom: 80px
       &-rel
         position: relative
       &-label
         @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
         margin-bottom: 32px
+        @media screen and (max-width: 1090px)
+          text-align: center
       &-container
         border-radius: 20px
         background: $bgReviewItem
         padding: 40px
+        @media screen and (max-width: 1090px)
+          padding: 20px
+        @media screen and (max-width: 530px)
+          text-align: center
       &-flex
         display: flex
         align-items: center
         justify-content: space-between
         margin-bottom: 23px
+        @media screen and (max-width: 945px)
+          justify-content: center
+          column-gap: 30px
+        @media screen and (max-width: 530px)
+          display: block
         &-item
           &.data
             border-radius: 76px
@@ -1458,9 +1499,19 @@ body
             $colorTextButton: #FFF
             padding: 17px 25px
             @include textMediumBold (0.875rem, 1.0625rem, $grayLinkColor)
+            @media screen and (max-width: 1090px)
+              padding: 17px 15px
+            @media screen and (max-width: 530px)
+              width: fit-content
+              margin: auto
           &.user
             @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
             margin-bottom: 8px
+            @media screen and (max-width: 530px)
+              margin-bottom: 15px
+          &.image
+            @media screen and (max-width: 530px)
+              margin-bottom: 15px
       &-comment
         text-align: center
         @include textSmall (1.125rem, 1.375rem, $colorTextMain)
@@ -1470,14 +1521,23 @@ body
 
     &-recommend
       margin-bottom: 103px
+      @media screen and (max-width: 1090px)
+        margin-bottom: 0
       &-label
         @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
         margin-bottom: 32px
+        @media screen and (max-width: 1090px)
+          text-align: center
       &-flex
         display: flex
         justify-content: flex-start
         align-items: center
         column-gap: 28px
+        @media screen and (max-width: 1090px)
+          justify-content: center
+        @media screen and (max-width: 500px)
+          flex-wrap: wrap
+          row-gap: 20px
         &-img
           display: flex
           justify-content: center

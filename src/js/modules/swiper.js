@@ -65,5 +65,19 @@ export function swipeSlider() {
             nextEl: ".swiper-button-next-3",
             prevEl: ".swiper-button-prev-3",
         },
+        breakpoints: {
+            300: {
+                slidesPerView: 1,
+                spaceBetween: 15
+            },
+            945: {
+                slidesPerView: 2,
+                spaceBetween: 15
+            },
+            1601: {
+                slidesPerView: 3,
+                spaceBetween: 15
+            },
+        }
     });
 }
