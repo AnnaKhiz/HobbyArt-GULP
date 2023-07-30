@@ -2552,6 +2552,11 @@ body {
     width: 35%;
   }
 }
+@media screen and (max-width: 768px) and (max-width: 385px) {
+  .main__product-page-sidebar-block {
+    width: 60%;
+  }
+}
 .main__product-page-sidebar-block li {
   font: 400 normal 0.875rem "Montserrat";
   line-height: 1.0625rem;
