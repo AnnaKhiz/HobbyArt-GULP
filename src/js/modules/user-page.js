@@ -1,6 +1,8 @@
 export function loadUserContent() {
-    const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
-    const APIURL = 'https://reqres.in/api/users/2';
+    // const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
+    // const APIURL = 'https://reqres.in/api/users/2';
+    const URL = 'http://localhost:3000/users';
+    const APIURL = 'http://localhost:3000/users/2';
     const userDataTemplate = document.getElementById('user-data-template').innerHTML;
     const bonusesTemplate = document.getElementById('bonuses-template').innerHTML;
     const mailingTemplate = document.getElementById('mailing-template').innerHTML;
@@ -44,10 +46,10 @@ export function loadUserContent() {
     function getUserData() {
         fetch(URL)
             .then(res => res.json())
-            .then(result => {
+            .then(data => {
                 containerWithData.innerHTML = '';
-                console.log(result.users);
-                let data = result.users;
+                // console.log(result.users);
+                // let data = result.users;
                 data.forEach((element, i) => {
                     const newUserDataTemplate = userDataTemplate
                         .replace('{{user-name}}', element.firstName)
@@ -133,10 +135,10 @@ export function loadUserContent() {
         e.preventDefault();
         fetch(URL)
             .then(res => res.json())
-            .then(result => {
+            .then(data => {
                 containerWithData.innerHTML = '';
-                console.log(result.users);
-                let data = result.users;
+                // console.log(result.users);
+                // let data = result.users;
                 data.forEach(element => {
                     console.log(element.bonuses);
                     const newBonusesTemplate = bonusesTemplate.replace('{{bonuses}}', element.bonuses);
@@ -153,9 +155,9 @@ export function loadUserContent() {
     function getFavoritesProducts() {
         fetch(URL)
             .then(res => res.json())
-            .then(result => {
-                console.log(result.users);
-                let data = result.users;
+            .then(data => {
+                // console.log(result.users);
+                // let data = result.users;
                 const favArray = data[0].favorites.listItems;
                 containerWithData.innerHTML = '';
                 favArray.forEach(element => {
@@ -175,9 +177,9 @@ export function loadUserContent() {
     function getDataForMailing() {
         fetch(URL)
             .then(res => res.json())
-            .then(result => {
-                console.log(result.users);
-                let data = result.users;
+            .then(data => {
+                // console.log(result.users);
+                // let data = result.users;
                 data.forEach(el => {
                     if (el.mailing == 'false') {
                         containerWithData.innerHTML = mailingTemplate;
@@ -233,9 +235,9 @@ export function loadUserContent() {
         let orderItemsBlockContent = []
         fetch(URL)
             .then(res => res.json())
-            .then(result => {
-                console.log(result.users);
-                let data = result.users;
+            .then(data => {
+                // console.log(result.users);
+                // let data = result.users;
                 containerWithData.innerHTML = '';
                 newOrdersArr = data.map(element => {
                     newListArr = element.orders.list;

@@ -990,7 +990,12 @@ body
 
         &.second-block
           width: 70%
+          column-gap: 15px
+          row-gap: 15px
           //text-align: center
+          @media screen and (max-width: 1450px)
+            justify-content: space-around
+            flex-wrap: wrap
           @media screen and (max-width: 768px)
             width: 100%
             padding: 10px 45px 40px
@@ -1015,9 +1020,23 @@ body
         margin-bottom: 40px
         align-items: center
         column-gap: 24px
+        &.user-block-header
+          background: linear-gradient(223deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
+          border-radius: 50px 20px 20px 50px
+          @media screen and (max-width: 576px)
+            border-radius: 20px
+        @media screen and (max-width: 576px)
+          display: block
+          padding: 10px
+      &-user-photo
+        & img
+          @media screen and (max-width: 576px)
+            margin-bottom: 15px
 
       &-user-name
         @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+        @media screen and (max-width: 576px)
+          @include textBlock-width (120px)
         &.data-page, .bonuses, .mailing, .story-orders, .review
           margin-top: 38px
           margin-bottom: 40px
@@ -1025,6 +1044,9 @@ body
           @media screen and (max-width: 768px)
             text-align: center
             margin-top: 10px
+          @media screen and (max-width: 576px)
+            max-width: 100%
+
       &-user-list
         @media screen and (max-width: 768px)
           text-align: center
@@ -1052,6 +1074,8 @@ body
           position: absolute
           top: 15px
           right: 45px
+        @media screen and (max-width: 576px)
+          top: 20%
         &:before
           content: url("../img/exit.png")
           top: 0
@@ -1061,9 +1085,8 @@ body
             content: url("../img/exit_mobile.png")
             top: 70px
             left: -50px
-          @media screen and (max-width: 530px)
-            top: -4px
-            left: -10px
+          //@media screen and (max-width: 576px)
+            top: 20%
       &-user-data
         width: 50%
         @media screen and (max-width: 1200px)
@@ -1082,6 +1105,8 @@ body
             @include textSmallBold (0.875rem, 1.0625rem, $colorTextMain)
             &::placeholder
               @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+            @media screen and (max-width: 400px)
+              padding: 16px 10px
       &-user-edit-link
         @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
         position: absolute
@@ -1095,6 +1120,8 @@ body
         @media screen and (max-width: 768px)
           width: fit-content
           margin: auto
+        @media screen and (max-width: 400px)
+          padding: 13px 10px
       &-bonuses
         text-align: left
         @include textSmall (1.125rem, 1.5625rem, $blackText)
@@ -1929,9 +1956,7 @@ body
 
 .sidebar-button
   background: $sideBarButton
-.user-block-header
-  background: linear-gradient(223deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
-  border-radius: 50px 20px 20px 50px
+
 
 
 

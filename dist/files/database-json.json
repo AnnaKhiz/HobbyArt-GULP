@@ -1,0 +1,209 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "userName": "Olga1986",
+      "firstName": "Ольга",
+      "lastName": "Иванова",
+      "surName": "Ивановна",
+      "birthDate": "15.06.1986",
+      "phone": "+380631232458",
+      "email": "olga@mail.ru",
+      "address": "Ukraine, Odessa",
+      "password": "12345",
+      "bonuses": "245",
+      "mailing": "false",
+      "favorites": {
+        "header": "Избранные товары",
+        "listItems": [
+          {
+            "id": "1",
+            "name": "Шпагат Macrametr 4 мм, 100 нитей",
+            "photo": "img/image-card-item1.png",
+            "desc": "100% хлопок\nВес: 380 г, длина нити: 100 м ",
+            "price": "330 ₽",
+            "discount": "false",
+            "color": "red"
+          },
+          {
+            "id": "2",
+            "name": "Шпагат джутовый Сибшнур 500 м",
+            "photo": "img/image-card-item2.png",
+            "desc": "100% хлопок\nВес: 160 г, длина нити: 50 м ",
+            "price": "795 ₽",
+            "discount": "true",
+            "color": "yellow"
+          },
+          {
+            "id": "3",
+            "name": "Пряжа Arachna \"Macrame MAXI\"",
+            "photo": "img/image-card-item3.png",
+            "desc": "100% хлопок\nВес: 160 г, длина нити: 50 м ",
+            "price": "1092 ₽",
+            "discount": "false",
+            "color": "white"
+          }
+        ]
+      },
+      "orders": {
+        "header": "История заказов",
+        "list": [
+          {
+            "id": "1",
+            "number": "HA10066F7O",
+            "data": "10.06.2021",
+            "timeCreated": "15:26:30",
+            "total": "2 232",
+            "sumQuantity": "3",
+            "dataFinished": "14.06.2021",
+            "content": [
+              {
+                "id": "1",
+                "image": "img/image-card-item1.png",
+                "name": "Трикотажная пряжа Zефирка",
+                "quantity": "1",
+                "price": "360",
+                "discount": "false"
+              },
+              {
+                "id": "2",
+                "image": "img/image-card-item3.png",
+                "name": "Пряжа трикотажная Arachna «Слинг Принт»",
+                "quantity": "2",
+                "price": "270",
+                "discount": "false"
+              },
+              {
+                "id": "3",
+                "image": "img/image-card-item2.png",
+                "name": "Трикотажная пряжа Zефирка",
+                "quantity": "1",
+                "price": "325",
+                "discount": "false"
+              }
+            ]
+          },
+          {
+            "id": "2",
+            "number": "HA20059ZJ0",
+            "data": "20.05.2021",
+            "timeCreated": "09:51:17",
+            "total": "852",
+            "dataFinished": "02.06.2021",
+            "sumQuantity": "2",
+            "content": [
+              {
+                "id": "1",
+                "image": "img/image-card-item2.png",
+                "name": "Шпагат Macrametr 4 мм, 100 нитей",
+                "quantity": "1",
+                "price": "332",
+                "discount": "false"
+              },
+              {
+                "id": "2",
+                "image": "img/image-card-item4.png",
+                "name": "Шпагат джутовый Сибшнур 500 м",
+                "quantity": "1",
+                "price": "385",
+                "discount": "false"
+              }
+            ]
+          },
+          {
+            "id": "3",
+            "number": "HA20099F8O",
+            "data": "12.10.2022",
+            "timeCreated": "15:26:30",
+            "total": "1 928",
+            "sumQuantity": "3",
+            "dataFinished": "15.10.2022",
+            "content": [
+              {
+                "id": "1",
+                "image": "img/image-card-item5.png",
+                "name": "Трикотажная пряжа Zефирка",
+                "quantity": "1",
+                "price": "360",
+                "discount": "false"
+              },
+              {
+                "id": "2",
+                "image": "img/image-card-item1.png",
+                "name": "Трикотажная пряжа Zефирка",
+                "quantity": "1",
+                "price": "384",
+                "discount": "false"
+              }
+            ]
+          }
+        ]
+      },
+      "review": [
+        {
+          "id": "1",
+          "idTovara": "3",
+          "rating": "5",
+          "image": "img/image-card-item1.png",
+          "name": "Трикотажная пряжа Zефирка",
+          "desc": "Хорошая пряжа",
+          "date": "13.06.2021",
+          "time": "12:30"
+        },
+        {
+          "id": "2",
+          "idTovara": "1",
+          "rating": "4",
+          "image": "img/image-card-item3.png",
+          "name": "Пряжа трикотажная Arachna «Слинг Принт»",
+          "desc": "Не плохая пряжа",
+          "date": "13.06.2021",
+          "time": "12:35"
+        }
+      ],
+      "editedField": "sss"
+    }
+  ],
+  "tovar": [
+    {
+      "id": "art1",
+      "count": 1,
+      "name": "Шпагат Macrametr 4 мм, 100 нитей",
+      "photo": "img/image-card-item1.png",
+      "desc": "100% хлопок\nВес: 380 г, длина нити: 100 м ",
+      "price": "330 ₽",
+      "discount": "false",
+      "color": "red"
+    },
+    {
+      "id": "art2",
+      "count": 1,
+      "name": "Какая-то пряжа арт 2, 100 нитей",
+      "photo": "img/image-card-item2.png",
+      "desc": "100% хлопок\nВес: 330 г, длина нити: 100 м ",
+      "price": "180 ₽",
+      "discount": "false",
+      "color": "white"
+    },
+    {
+      "id": "art3",
+      "count": 1,
+      "name": "Какая-то пряжа арт 3, 200 нитей",
+      "photo": "img/image-card-item3.png",
+      "desc": "синтетика\nВес: 120 г, длина нити: 100 м ",
+      "price": "250 ₽",
+      "discount": "false",
+      "color": "black"
+    }
+  ],
+  "comments": [
+    {
+    "id": "1",
+    "text": "111"
+    },
+    {
+      "id": "2",
+      "text": "222"
+    }
+  ]
+}
