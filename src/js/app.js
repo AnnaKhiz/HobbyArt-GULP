@@ -7,13 +7,14 @@ import * as slider from "./modules/swiper.js";
 import * as switcher from "./modules/switcher.js";
 import * as userPage from "./modules/user-page.js";
 import * as linksContent from "./modules/main-menu-pages.js";
+import * as filterSearch from "./modules/filter-tovar.js";
 
 
 flsFunctions.isWebp();
 burger.callBurgerMenu();
 burger.catalogAdapt();
-burger.showFilters();
-burger.editLinkText();
+filterSearch.showFilters();
+filterSearch.editLinkText();
 logInFunc.logInFunction();
 // userPage.getFavProducts();
 
