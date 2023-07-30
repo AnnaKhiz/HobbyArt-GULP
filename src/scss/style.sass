@@ -797,6 +797,7 @@ body
         @media screen and (max-width: 1028px)
           @include textSmall (1rem, 1.3rem, $colorTextMain)
   &__product-page
+
     &-breadcrumbs
       margin: 64px 0 32px 0
       &-list
@@ -819,6 +820,7 @@ body
       justify-content: flex-end
       align-items: center
       column-gap: 15px
+
       &-btn a
         @include buttonWithBorder
     &-container
@@ -826,12 +828,29 @@ body
       column-gap: 80px
       align-items: flex-start
       margin-bottom: 99px
+      @media screen and (max-width: 768px)
+        display: block
+      //& > form
+        @media screen and (max-width: 768px)
+          display: none
     &-sidebar
+      &-search
+        @media screen and (max-width: 768px)
+          display: none
+          flex-wrap: wrap
+          //display: flex
+          justify-content: space-between
+          align-items: flex-start
+          position: relative
       &-title
         @include textMenuBold
         margin-bottom: 10px
       &-block
         margin-bottom: 20px
+        @media screen and (max-width: 768px)
+          display: inline-block
+          width: 24%
+          vertical-align: top
         & li
           @include textSmall (0.875rem, 1.0625rem, $colorTextMain)
           margin-bottom: 14px
@@ -843,6 +862,10 @@ body
           height: 1px
           background: $grayLinkColor
           margin: 27px 0 20px 0
+          @media screen and (max-width: 768px)
+            display: none
+      &-buttons
+
       &-button
         @include trans
         @include buttonWithBorder
@@ -855,6 +878,10 @@ body
           color: $colorTextButton
           display: block
           margin: 0 auto 16px auto
+          @media screen and (max-width: 768px)
+            position: absolute
+            top: -74px
+            left: 0
       &-message
         @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
         text-align: center
