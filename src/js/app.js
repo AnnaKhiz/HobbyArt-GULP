@@ -12,6 +12,7 @@ import * as linksContent from "./modules/main-menu-pages.js";
 flsFunctions.isWebp();
 burger.callBurgerMenu();
 burger.catalogAdapt();
+burger.showFilters();
 logInFunc.logInFunction();
 // userPage.getFavProducts();
 
