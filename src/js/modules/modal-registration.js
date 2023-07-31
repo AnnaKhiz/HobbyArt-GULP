@@ -33,9 +33,14 @@ export function logInFunction() {
         }
 
         function logIn() {
+
+            // const callBurgerBtn = document.getElementById('callBurger');
+            // callBurgerBtn.classList.add('bl-hidden');
+
             modalTemplate.classList.remove('show');
             bodyPage.classList.remove('fixed');
             window.location.replace('main-user-page.html');
+
         }
 
         function sendPostRequest(email, password, ifSaveUser) {
@@ -73,6 +78,7 @@ export function logInFunction() {
         }
 
         function openLogInPage(element) {
+
             element.forEach(elem => {
                 if (localStorage.getItem('token')) {
                     elem.innerText = "Кабинет";
@@ -84,6 +90,10 @@ export function logInFunction() {
                     if (localStorage.getItem('token')) {
                         window.location.replace('main-user-page.html');
                     } else {
+                        if (window.screen.width <= 768) {
+                            const callBurgerBtn = document.getElementById('callBurger');
+                            callBurgerBtn.classList.add('bl-hidden');
+                        }
                         modalTemplate.classList.add('show');
                         bodyPage.classList.add('fixed');
                         logInSuccessful();
@@ -98,8 +108,6 @@ export function logInFunction() {
 
         function logInSuccessful() {
             modalRegistrationLogin = document.getElementById('modal-registration-login');
-            console.log(modalRegistrationLogin)
-
             modalRegistrationLogin.addEventListener('click', (e) => {
                 e.preventDefault();
 

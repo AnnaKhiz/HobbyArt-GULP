@@ -19,6 +19,8 @@ logInFunc.logInFunction();
 // userPage.getFavProducts();
 
 
+
+
 // popup.funcPopup();
 
 if (document.getElementById('comments-popup')) {

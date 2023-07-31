@@ -863,6 +863,12 @@ body {
   justify-content: center;
   column-gap: 24px;
 }
+@media screen and (max-width: 520px) {
+  .modal__registration-subitem, .modal-regist__registration-subitem {
+    display: block;
+    text-align: center;
+  }
+}
 .modal__registration-subitem-ch, .modal-regist__registration-subitem-ch {
   display: flex;
   align-items: center;
@@ -881,7 +887,18 @@ body {
   box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05);
   border-radius: 20px;
   margin: 50px auto;
-  padding: 50px 108px 50px 108px;
+  padding: 50px 108px;
+}
+@media screen and (max-width: 630px) {
+  .modal__registration-block, .modal-regist__registration-block {
+    padding: 50px;
+    width: 80%;
+  }
+}
+@media screen and (max-width: 520px) {
+  .modal__registration-block, .modal-regist__registration-block {
+    padding: 50px 20px;
+  }
 }
 .modal__registration-block-login, .modal-regist__registration-block-login {
   display: flex;
@@ -927,12 +944,12 @@ body {
 .modal__registration-form, .modal-regist__registration-form {
   width: 100%;
 }
-.modal__registration-form-error-block, .modal-regist__registration-form-error-block {
+.modal__registration-error-block, .modal-regist__registration-error-block {
   color: red;
   text-align: center;
   margin-bottom: 15px;
 }
-.modal__registration-form input:not(input[type=checkbox]), .modal-regist__registration-form input:not(input[type=checkbox]) {
+.modal__registration input:not(input[type=checkbox]), .modal-regist__registration input:not(input[type=checkbox]) {
   display: block;
   margin: 0 auto 24px auto;
   width: 100%;
@@ -942,7 +959,7 @@ body {
   background-color: #E8E8E8;
   background: #FFFFFF;
 }
-.modal__registration-form input:not(input[type=checkbox]):hover, .modal-regist__registration-form input:not(input[type=checkbox]):hover {
+.modal__registration input:not(input[type=checkbox]):hover, .modal-regist__registration input:not(input[type=checkbox]):hover {
   transition: all ease-in-out 0.3s;
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   -webkit-background-clip: text;
@@ -951,7 +968,7 @@ body {
   text-fill-color: transparent;
   border: 1px solid #CFA5A5;
 }
-.modal__registration-form input:not(input[type=checkbox]):focus, .modal-regist__registration-form input:not(input[type=checkbox]):focus {
+.modal__registration input:not(input[type=checkbox]):focus, .modal-regist__registration input:not(input[type=checkbox]):focus {
   transition: all ease-in-out 0.3s;
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   -webkit-background-clip: inherit;
@@ -960,17 +977,17 @@ body {
   text-fill-color: white;
   color: #FFFFFF;
 }
-.modal__registration-form input:not(input[type=checkbox])::placeholder, .modal-regist__registration-form input:not(input[type=checkbox])::placeholder {
+.modal__registration input:not(input[type=checkbox])::placeholder, .modal-regist__registration input:not(input[type=checkbox])::placeholder {
   font: 400 normal 0.875rem "Montserrat";
   line-height: 1.0625rem;
   color: #BDBDBD;
 }
-.modal__registration-form input:not(input[type=checkbox])::placeholder, .modal-regist__registration-form input:not(input[type=checkbox])::placeholder {
+.modal__registration input:not(input[type=checkbox])::placeholder, .modal-regist__registration input:not(input[type=checkbox])::placeholder {
   font: 400 normal 0.875rem "Montserrat";
   line-height: 1.0625rem;
   color: #424242;
 }
-.modal__registration-form-message, .modal-regist__registration-form-message {
+.modal__registration-message, .modal-regist__registration-message {
   text-align: left;
   margin-bottom: 40px;
   display: block;
@@ -978,7 +995,7 @@ body {
   line-height: 0.9375rem;
   color: #424242;
 }
-.modal__registration-form-button, .modal-regist__registration-form-button {
+.modal__registration-button, .modal-regist__registration-button {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   border-radius: 49px;
   padding: 13px 45px;
@@ -987,49 +1004,55 @@ body {
   color: #FFFFFF;
   text-align: center;
 }
-.modal__registration-form-button:hover, .modal-regist__registration-form-button:hover {
+.modal__registration-button:hover, .modal-regist__registration-button:hover {
   background: linear-gradient(102.48deg, #7B4646 -29.03%, #BF9191 97.75%);
 }
-.modal__registration-form-button:active, .modal-regist__registration-form-button:active {
+.modal__registration-button:active, .modal-regist__registration-button:active {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
 }
-.modal__registration-form-label, .modal-regist__registration-form-label {
+@media screen and (max-width: 520px) {
+  .modal__registration-button, .modal-regist__registration-button {
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+.modal__registration-label, .modal-regist__registration-label {
   font: 600 normal 1.75rem "Montserrat";
   line-height: 2.125rem;
   color: #424242;
   margin-bottom: 40px;
   text-align: center;
 }
-.modal__registration-form:after, .modal-regist__registration-form:after {
+.modal__registration:after, .modal-regist__registration:after {
   content: "";
   display: block;
   height: 1px;
   background: #BDBDBD;
   margin: 40px 0;
 }
-.modal__registration-form.login input[type=checkbox], .modal-regist__registration-form.login input[type=checkbox] {
+.modal__registration.login input[type=checkbox], .modal-regist__registration.login input[type=checkbox] {
   margin-right: 16px;
   width: 30px;
   height: 30px;
   border: 0.9px solid #BDBDBD;
   border-radius: 3px;
 }
-.modal__registration-form.login label.checkbox-label, .modal-regist__registration-form.login label.checkbox-label {
+.modal__registration.login label.checkbox-label, .modal-regist__registration.login label.checkbox-label {
   text-align: left;
   font: 400 normal 1rem "Montserrat";
   line-height: 1.25rem;
   color: #424242;
 }
-.modal__registration-form.forgot-password:after, .modal-regist__registration-form.forgot-password:after {
+.modal__registration.forgot-password:after, .modal-regist__registration.forgot-password:after {
   content: "";
   height: 0px;
   background: none;
 }
-.modal__registration-form.forgot-password a, .modal-regist__registration-form.forgot-password a {
+.modal__registration.forgot-password a, .modal-regist__registration.forgot-password a {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   border-radius: 49px;
   padding: 13px 45px;
@@ -1040,10 +1063,10 @@ body {
   margin: 0 auto;
   width: fit-content;
 }
-.modal__registration-form.forgot-password a:hover, .modal-regist__registration-form.forgot-password a:hover {
+.modal__registration.forgot-password a:hover, .modal-regist__registration.forgot-password a:hover {
   background: linear-gradient(102.48deg, #7B4646 -29.03%, #BF9191 97.75%);
 }
-.modal__registration-form.forgot-password a:active, .modal-regist__registration-form.forgot-password a:active {
+.modal__registration.forgot-password a:active, .modal-regist__registration.forgot-password a:active {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -3865,6 +3888,11 @@ body {
   column-gap: 10px;
   margin-bottom: 37px;
 }
+@media screen and (max-width: 448px) {
+  .main__basket-order-feedback-success {
+    align-items: start;
+  }
+}
 .main__basket-order-feedback-success-text {
   font: 600 normal 1.75rem "Montserrat";
   line-height: 2.125rem;
@@ -3897,7 +3925,7 @@ body {
   text-fill-color: transparent;
 }
 .main__basket-order-feedback-recommend {
-  margin-bottom: 0px;
+  margin-bottom: 103px;
 }
 .main__basket-info {
   display: flex;

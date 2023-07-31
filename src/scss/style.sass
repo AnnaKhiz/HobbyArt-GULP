@@ -1599,8 +1599,11 @@ body
           align-items: center
           column-gap: 10px
           margin-bottom: 37px
+          @media screen and (max-width: 448px)
+            align-items: start
           &-text
             @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+
         &-desc
           @include textSmall (1rem, 1.25rem, $colorTextMain)
           //@include textBlock-width (320px)
@@ -1610,7 +1613,7 @@ body
         &-link
           @include button
         &-recommend
-          margin-bottom: 0px
+          margin-bottom: 103px
     &-info
       display: flex
       justify-content: space-between
@@ -1953,28 +1956,6 @@ body
                 margin: 0 auto 10px auto
             &-text
               @include textSmall (0.75rem, 0.9375rem, $colorTextDesc)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
