@@ -1,8 +1,8 @@
 export function loadUserContent() {
-    // const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
-    // const APIURL = 'https://reqres.in/api/users/2';
-    const URL = 'http://localhost:3000/users';
-    const APIURL = 'http://localhost:3000/users/2';
+    const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
+    const APIURL = 'https://reqres.in/api/users/2';
+    // const URL = 'http://localhost:3000/users';
+    // const APIURL = 'http://localhost:3000/users/2';
     const userDataTemplate = document.getElementById('user-data-template').innerHTML;
     const bonusesTemplate = document.getElementById('bonuses-template').innerHTML;
     const mailingTemplate = document.getElementById('mailing-template').innerHTML;
@@ -26,7 +26,6 @@ export function loadUserContent() {
     let newListArr = [];
     let newItemListArray = [];
     let viewMoreStoryOrder = [];
-// let orderItemsBlockContent = [];
 
     if (window.screen.width <= 768 && containerWithData) {
         userMenuList.classList.add('bl-hidden');
@@ -46,10 +45,9 @@ export function loadUserContent() {
     function getUserData() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                // console.log(result.users);
-                // let data = result.users;
+                let data = result.users;
                 data.forEach((element, i) => {
                     const newUserDataTemplate = userDataTemplate
                         .replace('{{user-name}}', element.firstName)
@@ -71,9 +69,9 @@ export function loadUserContent() {
     }
 
 
-    if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html#favorite') {
+    if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite') {
         getFavoritesProducts();
-    } else if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html') {
+    } else if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
         getUserData();
     }
 
@@ -86,7 +84,6 @@ export function loadUserContent() {
     containerWithData.addEventListener('click', (e) => {
         e.preventDefault();
         document.getElementById(e.target.dataset.input).focus();
-        // console.log(document.getElementById(e.target.dataset.input).focus());
         let editButtonClicked = document.getElementById(e.target.id);
         editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">';
 
@@ -121,8 +118,6 @@ export function loadUserContent() {
                             saveEditedDataBtn.innerText = 'Сохранить данные';
                         }, 2000);
                     }
-                    // editButtonClicked.innerText = 'Изменить';
-
                 })
                 .catch(err => {
                     console.log(err);
@@ -135,10 +130,9 @@ export function loadUserContent() {
         e.preventDefault();
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                // console.log(result.users);
-                // let data = result.users;
+                let data = result.users;
                 data.forEach(element => {
                     console.log(element.bonuses);
                     const newBonusesTemplate = bonusesTemplate.replace('{{bonuses}}', element.bonuses);
@@ -155,9 +149,8 @@ export function loadUserContent() {
     function getFavoritesProducts() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
-                // console.log(result.users);
-                // let data = result.users;
+            .then(result => {
+                let data = result.users;
                 const favArray = data[0].favorites.listItems;
                 containerWithData.innerHTML = '';
                 favArray.forEach(element => {
@@ -177,9 +170,8 @@ export function loadUserContent() {
     function getDataForMailing() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
-                // console.log(result.users);
-                // let data = result.users;
+            .then(result => {
+                let data = result.users;
                 data.forEach(el => {
                     if (el.mailing == 'false') {
                         containerWithData.innerHTML = mailingTemplate;
@@ -235,9 +227,8 @@ export function loadUserContent() {
         let orderItemsBlockContent = []
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
-                // console.log(result.users);
-                // let data = result.users;
+            .then(result => {
+                let data = result.users;
                 containerWithData.innerHTML = '';
                 newOrdersArr = data.map(element => {
                     newListArr = element.orders.list;
