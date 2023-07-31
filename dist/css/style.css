@@ -3577,7 +3577,7 @@ body {
   font: 600 normal 1.75rem "Montserrat";
   line-height: 2.125rem;
   color: #424242;
-  min-width: 80px;
+  min-width: 90px;
 }
 @media screen and (max-width: 530px) {
   .main__product-details-about-item-basket-flex-price {
@@ -3592,6 +3592,7 @@ body {
   border: 1px solid #BDBDBD;
   padding: 10px;
   min-width: 70px;
+  background-color: #FFFFFF;
 }
 .main__product-details-about-item-basket-flex-count span:not(:last-of-type) {
   margin-right: 10px;
