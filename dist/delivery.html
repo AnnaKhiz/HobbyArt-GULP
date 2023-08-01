@@ -341,20 +341,25 @@
             <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество">
             <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона">
             <input type="email" name="email" id="user-email-reg" placeholder="E-mail">
-            <input type="text" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль">
-            <input type="text" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль">
+            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль">
+            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль">
             <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
-            <button class="modal__registration-form-button">Зарегистрироваться</button>
+            <button class="modal__registration-form-button" id="send-registered-data">Зарегистрироваться</button>
         </form>
+        <div class="error-message error-block"></div>
         <div class="modal__registration-block-login">
             <p class="modal__registration-block-text">
                 Есть аккаунт?
             </p>
-            <a href="#" class="modal__registration-block-button" id="login-button">
-                войти
+            <a href="#" class="modal__registration-block-button" id="login-button" data-modal="callModal">
+                Войти
             </a>
         </div>
     </div>
+<!--    <div class="loader-block bl-hidden">-->
+<!--        <button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Icon (default)</button>-->
+<!--    </div>-->
+
 </script>
 <script type="text/template" id="forgot-password-form-template" defer>
     <div class="scroll_on" id="forgot-password-inner-content">

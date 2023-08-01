@@ -4,7 +4,7 @@ export function callBurgerMenu() {
         $("#callBurger").on('click', (event) => {
             $('#burger').toggleClass('show');
             $('body').toggleClass('fixed');
-            $('.burger__list-menu').toggleClass('scroll');
+            $('.burger__container').toggleClass('scroll');
             event.preventDefault();
         });
     });
@@ -15,6 +15,7 @@ export function callBurgerMenu() {
         menuBtn.classList.toggle('active');
         menu.classList.toggle('active');
     });
+    console.dir(window)
 }
 
 export function catalogAdapt(){

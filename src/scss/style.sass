@@ -96,6 +96,7 @@ body
       @include buttonWithBorder
       position: relative
       z-index: 0
+      text-align: left
     &-enterButton
       &:before
         @include headerContactsIcon (url('../img/human.svg'), 12px, 20px)
@@ -139,8 +140,14 @@ body
       & input
         @include input-style
         width: 100%
-  &.bg-white .header__menu-search input
-    background-color: $colorTextButton
+      @media screen and (max-width: 700px)
+        max-width: 30%
+      @media screen and (max-width: 570px)
+        max-width: 45%
+      @media screen and (max-width: 424px)
+        max-width: 60%
+body.bg-white .header__menu-search input
+  background-color: $colorTextButton
 
 
 .main
@@ -647,12 +654,6 @@ body
       left: 0
       z-index: -1
       width: 100%
-    //&:after
-      content: url("/img/questions-image.png")
-      position: absolute
-      top: 0
-      left: 0
-      z-index: 0
     &-label
       @include sectionLabel
       margin-bottom: 64px
@@ -671,6 +672,7 @@ body
         @media screen and (max-width: 767px)
           margin-bottom: 20px
           margin-right: 0
+          width: 60%
     &-subform
       display: inline-block
       text-align: left
@@ -681,8 +683,7 @@ body
         @include button
         margin-bottom: 8px
         @media screen and (max-width: 767px)
-
-          width: 226px
+          width: 60%
       & p
         @include textSmall (0.75rem, 1.0625rem, #525252)
         @include textBlock-width (241px)
@@ -1863,14 +1864,12 @@ body
               margin-bottom: 0
               @media screen and (max-width: 670px)
                 margin-bottom: 10px
-              @media screen and (max-width: 670px)
                 width: 100%
             & button
               @include button
               @media screen and (max-width: 670px)
-                width: 60%
-              @media screen and (max-width: 670px)
                 width: 100%
+                margin-bottom: 10px
           &-text
             @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
             margin-bottom: 23px
@@ -1958,7 +1957,6 @@ body
               @include textSmall (0.75rem, 0.9375rem, $colorTextDesc)
 
 
-
 .footer
   padding: 64px 0
   background: linear-gradient(59.75deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
@@ -1979,7 +1977,6 @@ body
       width: 33.333%
     @media screen and (max-width: 1280px)
       width: 34.333%
-
     &-logo
       max-width: 99px
       height: auto
@@ -2080,6 +2077,8 @@ body
         @media screen and (max-width: 767px)
           padding: 16px 18px 17px 18px
           width: 226px
+        @media screen and (max-width: 768px)
+          width: 60%
       & button
         @include button
         position: absolute
@@ -2088,6 +2087,7 @@ body
         @media screen and (max-width: 767px)
           position: static
           margin: 0 auto 20px auto
+          width: 60%
     &-text, .main__user-page-content-mailing-text
       @include textSmall (0.75rem, 1.0625rem, #525252)
       margin-bottom: 40px
@@ -2149,6 +2149,9 @@ body
 
 .sidebar-button
   background: $sideBarButton
+
+.scroll
+  overflow: auto
 
 
 

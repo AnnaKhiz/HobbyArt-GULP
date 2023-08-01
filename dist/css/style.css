@@ -479,7 +479,7 @@ body {
   left: 0%;
   bottom: 0%;
   overflow: hidden;
-  padding: 53px 20px;
+  padding: 100px 20px;
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
 }
 .burger.show .burger__container {
@@ -508,7 +508,7 @@ body {
 @media screen and (max-width: 780px) {
   .burger__list-menu {
     display: block;
-    height: 65vh;
+    height: 100vh;
   }
 }
 .burger__list-menu li {
@@ -581,10 +581,6 @@ body {
 .fixed {
   overflow: hidden;
   width: 100%;
-}
-
-.scroll {
-  overflow: auto;
 }
 
 #menu__toggle {
@@ -692,7 +688,7 @@ body {
   left: 0%;
   bottom: 0%;
   overflow: hidden;
-  padding: 53px 20px;
+  padding: 100px 20px;
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
 }
 .burger.show .burger__container {
@@ -721,7 +717,7 @@ body {
 @media screen and (max-width: 780px) {
   .burger__list-menu {
     display: block;
-    height: 65vh;
+    height: 100vh;
   }
 }
 .burger__list-menu li {
@@ -794,10 +790,6 @@ body {
 .fixed {
   overflow: hidden;
   width: 100%;
-}
-
-.scroll {
-  overflow: auto;
 }
 
 #menu__toggle {
@@ -943,6 +935,11 @@ body {
 }
 .modal__registration-form, .modal-regist__registration-form {
   width: 100%;
+}
+@media screen and (max-width: 768px) {
+  .modal__registration-form, .modal-regist__registration-form {
+    text-align: center;
+  }
 }
 .modal__registration-form-error-block, .modal-regist__registration-form-error-block {
   color: red;
@@ -1243,6 +1240,7 @@ body {
   z-index: 0;
   position: relative;
   z-index: 0;
+  text-align: left;
 }
 .header__menu-enterButton:hover, .header__menu-favoriteButton:hover, .header__menu-basketButton:hover {
   transition: all ease-in-out 0.3s;
@@ -1403,7 +1401,23 @@ body {
   line-height: 1.0625rem;
   color: #BDBDBD;
 }
-.header.bg-white .header__menu-search input {
+@media screen and (max-width: 700px) {
+  .header__menu-search {
+    max-width: 30%;
+  }
+}
+@media screen and (max-width: 570px) {
+  .header__menu-search {
+    max-width: 45%;
+  }
+}
+@media screen and (max-width: 424px) {
+  .header__menu-search {
+    max-width: 60%;
+  }
+}
+
+body.bg-white .header__menu-search input {
   background-color: #FFFFFF;
 }
 
@@ -2205,6 +2219,7 @@ body {
   .main__feedback-form input {
     margin-bottom: 20px;
     margin-right: 0;
+    width: 60%;
   }
 }
 .main__feedback-subform {
@@ -2238,7 +2253,7 @@ body {
 }
 @media screen and (max-width: 767px) {
   .main__feedback-subform button {
-    width: 226px;
+    width: 60%;
   }
 }
 .main__feedback-subform p {
@@ -4359,10 +4374,6 @@ body {
 @media screen and (max-width: 670px) {
   .main__basket-info-item-order-promo input#promo {
     margin-bottom: 10px;
-  }
-}
-@media screen and (max-width: 670px) {
-  .main__basket-info-item-order-promo input#promo {
     width: 100%;
   }
 }
@@ -4386,12 +4397,8 @@ body {
 }
 @media screen and (max-width: 670px) {
   .main__basket-info-item-order-promo button {
-    width: 60%;
-  }
-}
-@media screen and (max-width: 670px) {
-  .main__basket-info-item-order-promo button {
     width: 100%;
+    margin-bottom: 10px;
   }
 }
 .main__basket-info-item-order-text {
@@ -4813,6 +4820,11 @@ body {
     width: 226px;
   }
 }
+@media screen and (max-width: 768px) {
+  .footer__item-form input, .footer__item .main__user-page-content-mailing-form input {
+    width: 60%;
+  }
+}
 .footer__item-form button, .footer__item .main__user-page-content-mailing-form button {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   border-radius: 49px;
@@ -4838,6 +4850,7 @@ body {
   .footer__item-form button, .footer__item .main__user-page-content-mailing-form button {
     position: static;
     margin: 0 auto 20px auto;
+    width: 60%;
   }
 }
 .footer__item-text, .footer__item .main__user-page-content-mailing-text {
@@ -4945,4 +4958,8 @@ body {
 
 .sidebar-button {
   background: linear-gradient(10deg, #a77272 -29.03%, #CFA5A5 97.75%);
+}
+
+.scroll {
+  overflow: auto;
 }

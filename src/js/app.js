@@ -21,6 +21,9 @@ logInFunc.logInFunction();
 
 
 
+
+
+
 // popup.funcPopup();
 
 if (document.getElementById('comments-popup')) {
