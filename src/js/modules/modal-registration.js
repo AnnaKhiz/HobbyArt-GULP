@@ -215,7 +215,7 @@ export function logInFunction() {
     }
 
     function emailValidate(forgotPasswordEmail, contentInModalWindow) {
-        const regex = new RegExp('^[A-Za-z0-9\\.\\_\\-]+@[a-z\\.]+[a-z\\.]$');
+        const regex = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
         if (forgotPasswordEmail.value.length > 1 && forgotPasswordEmail.value !== '') {
             if (!regex.test(forgotPasswordEmail.value)) {
                 console.error('email - entered forbidden symbols');
@@ -261,31 +261,79 @@ export function logInFunction() {
 
     function validationUserData() {
 
-        const regex = new RegExp('[A-Za-zА-Яа-яҐґЄєІіЇї]');
+        const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
+        const regexTelephone = new RegExp('^[0-9]{12}$');
+        const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
+        const regexPassword = new RegExp('^[a-z]+[A-Z]+[0-9]+\.]{6,}$');
         const sendRegisteredData = document.getElementById('send-registered-data');
+        const userName = document.getElementById('user-name-reg');
+        const userLastName = document.getElementById('user-last-name-reg');
+        const userSurName = document.getElementById('user-sur-name-reg');
+        const userPhone = document.getElementById('regist-user-phone-reg');
+        const userEmail = document.getElementById('user-email-reg');
+        const userPassword = document.getElementById('regist-user-password-reg');
+        const userConfirmPassword = document.getElementById('user-confirm-password-reg');
 
-        sendRegisteredData.addEventListener('click', (e) => {
-            e.preventDefault();
-            const userName = document.getElementById('user-name-reg');
-            const userLastName = document.getElementById('user-last-name-reg');
-            const userSurName = document.getElementById('user-sur-name-reg');
-            console.log(regex)
-            // if (userName.value.length > 1 && userName.value !== '') {
-            //     if(!regex.test(userName.value)) {
-            //         console.log('wr data')
-            //     } else {
-            //         console.log('ri name')
-            //     }
-            // } else {
-            //     console.log('empty fields')
-            // }
 
-            if (!regex.test(userName.value) || !regex.test(userLastName.value) || !regex.test(userSurName.value)) {
-               console.log('wrong data')
-            } else {
-                console.log('right name')
-            }
-        })
+        function checkUserData(field, regex) {
+            field.addEventListener('blur', (e) => {
+                e.preventDefault();
+                if (field.value.length > 1 && field.value !== '') {
+                    if(!regex.test(field.value)) {
+                        field.setAttribute('style', 'background-color:#f9ebeb');
+                    } else {
+                        field.setAttribute('style', 'background-color:#edf9eb');
+                    }
+                }
+            })
+        }
+
+        checkUserData(userName, regexName);
+        checkUserData(userLastName, regexName);
+        checkUserData(userSurName, regexName);
+
+        checkUserData(userPhone, regexTelephone);
+        checkUserData(userEmail, regexEmail);
+
+        function checkUserPassword(field, regex) {
+            field.addEventListener('blur', (e) => {
+                e.preventDefault();
+                if (field.value.length > 1 && field.value !== '') {
+                    if(!field.value.match(regex)) {
+                        console.log(`error ${field.value}`)
+                        field.setAttribute('style', 'background-color:#f9ebeb');
+                    } else {
+                        console.log(field.value)
+                        field.setAttribute('style', 'background-color:#edf9eb');
+                    }
+                }
+            })
+        }
+        checkUserPassword(userPassword, regexPassword);
+        checkUserPassword(userConfirmPassword, regexPassword);
+
+        // sendRegisteredData.addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     const userName = document.getElementById('user-name-reg');
+        //     const userLastName = document.getElementById('user-last-name-reg');
+        //     const userSurName = document.getElementById('user-sur-name-reg');
+        //     console.log(regex)
+        //     // if (userName.value.length > 1 && userName.value !== '') {
+        //     //     if(!regex.test(userName.value)) {
+        //     //         console.log('wr data')
+        //     //     } else {
+        //     //         console.log('ri name')
+        //     //     }
+        //     // } else {
+        //     //     console.log('empty fields')
+        //     // }
+        //
+        //     if (!regex.test(userName.value) || !regex.test(userLastName.value) || !regex.test(userSurName.value)) {
+        //        console.log('wrong data')
+        //     } else {
+        //         console.log('right name')
+        //     }
+        // })
 
         // phone: document.getElementById('regist-user-phone-reg').value,
         // email: document.getElementById('user-email-reg').value,
