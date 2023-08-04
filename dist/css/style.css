@@ -1011,6 +1011,10 @@ body {
   background-clip: text;
   text-fill-color: transparent;
 }
+.modal__registration-form-button:disabled, .modal-regist__registration-form-button:disabled {
+  background: darkgray;
+  cursor: auto;
+}
 @media screen and (max-width: 520px) {
   .modal__registration-form-button, .modal-regist__registration-form-button {
     display: block;

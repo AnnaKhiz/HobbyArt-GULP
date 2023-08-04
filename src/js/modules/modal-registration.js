@@ -264,7 +264,8 @@ export function logInFunction() {
         const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
         const regexTelephone = new RegExp('^[0-9]{12}$');
         const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
-        const regexPassword = new RegExp('^[a-z]+[A-Z]+[0-9]+\.]{6,}$');
+        // const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){6}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){6}[^a-z]*$)(?=(?:\\D*\\d){6}\\D*$)\\S+$')
+        const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){1,}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){1,}[^a-z]*$)(?=(?:\\D*\\d){1,}\\D*$)[A-Za-z\\d]{6,}$');
         const sendRegisteredData = document.getElementById('send-registered-data');
         const userName = document.getElementById('user-name-reg');
         const userLastName = document.getElementById('user-last-name-reg');
@@ -273,7 +274,7 @@ export function logInFunction() {
         const userEmail = document.getElementById('user-email-reg');
         const userPassword = document.getElementById('regist-user-password-reg');
         const userConfirmPassword = document.getElementById('user-confirm-password-reg');
-
+        const dataArray = [];
 
         function checkUserData(field, regex) {
             field.addEventListener('blur', (e) => {
@@ -283,6 +284,12 @@ export function logInFunction() {
                         field.setAttribute('style', 'background-color:#f9ebeb');
                     } else {
                         field.setAttribute('style', 'background-color:#edf9eb');
+                        dataArray.push(e.target.dataset.register);
+                        if (dataArray.length === 7) {
+                            checkUserPassword();
+                        } else {
+                            console.log('do not leave empty fields or check entered data!')
+                        }
                     }
                 }
             })
@@ -291,26 +298,21 @@ export function logInFunction() {
         checkUserData(userName, regexName);
         checkUserData(userLastName, regexName);
         checkUserData(userSurName, regexName);
-
         checkUserData(userPhone, regexTelephone);
         checkUserData(userEmail, regexEmail);
-
-        function checkUserPassword(field, regex) {
-            field.addEventListener('blur', (e) => {
-                e.preventDefault();
-                if (field.value.length > 1 && field.value !== '') {
-                    if(!field.value.match(regex)) {
-                        console.log(`error ${field.value}`)
-                        field.setAttribute('style', 'background-color:#f9ebeb');
-                    } else {
-                        console.log(field.value)
-                        field.setAttribute('style', 'background-color:#edf9eb');
-                    }
-                }
-            })
+        checkUserData(userPassword, regexPassword);
+        checkUserData(userConfirmPassword, regexPassword);
+        function checkUserPassword() {
+            if (userPassword.value !== userConfirmPassword.value) {
+                console.log('different passwords');
+            } else {
+                console.log('passwords are the same');
+                sendRegisteredData.disabled = false;
+            }
         }
-        checkUserPassword(userPassword, regexPassword);
-        checkUserPassword(userConfirmPassword, regexPassword);
+
+
+
 
         // sendRegisteredData.addEventListener('click', (e) => {
         //     e.preventDefault();

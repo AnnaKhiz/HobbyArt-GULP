@@ -331,15 +331,15 @@
             <h2 class="modal__registration-form-label">
                 Регистрация
             </h2>
-            <input type="text" name="name" id="user-name-reg" placeholder="Имя">
-            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия">
-            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество">
-            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона">
-            <input type="email" name="email" id="user-email-reg" placeholder="E-mail">
-            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль">
-            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль">
+            <input type="text" name="name" id="user-name-reg" placeholder="Имя" data-register="new-user">
+            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия" data-register="new-user">
+            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество" data-register="new-user">
+            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона" data-register="new-user">
+            <input type="email" name="email" id="user-email-reg" placeholder="E-mail" data-register="new-user">
+            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль" data-register="new-user">
+            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль" data-register="new-user">
             <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
-            <button class="modal__registration-form-button" id="send-registered-data">Зарегистрироваться</button>
+            <button class="modal__registration-form-button" id="send-registered-data" disabled>Зарегистрироваться</button>
         </form>
         <div class="error-message error-block"></div>
         <div class="modal__registration-block-login">
