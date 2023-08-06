@@ -9,15 +9,12 @@ export function userBasket() {
 
     document.addEventListener('DOMContentLoaded', (e) => {
 
-
         if (document.getElementById('product-details')) {
             const currentPage = document.getElementById('about-details');
             currentPage.addEventListener('click', (e) => {
-                // let count = document.querySelector(dataId);
                 let element = document.querySelector(`[data-name="${e.target.dataset.name}"]>span.result`);
                 //беру из строки сумму товара без обозначения валюты
                 let elPrice = document.querySelector(`[data-name="${e.target.dataset.name}"]+[data-price="basket-item-price"]`);
-                // console.log(elPrice)
                 let priceDigit = elPrice.innerText.replace(regexp, "");
                 //записываю в дата атрибут блока изначальную стоимость товара
                 if (!elPrice.dataset.currentCount) {
@@ -33,23 +30,19 @@ export function userBasket() {
                         element.innerText = ++element.innerText;
                         let multPrices = dataPrice * element.innerText;
                         elPrice.innerText = `${multPrices} ₽`;
-
                     } else if (e.target.classList.contains('minus')) {
                         if (element.innerText <= 1) {
                             element.innerText = '1';
                             elPrice.innerText = `${dataPrice} ₽`;
-
                         } else {
                             element.innerText = element.innerText - 1;
                             elPrice.innerText = `${priceDigit - dataPrice} ₽`;
-
                         }
                     }
-
                 }
             })
         } else {
-
+            const countProducts = document.getElementById('count-products');
             const elDeliveryPrice = document.getElementById('delivery-price');
             let deliveryPriceDigit = elDeliveryPrice.innerText.replace(regexp, "");
 
@@ -70,17 +63,21 @@ export function userBasket() {
             countTotalPrice(itemsArray);
 
             let delButtonsArray = [...document.querySelectorAll('[data-delete="basket-item-delete"]')];
-            console.log(delButtonsArray)
-            deleteItem(delButtonsArray)
+            deleteItem(delButtonsArray);
+
+            let countButton = [...document.querySelectorAll('button>span.result')];
+            countTotalItems(countButton);
 
             document.addEventListener('click', (e) => {
                 let dataId = e.target.dataset.name;
                 totalSumDigit = +0;
-                // let count = document.querySelector(dataId);
+
                 let element = document.querySelector(`[data-name="${dataId}"]>span.result`);
+
                 //беру из строки сумму товара без обозначения валюты
                 let elPrice = document.querySelector(`[data-name="${dataId}"]+[data-price="basket-item-price"]`);
-                // console.log(elPrice)
+
+
                 let priceDigit = elPrice.innerText.replace(regexp, "");
                 //записываю в дата атрибут блока изначальную стоимость товара
                 if (!elPrice.dataset.currentCount) {
@@ -93,60 +90,78 @@ export function userBasket() {
                 //считаю + и - и вывожу итоговую сумму по каждому товару
                 if (e.target.dataset.name) {
                     itemsArray = [...document.querySelectorAll('[data-count="count-block"]')];
-                    // countPlusMinus(element, elPrice, priceDigit, countTotalPrice, itemsArray, e.target);
+                    countButton = [...document.querySelectorAll('button>span.result')];
                     if (e.target.classList.contains('plus')) {
                         element.innerText = ++element.innerText;
                         let multPrices = dataPrice * element.innerText;
                         elPrice.innerText = `${multPrices} ₽`;
                         countTotalPrice(itemsArray);
+                        countTotalItems(countButton);
                     } else if (e.target.classList.contains('minus')) {
                         if (element.innerText <= 1) {
                             element.innerText = '1';
                             elPrice.innerText = `${dataPrice} ₽`;
                             countTotalPrice(itemsArray);
+                            countTotalItems(countButton);
                         } else {
                             element.innerText = element.innerText - 1;
                             elPrice.innerText = `${priceDigit - dataPrice} ₽`;
                             countTotalPrice(itemsArray);
+                            countTotalItems(countButton);
                         }
                     }
-
                 }
-
             });
 
             function countTotalPrice(array) {
-                array.forEach((element) => {
-                    searchElem = [...element.children];
-                    searchElem.forEach((el) => {
-                        if (el.dataset.price) {
-                            searchPrice = +el.innerText.replace(regexp, "");
-                            totalSumDigit += +searchPrice;
-                            elTotalSum.innerText = `${totalSumDigit} ₽`;//получила сумму товаров в корзине при загрузке страницы
-                            elTotalSumDiscount.innerText = `${(+deliveryPriceDigit + +totalSumDigit) - discountDigit} ₽`
-                        }
+                if (array.length === 0) {
+                    elTotalSum.innerText = '0';
+                    elTotalSumDiscount.innerText = '229 ₽';
+                    countProducts.innerText = '0';
+                } else {
+                    array.forEach((element) => {
+                        searchElem = [...element.children];
+                        searchElem.forEach((el) => {
+                            if (el.dataset.price) {
+                                searchPrice = +el.innerText.replace(regexp, "");
+                                totalSumDigit += +searchPrice;
+                                elTotalSum.innerText = `${totalSumDigit} ₽`;//получила сумму товаров в корзине при загрузке страницы
+                                elTotalSumDiscount.innerText = `${(+deliveryPriceDigit + +totalSumDigit) - discountDigit} ₽`
+                            }
+                        })
                     })
+                }
+
+            }
+
+            function countTotalItems(array) {
+                countProducts.innerText = +0;
+                array.forEach((element) => {
+                    let countProductDigit = +countProducts.innerText
+                    countProductDigit += +element.innerText;
+                    countProducts.innerText = `${countProductDigit}`;
                 })
             }
 
             function deleteItem(array) {
                 let itemsDelArray;
-                array.forEach((element) => {
-                    element.addEventListener('click', (e) => {
-                        totalSumDigit = +0;
-                        e.preventDefault();
-                        searchElem = element.parentElement.parentElement;
-                        searchElem.remove();
-                        if (!searchElem.isConnected) {
-                            let delButtonsArray = [...document.querySelectorAll('[data-delete="basket-item-delete"]')];
-                            if (delButtonsArray.length < 3) {
-                                itemsDelArray = [...document.querySelectorAll('[data-count="count-block"]')];
-                                countTotalPrice(itemsDelArray);
+                    array.forEach((element) => {
+                        element.addEventListener('click', (e) => {
+                            totalSumDigit = +0;
+                            e.preventDefault();
+                            searchElem = element.parentElement.parentElement;
+                            searchElem.remove();
+                            if (!searchElem.isConnected) {
+                                let delButtonsArray = [...document.querySelectorAll('[data-delete="basket-item-delete"]')];
+                                if (delButtonsArray.length < 3) {
+                                    itemsDelArray = [...document.querySelectorAll('[data-count="count-block"]')];
+                                    countTotalPrice(itemsDelArray);
+                                    let delCountButton = [...document.querySelectorAll('button>span.result')];
+                                    countTotalItems(delCountButton);
+                                }
                             }
-                        }
-
+                        })
                     })
-                })
             }
         }
     });

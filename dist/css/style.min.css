@@ -4483,16 +4483,11 @@ body.bg-white .header__menu-search input {
   }
 }
 .main__basket-info-item-order-total-item-text {
-  max-width: 180px;
+  max-width: 200px;
   overflow: hidden;
   font: 600 normal 1.125rem "Montserrat";
   line-height: 1.375rem;
   color: #424242;
-}
-@media screen and (max-width: 768px) {
-  .main__basket-info-item-order-total-item-text {
-    max-width: 200px;
-  }
 }
 @media screen and (max-width: 670px) {
   .main__basket-info-item-order-total-item-text {
@@ -4536,7 +4531,7 @@ body.bg-white .header__menu-search input {
   justify-content: space-between;
   align-items: center;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .main__basket-info-item-order-submit {
     display: block;
   }
@@ -4559,7 +4554,7 @@ body.bg-white .header__menu-search input {
   background-clip: text;
   text-fill-color: transparent;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1024px) {
   .main__basket-info-item-order-submit a {
     display: block;
     width: fit-content;

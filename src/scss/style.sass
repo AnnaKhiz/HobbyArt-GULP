@@ -1916,15 +1916,11 @@ body.bg-white .header__menu-search input
                 @media screen and (max-width: 670px)
                   display: block
               &-text
-                @include textBlock-width (180px)
-                //width: 20%
+                @include textBlock-width (200px)
                 @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
-                @media screen and (max-width: 768px)
-                  max-width: 200px
                 @media screen and (max-width: 670px)
                   margin: 0 auto 10px auto
               &-sum
-                //width: 10%
                 text-align: right
                 @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
                 @media screen and (max-width: 670px)
@@ -1943,11 +1939,11 @@ body.bg-white .header__menu-search input
             display: flex
             justify-content: space-between
             align-items: center
-            @media screen and (max-width: 768px)
+            @media screen and (max-width: 1024px)
               display: block
             & a
               @include button
-              @media screen and (max-width: 768px)
+              @media screen and (max-width: 1024px)
                 display: block
                 width: fit-content
                 margin-bottom: 10px
