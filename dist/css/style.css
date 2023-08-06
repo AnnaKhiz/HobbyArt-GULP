@@ -1088,6 +1088,8 @@ body {
   font: 400 normal 1rem "Montserrat";
   line-height: 1.25rem;
   color: #424242;
+  margin-bottom: 15px;
+  color: red;
 }
 
 body {

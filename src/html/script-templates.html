@@ -37,17 +37,19 @@
             <h2 class="modal__registration-form-label">
                 Регистрация
             </h2>
-            <input type="text" name="name" id="user-name-reg" placeholder="Имя" data-register="new-user">
-            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия" data-register="new-user">
-            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество" data-register="new-user">
-            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона" data-register="new-user">
-            <input type="email" name="email" id="user-email-reg" placeholder="E-mail" data-register="new-user">
-            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль" data-register="new-user">
-            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль" data-register="new-user">
+            <div class="error-message error-block" id="reg-error-block"></div>
+            <input type="text" name="name" id="user-name-reg" placeholder="Имя" data-register="new-user" required>
+            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия" data-register="new-user" required>
+            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество" data-register="new-user" required>
+            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона" data-register="new-user" required>
+            <input type="email" name="email" id="user-email-reg" placeholder="E-mail" data-register="new-user" required>
+            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль" data-register="new-user" required>
+            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль" data-register="new-user" required>
             <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
+
             <button class="modal__registration-form-button" id="send-registered-data" disabled>Зарегистрироваться</button>
         </form>
-        <div class="error-message error-block"></div>
+
         <div class="modal__registration-block-login">
             <p class="modal__registration-block-text">
                 Есть аккаунт?

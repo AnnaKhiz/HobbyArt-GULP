@@ -125,43 +125,43 @@ export function logInFunction() {
             registrationButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 contentInModalWindow.innerHTML = registrationFormTemplate;
-                validationUserData()
-                // const sendRegisteredData = document.getElementById('send-registered-data');
-                // sendRegisteredData.addEventListener('click', (e) => {
-                //    e.preventDefault();
-                //    fetch('https://reqres.in/api/register', {
-                //        method: 'POST',
-                //        body: JSON.stringify({
-                //            // userName: document.getElementById('user-name-reg').value,
-                //            // userLastName: document.getElementById('user-last-name-reg').value,
-                //            // userSurName: document.getElementById('user-sur-name-reg').value,
-                //            // phone: document.getElementById('regist-user-phone-reg').value,
-                //            // email: document.getElementById('user-email-reg').value,
-                //            // password: document.getElementById('regist-user-password-reg').value,
-                //            // confirmPassword: document.getElementById('user-confirm-password-reg').value,
-                //            "email": "eve.holt@reqres.in",
-                //            "password": "pistol"
-                //        }),
-                //        headers: {
-                //            'content-type': 'application/json'
-                //        }
-                //    })
-                //        .then(response => response.json())
-                //        .then(res => {
-                //            console.log(res)
-                //            if (res.token) {
-                //                setTimeout(() => {
-                //                    contentInModalWindow.innerHTML = forgotPasswordFormTemplate;
-                //                    const innerContent = document.getElementById('forgot-password-inner-content');
-                //                    innerContent.innerText = '';
-                //                    innerContent.innerHTML = '<p class="error-message">Регистрация прошла успешно!</p>';
-                //                     setTimeout(() => {
-                //                         window.location.reload();
-                //                     }, 1500);
-                //                }, 100);
-                //            }
-                //        })
-                // })
+                validationUserData();
+                const sendRegisteredData = document.getElementById('send-registered-data');
+                sendRegisteredData.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   fetch('https://reqres.in/api/register', {
+                       method: 'POST',
+                       body: JSON.stringify({
+                           // userName: document.getElementById('user-name-reg').value,
+                           // userLastName: document.getElementById('user-last-name-reg').value,
+                           // userSurName: document.getElementById('user-sur-name-reg').value,
+                           // phone: document.getElementById('regist-user-phone-reg').value,
+                           // email: document.getElementById('user-email-reg').value,
+                           // password: document.getElementById('regist-user-password-reg').value,
+                           // confirmPassword: document.getElementById('user-confirm-password-reg').value,
+                           "email": "eve.holt@reqres.in",
+                           "password": "pistol"
+                       }),
+                       headers: {
+                           'content-type': 'application/json'
+                       }
+                   })
+                       .then(response => response.json())
+                       .then(res => {
+                           console.log(res)
+                           if (res.token) {
+                               setTimeout(() => {
+                                   contentInModalWindow.innerHTML = forgotPasswordFormTemplate;
+                                   const innerContent = document.getElementById('forgot-password-inner-content');
+                                   innerContent.innerText = '';
+                                   innerContent.innerHTML = '<p class="error-message">Регистрация прошла успешно!</p>';
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 1500);
+                               }, 100);
+                           }
+                       })
+                })
                 const loginButton = document.getElementById('login-button');
                 loginButton.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -173,8 +173,66 @@ export function logInFunction() {
                 });
             });
         }
-
         callRegistTemplate();
+
+        function validationUserData() {
+            const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
+            const regexTelephone = new RegExp('^[0-9]{12}$');
+            const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
+            const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){1,}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){1,}[^a-z]*$)(?=(?:\\D*\\d){1,}\\D*$)[A-Za-z\\d]{6,}$');
+            const sendRegisteredData = document.getElementById('send-registered-data');
+            const userName = document.getElementById('user-name-reg');
+            const userLastName = document.getElementById('user-last-name-reg');
+            const userSurName = document.getElementById('user-sur-name-reg');
+            const userPhone = document.getElementById('regist-user-phone-reg');
+            const userEmail = document.getElementById('user-email-reg');
+            const userPassword = document.getElementById('regist-user-password-reg');
+            const userConfirmPassword = document.getElementById('user-confirm-password-reg');
+            const regErrorBlock = document.getElementById('reg-error-block');
+            console.log(regErrorBlock)
+
+            function checkUserData(field, regex) {
+                field.addEventListener('keyup', (e) => {
+                    e.preventDefault();
+                    if (field.value.length > 1 && field.value !== '') {
+                        if(!regex.test(field.value)) {
+                            field.setAttribute('style', 'background-color:#f9ebeb');
+                        } else {
+                            field.setAttribute('style', 'background-color:#edf9eb');
+                        }
+                        checkUserPassword();
+                        checkFilledFields();
+                    }
+                })
+            }
+
+            checkUserData(userName, regexName);
+            checkUserData(userLastName, regexName);
+            checkUserData(userSurName, regexName);
+            checkUserData(userPhone, regexTelephone);
+            checkUserData(userEmail, regexEmail);
+            checkUserData(userPassword, regexPassword);
+            checkUserData(userConfirmPassword, regexPassword);
+
+            function checkUserPassword() {
+                if (userPassword.value !== '' && userConfirmPassword.value !== '' && userPassword.value.length >= 6 && userConfirmPassword.value.length >= 6) {
+                    if (userPassword.value !== userConfirmPassword.value) {
+                        regErrorBlock.innerText = 'Пароли не совпадают!';
+                    } else {
+                        regErrorBlock.innerText = 'Пароли совпадают';
+                    }
+                }
+            }
+
+            function checkFilledFields() {
+                const allFilledFields = [...document.querySelectorAll('input[style="background-color:#edf9eb"]')];
+                if (allFilledFields.length === 7) {
+                    sendRegisteredData.disabled = false;
+                } else if (allFilledFields.length < 7) {
+                    sendRegisteredData.disabled = true;
+                }
+            }
+        }
 
         function callFormForgotPassword() {
             const modalRegistrationForgotButton = document.getElementById('modal-registration-forgot-button');
@@ -259,89 +317,7 @@ export function logInFunction() {
     }
     exitUserPage();
 
-    function validationUserData() {
 
-        const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
-        const regexTelephone = new RegExp('^[0-9]{12}$');
-        const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
-        // const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){6}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){6}[^a-z]*$)(?=(?:\\D*\\d){6}\\D*$)\\S+$')
-        const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){1,}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){1,}[^a-z]*$)(?=(?:\\D*\\d){1,}\\D*$)[A-Za-z\\d]{6,}$');
-        const sendRegisteredData = document.getElementById('send-registered-data');
-        const userName = document.getElementById('user-name-reg');
-        const userLastName = document.getElementById('user-last-name-reg');
-        const userSurName = document.getElementById('user-sur-name-reg');
-        const userPhone = document.getElementById('regist-user-phone-reg');
-        const userEmail = document.getElementById('user-email-reg');
-        const userPassword = document.getElementById('regist-user-password-reg');
-        const userConfirmPassword = document.getElementById('user-confirm-password-reg');
-        const dataArray = [];
-
-        function checkUserData(field, regex) {
-            field.addEventListener('blur', (e) => {
-                e.preventDefault();
-                if (field.value.length > 1 && field.value !== '') {
-                    if(!regex.test(field.value)) {
-                        field.setAttribute('style', 'background-color:#f9ebeb');
-                    } else {
-                        field.setAttribute('style', 'background-color:#edf9eb');
-                        dataArray.push(e.target.dataset.register);
-                        if (dataArray.length === 7) {
-                            checkUserPassword();
-                        } else {
-                            console.log('do not leave empty fields or check entered data!')
-                        }
-                    }
-                }
-            })
-        }
-
-        checkUserData(userName, regexName);
-        checkUserData(userLastName, regexName);
-        checkUserData(userSurName, regexName);
-        checkUserData(userPhone, regexTelephone);
-        checkUserData(userEmail, regexEmail);
-        checkUserData(userPassword, regexPassword);
-        checkUserData(userConfirmPassword, regexPassword);
-        function checkUserPassword() {
-            if (userPassword.value !== userConfirmPassword.value) {
-                console.log('different passwords');
-            } else {
-                console.log('passwords are the same');
-                sendRegisteredData.disabled = false;
-            }
-        }
-
-
-
-
-        // sendRegisteredData.addEventListener('click', (e) => {
-        //     e.preventDefault();
-        //     const userName = document.getElementById('user-name-reg');
-        //     const userLastName = document.getElementById('user-last-name-reg');
-        //     const userSurName = document.getElementById('user-sur-name-reg');
-        //     console.log(regex)
-        //     // if (userName.value.length > 1 && userName.value !== '') {
-        //     //     if(!regex.test(userName.value)) {
-        //     //         console.log('wr data')
-        //     //     } else {
-        //     //         console.log('ri name')
-        //     //     }
-        //     // } else {
-        //     //     console.log('empty fields')
-        //     // }
-        //
-        //     if (!regex.test(userName.value) || !regex.test(userLastName.value) || !regex.test(userSurName.value)) {
-        //        console.log('wrong data')
-        //     } else {
-        //         console.log('right name')
-        //     }
-        // })
-
-        // phone: document.getElementById('regist-user-phone-reg').value,
-        // email: document.getElementById('user-email-reg').value,
-        // password: document.getElementById('regist-user-password-reg').value,
-        // confirmPassword: document.getElementById('user-confirm-password-reg').value,
-    }
 
 
 }
