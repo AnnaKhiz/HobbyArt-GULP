@@ -2,7 +2,7 @@
 <html lang="en">
 @@include('html/head.html', {"title": "Подробнее о товаре"})
 <body class="bg-white">
-@@include('html/header.html')
+@@include('html/header.html', {})
 @@include('html/burger.html')
 <main class="main bg-white">
     <div class="main__product-details" id="product-details">
@@ -20,17 +20,14 @@
             </section>
             <section class="main__product-details-about">
                 <div class="main__product-details-about-flex">
-                    
                     <div class="main__product-details-about-item left-item">
                         <div class="main__product-details-about-item-image">
                             <img src="img/image-full-info-1.png" alt="image">
                         </div>
-                        <div >
+                        <div class="main__product-details-about-item-image">
                             <img src="img/colors-image.png" alt="colors image">
                         </div>
-
                     </div>
-
                     <div class="main__product-details-about-item right-item">
 
                         <div class="main__product-details-about-item-text">
@@ -83,10 +80,7 @@
                                 </a>
                             </div>
                         </div>
-
                     </div>
-
-                    
                 </div>
             </section>
             <section class="main__product-details-feedback">
@@ -236,12 +230,7 @@
 
 </main>
 @@include('html/footer.html')
-<!--<script src="js/swiper-bundle.min.js"> </script>-->
-<!--<script src="js/swiper.js"></script>-->
-<!--<script src="js/burger.js"></script>-->
 @@include('html/script-templates.html')
 <script src="js/app.min.js"></script>
-<!--<script src="js/modal-registration.js" defer></script>-->
-<!--<script src="js/basket.js" defer></script>-->
 </body>
 </html>

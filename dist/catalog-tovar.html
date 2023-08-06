@@ -29,14 +29,14 @@
             <div class="header__menu-container">
                 <nav class="header__menu-nav">
                     <ul id="menu-links">
-                        <li ><a href="index.html#catalog">Каталог</a></li>
-                        <li ><a href="../delivery.html">Оплата и доставка</a></li>
-                        <li ><a href="bonus.html">Бонусная программа</a></li>
-                        <li ><a href="about.html">О компании</a></li>
-                        <li ><a href="#footer">Контакты</a></li>
+                        <li ><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#catalog">Каталог</a></li>
+                        <li ><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/delivery.html">Оплата и доставка</a></li>
+                        <li ><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/bonus.html">Бонусная программа</a></li>
+                        <li ><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/about.html">О компании</a></li>
+                        <li ><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#footer">Контакты</a></li>
                     </ul>
                 </nav>
-                    <a href="index.html" class="header__menu-logo">
+                    <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt" class="header__menu-logo">
                         <img src="img/logo.png" alt="logo">
                     </a>
                 <div class="header__menu-subitem">
@@ -87,27 +87,27 @@
         </a>
         <ul class="burger__list-menu">
             <li class="burger__item">
-                <a href="index.html#catalog">
+                <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#catalog">
                     Каталог
                 </a>
             </li>
             <li class="burger__item">
-                <a href="../delivery.html">
+                <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/delivery.html">
                     Оплата и доставка
                 </a>
             </li>
             <li class="burger__item">
-                <a href="bonus.html">
+                <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/bonus.html">
                     Бонусная программа
                 </a>
             </li>
             <li class="burger__item">
-                <a href="about.html">
+                <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/about.html">
                     О компании
                 </a>
             </li>
             <li class="burger__item">
-                <a href="index.html#footer">
+                <a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#footer">
                     Контакты
                 </a>
             </li>
@@ -194,54 +194,133 @@
                 </ul>
             </section>
             <section class="main__product-page-price-block">
-                <div class="main__product-page-price-block-btn">
+                <div class="main__product-page-price-block-filter bl-hidden">
+                    <a href="" class="main__product-page-price-block-filter-button" id="filter-show-button">
+                        Фильтры
+                    </a>
+                </div>
+
+                <div class="main__product-page-price-block-btn" id="price-up-link">
                     <a href="#">Цена &#8595</a>
                 </div>
-                <div class="main__product-page-price-block-btn">
+                <div class="main__product-page-price-block-btn" id="price-down-link">
                     <a href="#">Цена &#8593</a>
                 </div>
             </section>
             <section class="main__product-page-container">
-                <form action="#" class="main__product-page-sidebar-search">
+                <form action="#" class="main__product-page-sidebar-search" id="search-sidebar">
     <ul class="main__product-page-sidebar-block">
         <h3 class="main__product-page-sidebar-title">
             Тип изделий
         </h3>
-        <li><input type="checkbox" name="type" value="shpagat">Шпагат, шнуры, веревки</li>
-        <li><input type="checkbox" name="type" value="kolco">Кольца</li>
-        <li><input type="checkbox" name="type" value="dzut">Джут</li>
+        <li>
+            <label for="shpagat">
+                <input type="checkbox" name="type" value="shpagat" id="shpagat">
+                Шпагат, шнуры, веревки
+            </label>
+        </li>
+        <li>
+            <label for="kolco">
+                <input type="checkbox" name="type" value="kolco" id="kolco">
+                Кольца
+            </label>
+        </li>
+        <li>
+            <label for="dzut">
+                <input type="checkbox" name="type" value="dzut" id="dzut">
+                Джут
+            </label>
+        </li>
     </ul>
     <ul class="main__product-page-sidebar-block">
         <h3 class="main__product-page-sidebar-title">
             Состав
         </h3>
-        <li><input type="checkbox" name="material" value="cotton">Хлопок</li>
-        <li><input type="checkbox" name="material" value="polyester">Синтетика</li>
-        <li><input type="checkbox" name="material" value="serdechnik">С сердечником</li>
+        <li>
+            <label for="cotton">
+                <input type="checkbox" name="material" value="cotton" id="cotton">
+                Хлопок
+            </label>
+        </li>
+        <li>
+            <label for="polyester">
+                <input type="checkbox" name="material" value="polyester" id="polyester">
+                Синтетика
+            </label>
+        </li>
+        <li>
+            <label for="serdechnik">
+                <input type="checkbox" name="material" value="serdechnik" id="serdechnik">
+                С сердечником
+            </label>
+        </li>
     </ul>
     <ul class="main__product-page-sidebar-block">
         <h3 class="main__product-page-sidebar-title">
             Диаметр
         </h3>
-        <li><input type="checkbox" name="diameter" value="3">3 мм</li>
-        <li><input type="checkbox" name="diameter" value="4">4 мм</li>
-        <li><input type="checkbox" name="diameter" value="4,5">4,5 мм</li>
-        <li><input type="checkbox" name="diameter" value="5">5 мм</li>
+        <li>
+            <label for="diam3">
+                <input type="checkbox" name="diameter" value="3" id="diam3">
+                3 мм
+            </label>
+        </li>
+        <li>
+            <label for="diam4">
+                <input type="checkbox" name="diameter" value="4" id="diam4">
+                4 мм
+            </label>
+        </li>
+        <li>
+            <label for="diam4-5">
+                <input type="checkbox" name="diameter" value="4,5" id="diam4-5">
+                4,5 мм
+            </label>
+        </li>
+        <li>
+            <label for="diam5">
+                <input type="checkbox" name="diameter" value="5" id="diam5">
+                5 мм
+            </label>
+        </li>
     </ul>
     <ul class="main__product-page-sidebar-block">
         <h3 class="main__product-page-sidebar-title">
             Производитель
         </h3>
-        <li><input type="checkbox" name="made-by" value="macrametr">Macrametr</li>
-        <li><input type="checkbox" name="made-by" value="zefirka">Зефирка</li>
-        <li><input type="checkbox" name="made-by" value="gamma">Гамма</li>
-        <li><input type="checkbox" name="made-by" value="sibshnur">Сибшнур</li>
+        <li>
+            <label for="macrametr">
+                <input type="checkbox" name="made-by" value="macrametr" id="macrametr">
+                Macrametr
+            </label>
+        </li>
+        <li>
+            <label for="zefirka">
+                <input type="checkbox" name="made-by" value="zefirka" id="zefirka">
+                Зефирка
+            </label>
+        </li>
+        <li>
+            <label for="gamma">
+                <input type="checkbox" name="made-by" value="gamma" id="gamma">
+                Гамма
+            </label>
+        </li>
+        <li>
+            <label for="sibshnur">
+                <input type="checkbox" name="made-by" value="sibshnur" id="sibshnur">
+                Сибшнур
+            </label>
+        </li>
     </ul>
-    <button type="button" id="search-results" class="main__product-page-sidebar-button-style-color">Показать</button>
-    <button type="reset" id="search-reset" class="main__product-page-sidebar-button">Очистить</button>
-    <div class="main__product-page-sidebar-message" id="search-result-message">
-        Подобрано 6 товаров
+    <div class="main__product-page-sidebar-buttons">
+        <button type="button" id="search-results" class="main__product-page-sidebar-button-style-color">Показать</button>
+        <button type="reset" id="search-reset" class="main__product-page-sidebar-button">Очистить</button>
+        <div class="main__product-page-sidebar-message" id="search-result-message">
+            Подобрано 6 товаров
+        </div>
     </div>
+
 </form>
                 <div class="main__product-page-content">
     <div class="main__product-page-content-item">
@@ -281,7 +360,7 @@
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Шпагат Macrametr 4 мм, 100 нитей</a>
+            <a href="product-details.html">Шпагат Macrametr 4 мм, 100 нитей</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="97" height="20" viewBox="0 0 97 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -336,7 +415,7 @@
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Шпагат джутовый Сибшнур 500 м</a>
+            <a href="product-details.html">Шпагат джутовый Сибшнур 500 м</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="55" height="17" viewBox="0 0 55 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -390,7 +469,7 @@
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Пряжа Arachna "Macrame MAXI"</a>
+            <a href="product-details.html">Пряжа Arachna "Macrame MAXI"</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="97" height="20" viewBox="0 0 97 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -446,7 +525,7 @@
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Пряжа Arachna "Macrame MINI"</a>
+            <a href="product-details.html">Пряжа Arachna "Macrame MINI"</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="97" height="20" viewBox="0 0 97 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -501,7 +580,7 @@
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Шнур "Gamma" 0.8 мм, 50 м</a>
+            <a href="product-details.html">Шнур "Gamma" 0.8 мм, 50 м</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="98" height="20" viewBox="0 0 98 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -520,14 +599,43 @@
         </a>
     </div>
     <div class="main__product-page-content-item">
-        //= product-item-header.html
+        <div class="main__product-page-content-item-header">
+    <svg class="red-color" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 14.434C7.88951 14.4336 7.78224 14.3967 7.69495 14.3289C4.9145 12.1686 2.9992 10.3083 1.65898 8.47301C-0.0512953 6.12763 -0.441358 3.96228 0.498793 2.03698C1.1689 0.661755 3.09421 -0.463425 5.34457 0.19168C6.41752 0.501599 7.35364 1.16623 8 2.07698C8.64636 1.16623 9.58248 0.501599 10.6554 0.19168C12.9008 -0.453424 14.8311 0.661755 15.5012 2.03698C16.4414 3.96228 16.0513 6.12763 14.341 8.47301C13.0008 10.3083 11.0855 12.1686 8.30505 14.3289C8.21776 14.3967 8.11049 14.4336 8 14.434ZM4.06437 1.00681C3.52891 0.98597 2.99788 1.11135 2.52829 1.36949C2.0587 1.62763 1.66828 2.00879 1.39894 2.47204C0.623813 4.0623 0.97387 5.83258 2.46911 7.87791C4.05815 9.92753 5.91887 11.7512 8 13.2988C10.0808 11.7528 11.9415 9.93076 13.5309 7.88291C15.0311 5.83258 15.3762 4.0623 14.6011 2.47705C14.101 1.47689 12.6007 0.681758 10.9305 1.15183C10.3949 1.31011 9.89841 1.57876 9.47294 1.9405C9.04747 2.30223 8.70245 2.74904 8.46007 3.25217C8.4224 3.34389 8.3583 3.42234 8.27594 3.47755C8.19357 3.53276 8.09666 3.56224 7.9975 3.56224C7.89834 3.56224 7.80142 3.53276 7.71906 3.47755C7.63669 3.42234 7.5726 3.34389 7.53493 3.25217C7.29438 2.74778 6.94994 2.29993 6.52421 1.93797C6.09847 1.57601 5.60104 1.30811 5.06453 1.15183C4.73946 1.05742 4.40286 1.00861 4.06437 1.00681Z" fill="url(#paint0_linear_111_777)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_777" x1="-3.45946" y1="-9.02123" x2="19.9092" y2="-3.28645" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+    <svg width="22" height="6" viewBox="0 0 22 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="2.78261" cy="2.78261" r="2.78261" fill="url(#paint0_linear_111_778)"/>
+        <circle cx="10.6674" cy="2.78261" r="2.78261" fill="url(#paint1_linear_111_778)"/>
+        <circle cx="18.5507" cy="2.78261" r="2.78261" fill="url(#paint2_linear_111_778)"/>
+        <defs>
+            <linearGradient id="paint0_linear_111_778" x1="-1.20329" y1="-3.47826" x2="7.01181" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint1_linear_111_778" x1="6.68148" y1="-3.47826" x2="14.8966" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+            <linearGradient id="paint2_linear_111_778" x1="14.5648" y1="-3.47826" x2="22.7799" y2="-1.65956" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#976464"/>
+                <stop offset="1" stop-color="#CFA5A5"/>
+            </linearGradient>
+        </defs>
+    </svg>
+</div>
         <div class="main__product-page-content-item-img">
             <a href="product-details.html">
                 <img src="img/image-card-item6.png" alt="card image">
             </a>
         </div>
         <div class="main__product-page-content-item-label">
-            <a href="#">Веревка “Zефирка” 4 мм, 100 м</a>
+            <a href="product-details.html">Веревка “Zефирка” 4 мм, 100 м</a>
         </div>
         <div class="main__product-page-content-item-color-variants">
             <svg width="93" height="20" viewBox="0 0 93 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -568,15 +676,15 @@
 
             <nav class="footer__item navigation">
                 <ul>
-                    <li><a href="index.html#catalog">Каталог</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#catalog">Каталог</a></li>
                     <li><a href="">Акции</a></li>
-                    <li><a href="index.html#popular-new">Новинки</a></li>
-                    <li><a href="index.html#popular-new">Популярное</a></li>
-                    <li><a href="guarantee.html">Гарантия и возврат</a></li>
-                    <li><a href="delivery.html">Оплата и доставка</a></li>
-                    <li><a href="bonus.html">Бонусная программа</a></li>
-                    <li><a href="about.html">О компании</a></li>
-                    <li><a href="index.html#benefits">Преимущества</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#popular-new">Новинки</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt#popular-new">Популярное</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/guarantee.html">Гарантия и возврат</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/delivery.html">Оплата и доставка</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/bonus.html">Бонусная программа</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/about.html">О компании</a></li>
+                    <li><a href="https://www.anna-khizhniak.site/portfolio/store-HobbyArt/#benefits">Преимущества</a></li>
                     <li><a href="" data-modal="callModal">Личный кабинет</a></li>
                 </ul>
             </nav>
@@ -644,25 +752,32 @@
             <h2 class="modal__registration-form-label">
                 Регистрация
             </h2>
-            <input type="text" name="name" id="user-name-reg" placeholder="Имя">
-            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия">
-            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество">
-            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона">
-            <input type="email" name="email" id="user-email-reg" placeholder="E-mail">
-            <input type="text" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль">
-            <input type="text" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль">
+            <div class="error-message error-block" id="reg-error-block"></div>
+            <input type="text" name="name" id="user-name-reg" placeholder="Имя" data-register="new-user" required>
+            <input type="text" name="last-name" id="user-last-name-reg" placeholder="Фамилия" data-register="new-user" required>
+            <input type="text" name="sur-name" id="user-sur-name-reg" placeholder="Отчество" data-register="new-user" required>
+            <input type="tel" name="phone" id="regist-user-phone-reg" placeholder="Номер телефона" data-register="new-user" required>
+            <input type="email" name="email" id="user-email-reg" placeholder="E-mail" data-register="new-user" required>
+            <input type="password" name="password" id="regist-user-password-reg" placeholder="Придумайте пароль" data-register="new-user" required>
+            <input type="password" name="password-confirm" id="user-confirm-password-reg" placeholder="Повторите пароль" data-register="new-user" required>
             <span class="modal__registration-form-message">Пароль должен содержать от 6 символов</span>
-            <button class="modal__registration-form-button">Зарегистрироваться</button>
+
+            <button class="modal__registration-form-button" id="send-registered-data" disabled>Зарегистрироваться</button>
         </form>
+
         <div class="modal__registration-block-login">
             <p class="modal__registration-block-text">
                 Есть аккаунт?
             </p>
-            <a href="#" class="modal__registration-block-button" id="login-button">
-                войти
+            <a href="#" class="modal__registration-block-button" id="login-button" data-modal="callModal">
+                Войти
             </a>
         </div>
     </div>
+<!--    <div class="loader-block bl-hidden">-->
+<!--        <button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Icon (default)</button>-->
+<!--    </div>-->
+
 </script>
 <script type="text/template" id="forgot-password-form-template" defer>
     <div class="scroll_on" id="forgot-password-inner-content">
@@ -775,7 +890,7 @@
                 Подписаться на рассылку о новинках и акциях
             </p>
             <form action="#" method="get" class="footer__item-form main__user-page-content-mailing-form">
-                <input type="email" placeholder="Ваш Email">
+                <input type="email" placeholder="Ваш Email" class="email-mailing">
                 <button type="submit" id="subscribe">подписаться</button>
             </form>
         </div>

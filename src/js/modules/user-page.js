@@ -1,5 +1,8 @@
 export function loadUserContent() {
-    const URL = 'http://localhost:3000/users/';
+    const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
+    const APIURL = 'https://reqres.in/api/users/2';
+    // const URL = 'http://localhost:3000/users';
+    // const APIURL = 'http://localhost:3000/users/2';
     const userDataTemplate = document.getElementById('user-data-template').innerHTML;
     const bonusesTemplate = document.getElementById('bonuses-template').innerHTML;
     const mailingTemplate = document.getElementById('mailing-template').innerHTML;
@@ -15,21 +18,36 @@ export function loadUserContent() {
     const reviewButton = document.getElementById('review');
     const containerWithData = document.getElementById('user-page-date-block');
     const favProductHeader = document.getElementById('favorite-header');
+    const userNameInfoBlock = document.getElementById('user-name-info');
+    const userMenuList = document.getElementById('user-menu-list');
 
 
     let newOrdersArr = [];
     let newListArr = [];
     let newItemListArray = [];
     let viewMoreStoryOrder = [];
-// let orderItemsBlockContent = [];
+
+    if (window.screen.width <= 768 && containerWithData) {
+        userMenuList.classList.add('bl-hidden');
+        userNameInfoBlock.classList.add('user-block-header');
+        const userPageExit = document.getElementById('user-page-exit');
+        userPageExit.innerText = '';
+        userNameInfoBlock.addEventListener('click', (e) => {
+            e.preventDefault();
+            console.log('clicked user name block');
+            userMenuList.classList.toggle('bl-hidden');
+            userNameInfoBlock.classList.toggle('user-block-header');
+        })
+    }
+
 
 //get user info - general
     function getUserData() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                // console.log('i got users data');
+                let data = result.users;
                 data.forEach((element, i) => {
                     const newUserDataTemplate = userDataTemplate
                         .replace('{{user-name}}', element.firstName)
@@ -51,9 +69,9 @@ export function loadUserContent() {
     }
 
 
-    if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html#favorite') {
+    if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite') {
         getFavoritesProducts();
-    } else if (containerWithData && window.location.href === 'http://localhost:5000/main-user-page.html') {
+    } else if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
         getUserData();
     }
 
@@ -61,49 +79,50 @@ export function loadUserContent() {
     myData.addEventListener('click', (e) => {
         e.preventDefault();
         getUserData();
+    });
 
-        containerWithData.addEventListener('click', (e) => {
+    containerWithData.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.getElementById(e.target.dataset.input).focus();
+        let editButtonClicked = document.getElementById(e.target.id);
+        editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">';
+
+        const saveEditedDataBtn = document.getElementById('save-edited-data-btn');
+        //save editted data (button save)
+        saveEditedDataBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            document.getElementById(e.target.dataset.input).focus();
-            // console.log(document.getElementById(e.target.dataset.input).focus());
-            let editButtonClicked = document.getElementById(e.target.id);
-            editButtonClicked.innerHTML = '<img src="../img/edit.svg" alt=\\"\\">';
 
-            const saveEditedDataBtn = document.getElementById('save-edited-data-btn');
-            //save editted data (button save)
-            saveEditedDataBtn.addEventListener('click', (e) => {
-                e.preventDefault();
+            fetch(APIURL, {
+                method: 'PATCH',
+                body: JSON.stringify({
+                    id: "1",
+                    firstName: document.getElementById('user-name').value,
+                    lastName: document.getElementById('user-surname').value,
+                    surName: document.getElementById('user-surname-2').value,
+                    birthDate: document.getElementById('user-birth-date').value,
+                    phone: document.getElementById('user-phone').value,
+                    email: document.getElementById('user-page-email').value,
+                    address: document.getElementById('user-address').value,
+                    password: document.getElementById('user-page-password').value,
+                }),
+                headers: {
+                    'content-type': 'application/json',
 
-                fetch(`${URL}1`, {
-                    method: 'PATCH',
-                    body: JSON.stringify({
-                        firstName: document.getElementById('user-name').value,
-                        lastName: document.getElementById('user-surname').value,
-                        surName: document.getElementById('user-surname-2').value,
-                        birthDate: document.getElementById('user-birth-date').value,
-                        phone: document.getElementById('user-phone').value,
-                        email: document.getElementById('user-page-email').value,
-                        address: document.getElementById('user-address').value,
-                        password: document.getElementById('user-page-password').value,
-                    }),
-                    headers: {
-                        'content-type': 'application/json'
-                    }
-                })
-                    .then(res => {
-                        // editButtonClicked.innerText = 'Изменить';
-                        editButtonClicked.innerHTML = '<img src="../img/edit.svg" alt=\\"\\">Изменить'
+                }
+            })
+                .then(res => {
+                    if (res.status === 200) {
+                        editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">Изменить'
                         saveEditedDataBtn.innerText = 'Сохранено';
                         setTimeout(() => {
                             saveEditedDataBtn.innerText = 'Сохранить данные';
                         }, 2000);
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            })
+                    }
+                })
+                .catch(err => {
+                    console.log(err);
+                })
         })
-
     });
 
 
@@ -111,9 +130,9 @@ export function loadUserContent() {
         e.preventDefault();
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
                 containerWithData.innerHTML = '';
-                console.log('i got users bonuses');
+                let data = result.users;
                 data.forEach(element => {
                     console.log(element.bonuses);
                     const newBonusesTemplate = bonusesTemplate.replace('{{bonuses}}', element.bonuses);
@@ -130,7 +149,8 @@ export function loadUserContent() {
     function getFavoritesProducts() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                let data = result.users;
                 const favArray = data[0].favorites.listItems;
                 containerWithData.innerHTML = '';
                 favArray.forEach(element => {
@@ -150,7 +170,8 @@ export function loadUserContent() {
     function getDataForMailing() {
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                let data = result.users;
                 data.forEach(el => {
                     if (el.mailing == 'false') {
                         containerWithData.innerHTML = mailingTemplate;
@@ -177,7 +198,7 @@ export function loadUserContent() {
     })
 
     function changeMailingStatus(button, status, template) {
-        fetch(`${URL}1`, {
+        fetch(APIURL, {
             method: 'PATCH',
             body: JSON.stringify({
                 mailing: status,
@@ -206,7 +227,8 @@ export function loadUserContent() {
         let orderItemsBlockContent = []
         fetch(URL)
             .then(res => res.json())
-            .then(data => {
+            .then(result => {
+                let data = result.users;
                 containerWithData.innerHTML = '';
                 newOrdersArr = data.map(element => {
                     newListArr = element.orders.list;
@@ -258,7 +280,9 @@ export function loadUserContent() {
 
                         fetch(URL)
                             .then(res => res.json())
-                            .then(data => {
+                            .then(result => {
+                                console.log(result.users);
+                                let data = result.users;
                                 //массив из заказов
                                 newOrdersArr = data.map((element, index) => {
                                     newListArr = element.orders.list;

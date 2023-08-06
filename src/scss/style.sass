@@ -96,6 +96,7 @@ body
       @include buttonWithBorder
       position: relative
       z-index: 0
+      text-align: left
     &-enterButton
       &:before
         @include headerContactsIcon (url('../img/human.svg'), 12px, 20px)
@@ -139,8 +140,14 @@ body
       & input
         @include input-style
         width: 100%
-  &.bg-white .header__menu-search input
-    background-color: $colorTextButton
+      @media screen and (max-width: 700px)
+        max-width: 30%
+      @media screen and (max-width: 570px)
+        max-width: 45%
+      @media screen and (max-width: 424px)
+        max-width: 60%
+body.bg-white .header__menu-search input
+  background-color: $colorTextButton
 
 
 .main
@@ -647,12 +654,6 @@ body
       left: 0
       z-index: -1
       width: 100%
-    //&:after
-      content: url("/img/questions-image.png")
-      position: absolute
-      top: 0
-      left: 0
-      z-index: 0
     &-label
       @include sectionLabel
       margin-bottom: 64px
@@ -671,6 +672,7 @@ body
         @media screen and (max-width: 767px)
           margin-bottom: 20px
           margin-right: 0
+          width: 60%
     &-subform
       display: inline-block
       text-align: left
@@ -681,8 +683,7 @@ body
         @include button
         margin-bottom: 8px
         @media screen and (max-width: 767px)
-
-          width: 226px
+          width: 60%
       & p
         @include textSmall (0.75rem, 1.0625rem, #525252)
         @include textBlock-width (241px)
@@ -709,7 +710,7 @@ body
       ul li
         position: relative
         width: 390px
-        height: 100px
+        //height: 100px
         box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
         border-radius: 20px
         background: $colorTextButton
@@ -720,42 +721,82 @@ body
           @include trans
         &:first-of-type:after
           @include headerContactsIcon (url('../img/catalog-img-link1.png'), 0, 60%)
+          @media screen and (max-width: 920px)
+            display: none
         &:nth-of-type(2):after
           @include headerContactsIcon (url('../img/catalog-img-link2.png'), 6%, 66%)
+          @media screen and (max-width: 920px)
+            display: none
         a
           display: block
           padding: 40px 49px 38px
           @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+          @media screen and (max-width: 920px)
+            padding: 40px 20px 38px
+            text-align: center
+        @media screen and (max-width: 1028px)
+          widht: 340px
+        @media screen and (max-width: 920px)
+          width: 100%
     &-container
       display: flex
       column-gap: 80px
       align-items: flex-start
       margin-bottom: 99px
+      @media screen and (max-width: 1028px)
+        //display: block
+        column-gap: 50px
+      @media screen and (max-width: 768px)
+        display: block
     &-label
       @include sectionLabel
       margin-bottom: 40px
+      @media screen and (max-width: 1028px)
+        font-size: 1.5rem
+        line-height: 2rem
+        padding: 0 30px 30px 30px
+        height: 0
+      @media screen and (max-width: 768px)
+        text-align: center
+        height: 100px
+        box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+        border-radius: 20px
+        margin-bottom: 25px
+        padding: 30px
+        background: $colorTextButton
     &-content
       &-photo
         margin-bottom: 32px
-        width: 800px
+        max-width: 800px
         height: 427px
-        border-radius: 20px
+        object-fit: contain
         & img
           width: 100%
-          height: auto
-          object-fit: cover
+          height: 100%
+          border-radius: 20px
+        @media screen and (max-width: 500px)
+          display: none
       &-label
         @include sectionLabel
         margin-bottom: 40px
+        @media screen and (max-width: 1028px)
+          font-size: 1.5rem
+          line-height: 2rem
+        @media screen and (max-width: 768px)
+          text-align: center
       &-text-block
         margin-bottom: 48px
         ul li
           list-style: inside
           margin-left: 10px
+        @media screen and (max-width: 1028px)
+          margin-bottom: 25px
       &-text
         @include textSmall (1.125rem, 1.6875rem, $colorTextMain)
         margin-bottom: 15px
         @include textBlock-width (860px)
+        @media screen and (max-width: 1028px)
+          @include textSmall (1rem, 1.3rem, $colorTextMain)
   &__product-page
     &-breadcrumbs
       margin: 64px 0 32px 0
@@ -779,19 +820,51 @@ body
       justify-content: flex-end
       align-items: center
       column-gap: 15px
+      @media screen and (max-width: 500px)
+        justify-content: center
       &-btn a
         @include buttonWithBorder
+      &-filter
+        &.bl-hidden
+          @media screen and (max-width: 768px)
+            display: block
+        &-button
+          @include button
     &-container
       display: flex
       column-gap: 80px
       align-items: flex-start
       margin-bottom: 99px
+      @media screen and (max-width: 768px)
+        display: block
+      //& > form
+        @media screen and (max-width: 768px)
+          display: none
     &-sidebar
+      &-search
+        @media screen and (max-width: 768px)
+          //display: none
+          flex-wrap: wrap
+          display: flex
+          justify-content: space-between
+          align-items: flex-start
+          position: relative
+          @media screen and (max-width: 540px)
+            justify-content: center
       &-title
         @include textMenuBold
         margin-bottom: 10px
       &-block
         margin-bottom: 20px
+        @media screen and (max-width: 768px)
+          display: inline-block
+          width: 24%
+          vertical-align: top
+          @media screen and (max-width: 540px)
+            width: 35%
+          @media screen and (max-width: 385px)
+            width: 60%
+
         & li
           @include textSmall (0.875rem, 1.0625rem, $colorTextMain)
           margin-bottom: 14px
@@ -803,6 +876,11 @@ body
           height: 1px
           background: $grayLinkColor
           margin: 27px 0 20px 0
+          @media screen and (max-width: 768px)
+            display: none
+      &-buttons
+        @media screen and (max-width: 768px)
+          margin: 0 auto 24px auto
       &-button
         @include trans
         @include buttonWithBorder
@@ -835,7 +913,10 @@ body
         background: $colorTextButton
         box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
         border-radius: 20px
-        //width: calc(20% - 24px)
+        @media screen and (max-width: 768px)
+          flex: 0 0 100%
+          margin: 0px auto 20px auto
+
         &-header
           display: flex
           justify-content: space-between
@@ -854,6 +935,7 @@ body
           overflow: hidden
           display: flex
           align-items: center
+          justify-content: center
           object-fit: contain
           & img
             width: 100%
@@ -918,9 +1000,16 @@ body
       box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
       border-radius: 20px
       margin-bottom: 99px
+      @media screen and (max-width: 768px)
+        display: block
       &-block
         padding: 56px 64px 40px
         align-items: center
+        @media screen and (max-width: 850px)
+          padding: 56px 45px 40px
+        @media screen and (max-width: 768px)
+          position: relative
+
         &.first-block
           position: relative
           &:after
@@ -932,15 +1021,35 @@ body
             height: 645px
             display: block
             background-color: $grayLinkColor
+            @media screen and (max-width: 1200px)
+              height: 100%
+            @media screen and (max-width: 768px)
+              display: none
+
         &.second-block
           width: 70%
-          text-align: center
+          column-gap: 15px
+          row-gap: 15px
+          //text-align: center
+          @media screen and (max-width: 1450px)
+            justify-content: space-around
+            flex-wrap: wrap
+          @media screen and (max-width: 768px)
+            width: 100%
+            padding: 10px 45px 40px
+
         &-data
           display: flex
           column-gap: 40px
           margin-bottom: 40px
+          @media screen and (max-width: 1200px)
+            display: block
+            width: 100%
+
       &-editable-content
         width: 100%
+        @media screen and (max-width: 768px)
+          text-align: center
       &-label
         @include sectionLabel
         margin-bottom: 48px
@@ -949,13 +1058,36 @@ body
         margin-bottom: 40px
         align-items: center
         column-gap: 24px
+        &.user-block-header
+          background: linear-gradient(223deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
+          border-radius: 50px 20px 20px 50px
+          @media screen and (max-width: 576px)
+            border-radius: 20px
+        @media screen and (max-width: 576px)
+          display: block
+          padding: 10px
+      &-user-photo
+        & img
+          @media screen and (max-width: 576px)
+            margin-bottom: 15px
+
       &-user-name
         @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+        @media screen and (max-width: 576px)
+          @include textBlock-width (120px)
         &.data-page, .bonuses, .mailing, .story-orders, .review
           margin-top: 38px
           margin-bottom: 40px
           text-align: left
+          @media screen and (max-width: 768px)
+            text-align: center
+            margin-top: 10px
+          @media screen and (max-width: 576px)
+            max-width: 100%
+
       &-user-list
+        @media screen and (max-width: 768px)
+          text-align: center
         & li a
           @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
           @include trans
@@ -970,18 +1102,34 @@ body
             background: linear-gradient(59.75deg, #C5C5A8 -2.61%, #E2E1CF 76.3%, #E2E1CF 76.3%)
         & li:last-of-type
           margin-bottom: 138px
+          @media screen and (max-width: 768px)
+            margin-bottom: 0
       &-user-exit
         @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
         padding-left: 27px
         position: relative
+        @media screen and (max-width: 768px)
+          position: absolute
+          top: 15px
+          right: 45px
+        @media screen and (max-width: 576px)
+          top: 20%
         &:before
           content: url("../img/exit.png")
           top: 0
           left: 0
           position: absolute
-
+          @media screen and (max-width: 768px)
+            content: url("../img/exit_mobile.png")
+            top: 70px
+            left: -50px
+          //@media screen and (max-width: 576px)
+            top: 20%
       &-user-data
         width: 50%
+        @media screen and (max-width: 1200px)
+          width: 100%
+          margin-bottom: 27px
         & li:not(:last-of-type)
           margin-bottom: 27px
           width: 100%
@@ -993,11 +1141,10 @@ body
             border-radius: 83px
             width: 100%
             @include textSmallBold (0.875rem, 1.0625rem, $colorTextMain)
-            //background-repeat: no-repeat
-            //background-position: 95%
-            //background-image: url("/img/edit.png")
             &::placeholder
               @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
+            @media screen and (max-width: 400px)
+              padding: 16px 10px
       &-user-edit-link
         @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
         position: absolute
@@ -1008,9 +1155,16 @@ body
 
       &-user-save-button
         @include button
+        @media screen and (max-width: 768px)
+          width: fit-content
+          margin: auto
+        @media screen and (max-width: 400px)
+          padding: 13px 10px
       &-bonuses
         text-align: left
         @include textSmall (1.125rem, 1.5625rem, $blackText)
+        @media screen and (max-width: 768px)
+          text-align: center
         & span
           color: #976464
           font-weight: bold
@@ -1018,6 +1172,9 @@ body
         text-align: left
         @include textSmall (1.125rem, 1.5625rem, $blackText)
         margin-bottom: 56px
+        @media screen and (max-width: 768px)
+          text-align: center
+          margin-bottom: 20px
         &.cancel
           display: block
           text-align: left
@@ -1027,11 +1184,29 @@ body
           @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
           margin-bottom: 32px
           text-align: left
-        &-form, &-text
+          @media screen and (max-width: 768px)
+            text-align: center
+        &-form
           text-align: left
+          @media screen and (max-width: 768px)
+            text-align: center
+            width: 100%
+          & > input.email-mailing
+            @media screen and (max-width: 768px)
+              display: block
+              width: 80%
+              margin: 10px auto
+        &-text
+          text-align: left
+          @media screen and (max-width: 768px)
+            text-align: center
+            width: 100%
 
         &-block
           max-width: 460px
+          @media screen and (max-width: 768px)
+            max-width: 100%
+            width: 100%
       &-story
         &-container
           background: #FAF9F9
@@ -1042,6 +1217,8 @@ body
             display: flex
             justify-content: space-between
             margin-bottom: 40px
+            @media screen and (max-width: 768px)
+              display: block
           &-items
 
             &-flex
@@ -1049,12 +1226,26 @@ body
               justify-content: space-between
               align-items: center
               margin-bottom: 15px
+              @media screen and (max-width: 768px)
+                display: block
+                box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
+                border-radius: 20px
+                padding: 20px
+              @media screen and (max-width: 500px)
+                padding: 10px
+                overflow: hidden
             &-block
               display: flex
               align-items: center
+              @media screen and (max-width: 768px)
+                display: block
+                //margin: auto
+                text-align: center
+
               &.left-block
                 justify-content: left
                 column-gap: 24px
+
               &.right-block
                 justify-content: right
                 column-gap: 137px
@@ -1062,13 +1253,21 @@ body
               width: 200px
               height: auto
               object-fit: contain
+              @media screen and (max-width: 768px)
+                margin: 0px auto 10px auto
+
               & img
                 width: 100%
             &-name
               @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
               text-align: left
+              @media screen and (max-width: 768px)
+                text-align: center
+                margin-bottom: 10px
             &-sum
               @include textSmall (1.125rem, 1.375rem, $colorTextMain)
+              @media screen and (max-width: 768px)
+                margin-bottom: 10px
             &-price
               @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
           &-block
@@ -1095,8 +1294,12 @@ body
           @include textSmallBold (1.125rem, 1.375rem, $grayLinkColor)
         &-block
           text-align: left
+          @media screen and (max-width: 768px)
+            margin-bottom: 20px
           &.block-right
             text-align: right
+            @media screen and (max-width: 768px)
+              text-align: left
       &-review
         &-container
           padding: 32px
@@ -1106,25 +1309,43 @@ body
         &-block
           display: flex
           align-items: center
-
+          @media screen and (max-width: 768px)
+            display: block
+            margin-bottom: 10px
+          & img
+            @media screen and (max-width: 768px)
+              margin-bottom: 10px
           &.rating-block
             justify-content: space-between
             margin-bottom: 26px
+            @media screen and (max-width: 768px)
+              margin-bottom: 20px
+            @media screen and (max-width: 768px)
+              margin: 0 auto 20px auto
+              width: 50%
           &.info-block
             justify-content: left
         &-img
           width: 200px
           height: 200px
-          object-fit: contain
+          border-radius: 50%
           margin-right: 22px
           display: flex
           justify-content: center
           align-items: center
+          overflow: hidden
+          object-fit: contain
+          @media screen and (max-width: 768px)
+            margin: 0 auto 20px auto
           & img
-            border-radius: 50%
             width: 100%
+
         &-info
           text-align: left
+          @media screen and (max-width: 768px)
+            text-align: center
+            @include textBlock-width (360px)
+            margin: auto
           & p:first-of-type
             @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
             margin-bottom: 16px
@@ -1137,20 +1358,33 @@ body
           border: 1px solid $grayLinkColor
           border-radius: 76px
           padding: 17px 45px
+          @media screen and (max-width: 530px)
+            padding: 17px 15px
   &__product-details
     padding-bottom: 103px
     &-breadcrumbs
       margin-top: 0px
-
+      @media screen and (max-width: 500px)
+        margin-bottom: 20px
+      & li a, & li:last-of-type
+        @media screen and (max-width: 400px)
+          font-size: 0.8rem
+        @media screen and (max-width: 350px)
+          font-size: 0.7rem
     &-about
-      margin-bottom: 41px
+      margin-bottom: 40px
       &-flex
         display: flex
         column-gap: 44px
         justify-content: center
         align-items: end
+        @media screen and (max-width: 1090px)
+          display: block
+          text-align: center
       &-item
         width: 50%
+        @media screen and (max-width: 1090px)
+          width: 100%
         &-image
           margin-bottom: 26px
           & img
@@ -1158,6 +1392,8 @@ body
             height: auto
         &.left-item
           text-align: center
+          @media screen and (max-width: 1090px)
+            margin-bottom: 26px
         &-text
           //padding-top: 14px
           &-header
@@ -1176,6 +1412,10 @@ body
             justify-content: flex-start
             column-gap: 123px
             align-items: start
+            @media screen and (max-width: 1090px)
+              justify-content: center
+            @media screen and (max-width: 500px)
+              column-gap: 20px
             &-list
               margin-bottom: 32px
               &.column-left li
@@ -1191,6 +1431,8 @@ body
                   position: absolute
                   top: 48px
                   left: 0
+                  @media screen and (max-width: 500px)
+                    display: none
               &.column-right li
                 @include textSmall (1.125rem, 1.375rem, $colorTextMain)
                 margin-bottom: 48px
@@ -1200,34 +1442,59 @@ body
             column-gap: 40px
             align-items: center
             justify-content: flex-start
-            //margin-bottom: 107px
+            @media screen and (max-width: 1090px)
+              justify-content: center
+            @media screen and (max-width: 530px)
+              display: block
             &-price
               @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+              min-width: 90px
+              @media screen and (max-width: 530px)
+                margin-bottom: 15px
             &-count
               @include textSmall (0.875rem, 1.0625rem, $grayLinkColor)
               border-radius: 46px
               border: 1px solid $grayLinkColor
               padding: 10px
+              min-width: 70px
+              background-color: $colorTextButton
               & span:not(:last-of-type)
+                margin-right: 10px
+              @media screen and (max-width: 530px)
                 margin-right: 10px
             &-btn
               @include button
+              @media screen and (max-width: 400px)
+                padding: 13px 10px
     &-feedback
       margin-bottom: 40px
+      @media screen and (max-width: 1090px)
+        margin-bottom: 80px
       &-rel
         position: relative
       &-label
         @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
         margin-bottom: 32px
+        @media screen and (max-width: 1090px)
+          text-align: center
       &-container
         border-radius: 20px
         background: $bgReviewItem
         padding: 40px
+        @media screen and (max-width: 1090px)
+          padding: 20px
+        @media screen and (max-width: 530px)
+          text-align: center
       &-flex
         display: flex
         align-items: center
         justify-content: space-between
         margin-bottom: 23px
+        @media screen and (max-width: 945px)
+          justify-content: center
+          column-gap: 30px
+        @media screen and (max-width: 530px)
+          display: block
         &-item
           &.data
             border-radius: 76px
@@ -1235,9 +1502,19 @@ body
             $colorTextButton: #FFF
             padding: 17px 25px
             @include textMediumBold (0.875rem, 1.0625rem, $grayLinkColor)
+            @media screen and (max-width: 1090px)
+              padding: 17px 15px
+            @media screen and (max-width: 530px)
+              width: fit-content
+              margin: auto
           &.user
             @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
             margin-bottom: 8px
+            @media screen and (max-width: 530px)
+              margin-bottom: 15px
+          &.image
+            @media screen and (max-width: 530px)
+              margin-bottom: 15px
       &-comment
         text-align: center
         @include textSmall (1.125rem, 1.375rem, $colorTextMain)
@@ -1247,14 +1524,23 @@ body
 
     &-recommend
       margin-bottom: 103px
+      @media screen and (max-width: 1090px)
+        margin-bottom: 0
       &-label
         @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
         margin-bottom: 32px
+        @media screen and (max-width: 1090px)
+          text-align: center
       &-flex
         display: flex
         justify-content: flex-start
         align-items: center
         column-gap: 28px
+        @media screen and (max-width: 1090px)
+          justify-content: center
+        @media screen and (max-width: 500px)
+          flex-wrap: wrap
+          row-gap: 20px
         &-img
           display: flex
           justify-content: center
@@ -1295,6 +1581,11 @@ body
             left: calc(50% - 75px + 11px)
   &__basket
     padding-bottom: 103px
+    @media screen and (max-width: 1600px)
+      padding-bottom: 0
+    &-breadcrumbs
+      @media screen and (max-width: 768px)
+        margin: 50px 0
     &-order
       &-close
         text-align: right
@@ -1303,15 +1594,17 @@ body
         margin: 0 auto 62px auto
         max-width: 500px
         text-align: center
-
         &-success
           display: flex
           justify-content: center
           align-items: center
           column-gap: 10px
           margin-bottom: 37px
+          @media screen and (max-width: 448px)
+            align-items: start
           &-text
             @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
+
         &-desc
           @include textSmall (1rem, 1.25rem, $colorTextMain)
           //@include textBlock-width (320px)
@@ -1321,27 +1614,40 @@ body
         &-link
           @include button
         &-recommend
-          margin-bottom: 0px
-
-
+          margin-bottom: 103px
     &-info
       display: flex
       justify-content: space-between
       align-items: start
+      @media screen and (max-width: 1600px)
+        display: block
+        max-width: 80%
+        margin: auto
+      @media screen and (max-width: 670px)
+        text-align: center
       & input
         @include input-style
         background-color: $colorTextButton
         padding: 10px 0 10px 18px
+        @media screen and (max-width: 768px)
+          padding: 10px
+
         &:not(#del-phone), &:not(#del-email)
           margin-bottom: 24px
         &#del-phone, &#del-email
           margin-bottom: 8px
+          @media screen and (max-width: 670px)
+            width: 100%
         &#street
           width: 40%
         &#city
           width: 75%
+          @media screen and (max-width: 670px)
+            width: 100%
         &#comment
           width: 100%
+          @media screen and (max-width: 1600px)
+            margin-bottom: 0
         &#house, &#apartment, &#code
           width: 25%
         &#subscribe-basket
@@ -1355,12 +1661,15 @@ body
           @include textSmall (0.875rem, 1.0625rem, #E8E8E8)
       &-delivery
         margin-bottom: 64px
-
+        @media screen and (max-width: 768px)
+          margin-bottom: 50px
         &-label
           @include basket-labels
         &-method
           width: 75%
           position: relative
+          @media screen and (max-width: 670px)
+            width: 100%
           &:after
             content: url("../img/eva_arrow-ios-upward-outline.jpg")
             position: absolute
@@ -1368,7 +1677,6 @@ body
             top: 5px
             z-index: 2
             pointer-events: none
-
           &:before
             content: ""
             border-radius: 50%
@@ -1388,6 +1696,8 @@ body
           background-color: $colorTextButton
           padding: 10px 0 10px 18px
           color: #E8E8E8
+          @media screen and (max-width: 768px)
+            padding: 10px 0 10px 10px
           &:hover
             transition: all ease-in-out 0.3s
             background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%)
@@ -1396,14 +1706,19 @@ body
             background-clip: text
             text-fill-color: transparent
             border: 1px solid #CFA5A5
-
         &-subflex
           display: flex
           justify-content: space-between
           column-gap: 16px
-
+          @media screen and (max-width: 670px)
+            display: block
+          & input#city, & input#street, & input#house, & input#apartment, & input#code
+            @media screen and (max-width: 670px)
+              width: 100%
       &-user
         margin-bottom: 64px
+        @media screen and (max-width: 768px)
+          margin-bottom: 50px
         &-label
           @include basket-labels
         &-subflex
@@ -1411,10 +1726,20 @@ body
           justify-content: space-between
           align-items: center
           column-gap: 16px
+          @media screen and (max-width: 670px)
+            display: block
           & input
             width: 33.333%
+            @media screen and (max-width: 670px)
+              width: 30%
+            @media screen and (max-width: 670px)
+              width: 100%
         & #del-phone
           width: calc(33.333% - 8px)
+          @media screen and (max-width: 768px)
+            width: 35%
+          @media screen and (max-width: 670px)
+            width: 100%
         &-text
           margin-bottom: 27px
           @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
@@ -1425,7 +1750,13 @@ body
           column-gap: 16px
           &-text
             @include textSmall (1rem, 1.25rem, $colorTextMain)
+            @media screen and (max-width: 670px)
+              text-align: left
       &-payment
+        @media screen and (max-width: 1600px)
+          margin-bottom: 64px
+        @media screen and (max-width: 768px)
+          margin-bottom: 50px
         &-label
           @include basket-labels
         &-radio
@@ -1440,11 +1771,17 @@ body
               height: 31px
           &-text
             @include textSmall (1rem, 1.25rem, $colorTextMain)
+            @media screen and (max-width: 670px)
+              text-align: left
       &-item
         width: 50%
+        @media screen and (max-width: 1600px)
+          width: 100%
+        &.order-info
+          @media screen and (max-width: 670px)
+            text-align: center
         &-label
           @include basket-labels
-
           position: relative
           &:after
             content: ''
@@ -1462,15 +1799,25 @@ body
           justify-content: space-between
           align-items: center
           column-gap: 30px
+          @media screen and (max-width: 670px)
+            display: block
+            max-width: 100%
+            margin: 0 auto 20px auto
+            padding: 20px
+            border-radius: 20px
+            background: $colorTextButton
+            box-shadow: 0px 0px 30px 0px rgba(68, 68, 68, 0.05)
           &-count
             margin-bottom: 17px
           &-img
-            width: 200px
+            max-width: 200px
             height: 200px
             object-fit: contain
             display: flex
             justify-content: center
             align-items: center
+            @media screen and (max-width: 670px)
+              margin: 0 auto 15px auto
             & img
               width: 100%
               height: auto
@@ -1478,8 +1825,22 @@ body
             @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
             @include textBlock-width (260px)
             max-height: 50px
+            @media screen and (max-width: 768px)
+              font-size: 0.9rem
+              line-height: 1rem
+            @media screen and (max-width: 670px)
+              margin: 0 auto 15px auto
           &-price
             @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+            min-width: 90px
+            @media screen and (max-width: 768px)
+              font-size: 1.1rem
+              line-height: 1.3rem
+              min-width: 65px
+              margin-bottom: 15px
+          &-calc
+            @media screen and (max-width: 670px)
+              margin-bottom: 15px
         &-order
           padding: 30px 40px 45px 40px
           border-radius: 20px
@@ -1494,12 +1855,21 @@ body
             column-gap: 16px
             align-items: center
             margin-bottom: 8px
+            @media screen and (max-width: 670px)
+              display: block
+              margin: auto
             & input#promo
               width: 60%
               padding: 17px 0 16px 24px
               margin-bottom: 0
+              @media screen and (max-width: 670px)
+                margin-bottom: 10px
+                width: 100%
             & button
               @include button
+              @media screen and (max-width: 670px)
+                width: 100%
+                margin-bottom: 10px
           &-text
             @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
             margin-bottom: 23px
@@ -1508,21 +1878,28 @@ body
             justify-content: space-between
             align-items: center
             margin-bottom: 32px
+            @media screen and (max-width: 670px)
+              display: block
             &-text
               @include textSmall (1rem, 1.25rem, $colorTextMain)
               & span
                 @include textSmallBold (1.125rem, 1.375rem, #976464)
+              @media screen and (max-width: 670px)
+                margin-bottom: 10px
             & a
               @include textSmall (1rem, 1.25rem, $grayLinkColor)
               text-decoration: underline
           &-total
             margin-bottom: 23px
+
             &-item
               display: flex
               justify-content: space-between
               align-items: center
               margin-bottom: 16px
               position: relative
+              @media screen and (max-width: 670px)
+                display: block
               &:not(.total):after
                 content: ""
                 position: absolute
@@ -1531,20 +1908,30 @@ body
                 height: 1px
                 background-color: $colorLineBasket
                 width: 100%
+                @media screen and (max-width: 670px)
+                  top: 65px
               &:nth-of-type(3)
                 margin-bottom: 24px
+              &.total
+                @media screen and (max-width: 670px)
+                  display: block
               &-text
-                @include textBlock-width (180px)
-                //width: 20%
+                @include textBlock-width (200px)
                 @include textSmallBold (1.125rem, 1.375rem, $colorTextMain)
+                @media screen and (max-width: 670px)
+                  margin: 0 auto 10px auto
               &-sum
-                //width: 10%
                 text-align: right
                 @include textSmallBold (1.5rem, 1.8125rem, $colorTextMain)
+                @media screen and (max-width: 670px)
+                  text-align: center
+                  margin-bottom: 20px
               &-desc
                 @include textSmall (1rem, 1.25rem, $colorTextMain)
                 & span
                   @include textSmallBold (1.125rem, 1.375rem, #976464)
+                @media screen and (max-width: 670px)
+                  margin-bottom: 10px
 
               &-final
                 @include textSmall (3.25rem, 3.9375rem, $colorTextMain)
@@ -1552,33 +1939,18 @@ body
             display: flex
             justify-content: space-between
             align-items: center
+            @media screen and (max-width: 1024px)
+              display: block
             & a
               @include button
+              @media screen and (max-width: 1024px)
+                display: block
+                width: fit-content
+                margin-bottom: 10px
+              @media screen and (max-width: 670px)
+                margin: 0 auto 10px auto
             &-text
               @include textSmall (0.75rem, 0.9375rem, $colorTextDesc)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 .footer
@@ -1601,7 +1973,6 @@ body
       width: 33.333%
     @media screen and (max-width: 1280px)
       width: 34.333%
-
     &-logo
       max-width: 99px
       height: auto
@@ -1702,6 +2073,8 @@ body
         @media screen and (max-width: 767px)
           padding: 16px 18px 17px 18px
           width: 226px
+        @media screen and (max-width: 768px)
+          width: 60%
       & button
         @include button
         position: absolute
@@ -1710,6 +2083,7 @@ body
         @media screen and (max-width: 767px)
           position: static
           margin: 0 auto 20px auto
+          width: 60%
     &-text, .main__user-page-content-mailing-text
       @include textSmall (0.75rem, 1.0625rem, #525252)
       margin-bottom: 40px
@@ -1769,6 +2143,11 @@ body
   &-button
     @include button
 
+.sidebar-button
+  background: $sideBarButton
+
+.scroll
+  overflow: auto
 
 
 

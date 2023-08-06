@@ -17,7 +17,7 @@
     left: 0%
     bottom: 0%
     overflow: hidden
-    padding: 53px 20px
+    padding: 100px 20px
     background: $buttonBgRegular
   &.show .burger__container
     opacity: 1
@@ -29,7 +29,6 @@
     text-align: center
     display: block
     padding: 15px 0
-    //background: linear-gradient(168deg, #976464 -20.03%, #CFA5A5 106.75%)
   &__item a:hover, &__item a:active
     color: $colorTextMain
   &.show
@@ -38,7 +37,7 @@
     display: none
     @media screen and (max-width: 780px)
       display: block
-      height: 65vh
+      height: 100vh
     & li
       margin: 10px 0
       @include textSmallBold (1.5rem, 1.8125rem, $colorTextButton)
@@ -92,8 +91,6 @@
 .fixed
   overflow: hidden
   width: 100%
-.scroll
-  overflow: auto
 
 #menu__toggle
   opacity: 0

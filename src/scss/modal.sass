@@ -27,6 +27,9 @@
     align-items: center
     justify-content: center
     column-gap: 24px
+    @media screen and (max-width: 520px)
+      display: block
+      text-align: center
     &-ch
       display: flex
       align-items: center
@@ -40,12 +43,16 @@
     position: relative
     width: 600px
     height: fit-content
-    //height: 850px
     background: $colorTextButton
     box-shadow: 0px 0px 30px rgba(68, 68, 68, 0.05)
     border-radius: 20px
     margin: 50px auto
-    padding: 50px 108px 50px 108px
+    padding: 50px 108px
+    @media screen and (max-width: 630px)
+      padding: 50px
+      width: 80%
+    @media screen and (max-width: 520px)
+      padding: 50px 20px
     &-login
       display: flex
       align-items: center
@@ -57,7 +64,8 @@
       @include buttonWithBorder
   &__registration-form
     width: 100%
-    //text-align: center
+    @media screen and (max-width: 768px)
+      text-align: center
     &-error-block
       color: $errorText
       text-align: center
@@ -78,10 +86,17 @@
     &-button
       @include button
       text-align: center
+      &:disabled
+        background: darkgray
+        cursor: auto
+      @media screen and (max-width: 520px)
+        display: block
+        margin-bottom: 20px
     &-label
       @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
       margin-bottom: 40px
       text-align: center
+
     &:after
       content: ''
       display: block
@@ -115,3 +130,5 @@
   overflow: auto
 .error-message
   @include textSmall (1rem, 1.25rem, $colorTextMain)
+  margin-bottom: 15px
+  color: $errorText

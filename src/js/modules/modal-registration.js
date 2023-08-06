@@ -1,4 +1,6 @@
+
 export function logInFunction() {
+
     document.addEventListener('DOMContentLoaded', (e) => {
         const URL = 'http://localhost:3000/users/';
         let modalCallBtn = [...document.querySelectorAll(`a[data-modal="callModal"]`)];
@@ -12,7 +14,7 @@ export function logInFunction() {
         const bodyPage = document.getElementsByTagName('body')[0];
         const favProductHeader = document.getElementById('favorite-header');
 
-
+        modalTemplate.classList.add('scroll');
 
 
         let modalRegistrationLogin;
@@ -33,9 +35,14 @@ export function logInFunction() {
         }
 
         function logIn() {
+
+            // const callBurgerBtn = document.getElementById('callBurger');
+            // callBurgerBtn.classList.add('bl-hidden');
+
             modalTemplate.classList.remove('show');
             bodyPage.classList.remove('fixed');
             window.location.replace('main-user-page.html');
+
         }
 
         function sendPostRequest(email, password, ifSaveUser) {
@@ -77,20 +84,21 @@ export function logInFunction() {
                 if (localStorage.getItem('token')) {
                     elem.innerText = "Кабинет";
                     favProductHeader.innerText = "Избранное";
-
                 }
                 elem.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (localStorage.getItem('token')) {
-                        window.location.replace('main-user-page.html');
+                        window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html');
                     } else {
+                        if (window.screen.width <= 768) {
+                            const callBurgerBtn = document.getElementById('callBurger');
+                            callBurgerBtn.classList.add('bl-hidden');
+                        }
                         modalTemplate.classList.add('show');
                         bodyPage.classList.add('fixed');
                         logInSuccessful();
                     }
-
                 });
-
             })
         }
 
@@ -98,15 +106,11 @@ export function logInFunction() {
 
         function logInSuccessful() {
             modalRegistrationLogin = document.getElementById('modal-registration-login');
-            console.log(modalRegistrationLogin)
-
             modalRegistrationLogin.addEventListener('click', (e) => {
                 e.preventDefault();
-
                 const emailField = document.getElementById('user-email').value;
                 const passwordField = document.getElementById('user-password').value;
                 const ifSaveUser = document.getElementById('checkbox-save-user').checked;
-
                 sendPostRequest(emailField, passwordField, ifSaveUser);
             })
         }
@@ -121,17 +125,114 @@ export function logInFunction() {
             registrationButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 contentInModalWindow.innerHTML = registrationFormTemplate;
+                validationUserData();
+                const sendRegisteredData = document.getElementById('send-registered-data');
+                sendRegisteredData.addEventListener('click', (e) => {
+                   e.preventDefault();
+                   fetch('https://reqres.in/api/register', {
+                       method: 'POST',
+                       body: JSON.stringify({
+                           // userName: document.getElementById('user-name-reg').value,
+                           // userLastName: document.getElementById('user-last-name-reg').value,
+                           // userSurName: document.getElementById('user-sur-name-reg').value,
+                           // phone: document.getElementById('regist-user-phone-reg').value,
+                           // email: document.getElementById('user-email-reg').value,
+                           // password: document.getElementById('regist-user-password-reg').value,
+                           // confirmPassword: document.getElementById('user-confirm-password-reg').value,
+                           "email": "eve.holt@reqres.in",
+                           "password": "pistol"
+                       }),
+                       headers: {
+                           'content-type': 'application/json'
+                       }
+                   })
+                       .then(response => response.json())
+                       .then(res => {
+                           console.log(res)
+                           if (res.token) {
+                               setTimeout(() => {
+                                   contentInModalWindow.innerHTML = forgotPasswordFormTemplate;
+                                   const innerContent = document.getElementById('forgot-password-inner-content');
+                                   innerContent.innerText = '';
+                                   innerContent.innerHTML = '<p class="error-message">Регистрация прошла успешно!</p>';
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 1500);
+                               }, 100);
+                           }
+                       })
+                })
                 const loginButton = document.getElementById('login-button');
                 loginButton.addEventListener('click', (e) => {
                     e.preventDefault();
+                    contentInModalWindow.innerHTML = '';
                     contentInModalWindow.innerHTML = loginFormTemplate;
                     callRegistTemplate();
                     callFormForgotPassword();
+                    logInSuccessful();
                 });
             });
         }
-
         callRegistTemplate();
+
+        function validationUserData() {
+            const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
+            const regexTelephone = new RegExp('^[0-9]{12}$');
+            const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
+            const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){1,}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){1,}[^a-z]*$)(?=(?:\\D*\\d){1,}\\D*$)[A-Za-z\\d]{6,}$');
+            const sendRegisteredData = document.getElementById('send-registered-data');
+            const userName = document.getElementById('user-name-reg');
+            const userLastName = document.getElementById('user-last-name-reg');
+            const userSurName = document.getElementById('user-sur-name-reg');
+            const userPhone = document.getElementById('regist-user-phone-reg');
+            const userEmail = document.getElementById('user-email-reg');
+            const userPassword = document.getElementById('regist-user-password-reg');
+            const userConfirmPassword = document.getElementById('user-confirm-password-reg');
+            const regErrorBlock = document.getElementById('reg-error-block');
+            console.log(regErrorBlock)
+
+            function checkUserData(field, regex) {
+                field.addEventListener('keyup', (e) => {
+                    e.preventDefault();
+                    if (field.value.length > 1 && field.value !== '') {
+                        if(!regex.test(field.value)) {
+                            field.setAttribute('style', 'background-color:#f9ebeb');
+                        } else {
+                            field.setAttribute('style', 'background-color:#edf9eb');
+                        }
+                        checkUserPassword();
+                        checkFilledFields();
+                    }
+                })
+            }
+
+            checkUserData(userName, regexName);
+            checkUserData(userLastName, regexName);
+            checkUserData(userSurName, regexName);
+            checkUserData(userPhone, regexTelephone);
+            checkUserData(userEmail, regexEmail);
+            checkUserData(userPassword, regexPassword);
+            checkUserData(userConfirmPassword, regexPassword);
+
+            function checkUserPassword() {
+                if (userPassword.value !== '' && userConfirmPassword.value !== '' && userPassword.value.length >= 6 && userConfirmPassword.value.length >= 6) {
+                    if (userPassword.value !== userConfirmPassword.value) {
+                        regErrorBlock.innerText = 'Пароли не совпадают!';
+                    } else {
+                        regErrorBlock.innerText = 'Пароли совпадают';
+                    }
+                }
+            }
+
+            function checkFilledFields() {
+                const allFilledFields = [...document.querySelectorAll('input[style="background-color:#edf9eb"]')];
+                if (allFilledFields.length === 7) {
+                    sendRegisteredData.disabled = false;
+                } else if (allFilledFields.length < 7) {
+                    sendRegisteredData.disabled = true;
+                }
+            }
+        }
 
         function callFormForgotPassword() {
             const modalRegistrationForgotButton = document.getElementById('modal-registration-forgot-button');
@@ -151,11 +252,10 @@ export function logInFunction() {
             window.location.reload();
         });
 
-
         favProductHeader.addEventListener('click', (e) => {
             e.preventDefault();
             if (localStorage.getItem('token')) {
-                window.location.replace('main-user-page.html#favorite');
+                window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite');
             } else {
                 openLogInPage(modalCallBtn);
             }
@@ -165,7 +265,6 @@ export function logInFunction() {
     const forgotPasswordFormTemplate = document.getElementById('forgot-password-form-template').innerHTML;
 
     function sendEmail(forgotPasswordButton, contentInModalWindow) {
-
         forgotPasswordButton.addEventListener('click', (e) => {
             e.preventDefault();
             const forgotPasswordEmail = document.getElementById('forgot-password-email');
@@ -174,7 +273,7 @@ export function logInFunction() {
     }
 
     function emailValidate(forgotPasswordEmail, contentInModalWindow) {
-        const regex = new RegExp('^[A-Za-z0-9\\.\\_\\-]+@[a-z\\.]+[a-z\\.]$');
+        const regex = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
         if (forgotPasswordEmail.value.length > 1 && forgotPasswordEmail.value !== '') {
             if (!regex.test(forgotPasswordEmail.value)) {
                 console.error('email - entered forbidden symbols');
@@ -209,15 +308,16 @@ export function logInFunction() {
                 e.preventDefault();
                 if (localStorage.getItem('token')) {
                     localStorage.removeItem('token');
-                    window.location.replace('../index.html');
+                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
                 } else {
-                    window.location.replace('../index.html');
+                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
                 }
             })
         }
     }
-
     exitUserPage();
+
+
 
 
 }
