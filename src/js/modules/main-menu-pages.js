@@ -1,8 +1,6 @@
 export function changeMainPageContent() {
     const API_URL = 'https://reqres.in/api/users/2';
     const commentInsta = document.getElementById('comments-popup');
-    // console.log(commentInsta)
-
 
     commentInsta.addEventListener('click', (e) => {
         e.preventDefault();
@@ -13,19 +11,17 @@ export function changeMainPageContent() {
 
         const popupTemplate = document.getElementById('popup-template');
 
-        curDocument.write(`${popupTemplate.innerHTML}`)
+        curDocument.write(`${popupTemplate.innerHTML}`);
 
-
-        let head = curDocument.getElementsByTagName('head')[0]
-
+        let head = curDocument.getElementsByTagName('head')[0];
 
         function includeCSS() {
             let style = curDocument.createElement('link');
             style.href = 'css/style.css';
             style.rel = 'stylesheet';
-            head.appendChild(style)
-        }
-        includeCSS()
+            head.appendChild(style);
+        };
+        includeCSS();
 
         const systemMessages = curDocument.getElementById('system-messages');
         const popupTextarea = curDocument.getElementById('popup-textarea');
@@ -37,7 +33,7 @@ export function changeMainPageContent() {
                 symbolCount.innerText = --symbolCount.innerText;
             } else {
                 symbolCount.innerText = '0';
-                return false
+                return false;
             }
         })
 
@@ -55,7 +51,7 @@ export function changeMainPageContent() {
                 }
             })
                 .then(res => {
-                    checkField(res.status, popupTextarea.value)
+                    checkField(res.status, popupTextarea.value);
                 })
         })
 
@@ -71,9 +67,7 @@ export function changeMainPageContent() {
                 systemMessages.innerHTML = "Ошибка отправки!";
             }
         }
-
     })
-
 
 }
 

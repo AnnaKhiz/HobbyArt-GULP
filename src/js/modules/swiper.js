@@ -18,7 +18,6 @@ export function swipeSlider() {
         spaceBetween: 25,
         direction: 'horizontal',
         loop: true,
-        // rewind: true,
         autoplay: true,
         navigation: {
             nextEl: ".swiper-button-next-2",
@@ -45,7 +44,6 @@ export function swipeSlider() {
                 slidesPerView: 4,
                 spaceBetween: 25
             },
-            // when window width is >= 640px
             1601: {
                 slidesPerView: 5,
                 spaceBetween: 25
@@ -56,11 +54,6 @@ export function swipeSlider() {
         slidesPerView: 3,
         spaceBetween: 24,
         loop: true,
-        // autoplay: true,
-        // pagination: {
-        //     el: ".swiper-pagination",
-        //     type: "fraction",
-        // },
         navigation: {
             nextEl: ".swiper-button-next-3",
             prevEl: ".swiper-button-prev-3",

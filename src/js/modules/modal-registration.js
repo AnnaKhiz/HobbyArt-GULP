@@ -1,10 +1,8 @@
-
 export function logInFunction() {
 
     document.addEventListener('DOMContentLoaded', (e) => {
         const URL = 'http://localhost:3000/users/';
         let modalCallBtn = [...document.querySelectorAll(`a[data-modal="callModal"]`)];
-
         const modalTemplate = document.getElementById('modal');
         const modalCloseBtn = document.getElementById('closeModal');
         const contentInModalWindow = document.getElementById('scroll-on-content');
@@ -35,14 +33,9 @@ export function logInFunction() {
         }
 
         function logIn() {
-
-            // const callBurgerBtn = document.getElementById('callBurger');
-            // callBurgerBtn.classList.add('bl-hidden');
-
             modalTemplate.classList.remove('show');
             bodyPage.classList.remove('fixed');
             window.location.replace('main-user-page.html');
-
         }
 
         function sendPostRequest(email, password, ifSaveUser) {
@@ -132,13 +125,6 @@ export function logInFunction() {
                    fetch('https://reqres.in/api/register', {
                        method: 'POST',
                        body: JSON.stringify({
-                           // userName: document.getElementById('user-name-reg').value,
-                           // userLastName: document.getElementById('user-last-name-reg').value,
-                           // userSurName: document.getElementById('user-sur-name-reg').value,
-                           // phone: document.getElementById('regist-user-phone-reg').value,
-                           // email: document.getElementById('user-email-reg').value,
-                           // password: document.getElementById('regist-user-password-reg').value,
-                           // confirmPassword: document.getElementById('user-confirm-password-reg').value,
                            "email": "eve.holt@reqres.in",
                            "password": "pistol"
                        }),
@@ -148,7 +134,6 @@ export function logInFunction() {
                    })
                        .then(response => response.json())
                        .then(res => {
-                           console.log(res)
                            if (res.token) {
                                setTimeout(() => {
                                    contentInModalWindow.innerHTML = forgotPasswordFormTemplate;
@@ -229,9 +214,6 @@ export function logInFunction() {
                         regErrorBlock.innerText = 'Пароли совпадают';
                     }
                 }
-                // else if (!regexPassword.test(userPassword.value) && !regexPassword.test(userConfirmPassword.value)){
-                //     regErrorBlock.innerText = 'Пароль не соответствует формату!';
-                // }
             }
 
             function checkFilledFields() {
@@ -286,7 +268,6 @@ export function logInFunction() {
         const regex = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
         if (forgotPasswordEmail.value.length > 1 && forgotPasswordEmail.value !== '') {
             if (!regex.test(forgotPasswordEmail.value)) {
-                console.error('email - entered forbidden symbols');
                 setTimeout(() => {
                     contentInModalWindow.innerHTML = forgotPasswordFormTemplate;
                     const forgotPasswordButton = document.getElementById('forgot-password-button');
@@ -326,8 +307,5 @@ export function logInFunction() {
         }
     }
     exitUserPage();
-
-
-
 
 }

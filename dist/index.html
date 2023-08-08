@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
     <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -65,13 +65,11 @@
                     <path d="M25 7L7 25" stroke="#EC6F5D" stroke-width="2"></path>
                 </svg>
             </a>
-            <div class="scroll_on" id="scroll-on-content">
-
-            </div>
-           </div>
-        </div>
+            <div class="scroll_on" id="scroll-on-content"></div>
+       </div>
     </div>
 </div>
+
 </header>
 
     <div class="menu__btn" id="callBurger">
@@ -119,7 +117,7 @@
     </div>
 </div>
 <main>
-    <main class="main">
+    <div class="main">
     <section class="main__banner">
     <div class="container swiper mySwiper">
         <div class="swiper-wrapper">
@@ -383,8 +381,6 @@
                         <img src="img/catalog-img-pink-shadow.png" alt="image catalog">
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
@@ -430,53 +426,9 @@
                         </p>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
-<!--    <section class="main__instagram">-->
-<!--        <div class="container">-->
-<!--            <h2 class="main__instagram-label">-->
-<!--                наш instagram-->
-<!--            </h2>-->
-<!--            <div class="main__instagram-gallery-container">-->
-<!--                <div class="big-image-1">-->
-<!--                    <div>-->
-<!--                        <div class="main__instagram-gallery-container-likes-btn">-->
-<!--                            <svg id="likes-btn" width="37" height="35" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">-->
-<!--                                <path id="svg-path" fill-rule="evenodd" clip-rule="evenodd" d="M18.4379 3.02862C28.6665 -7.48585 54.2405 10.9133 18.4379 34.572C-17.3648 10.9156 8.20918 -7.48585 18.4379 3.02862Z"/>-->
-<!--                            </svg>-->
-<!--                            <span class="main__instagram-gallery-container-likes-digit" id="likes-digit"></span>-->
-<!--                        </div>-->
-<!--&lt;!&ndash;                        <div class="main__instagram-gallery-container-likes-comment" id="comment-insta">&ndash;&gt;-->
-<!--                            <img src="img/insta-img-1.png" alt="image instagram" >-->
-<!--&lt;!&ndash;                            <svg width="35" height="36" viewBox="0 0 35 36" fill="none" xmlns="http://www.w3.org/2000/svg">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <path fill-rule="evenodd" clip-rule="evenodd" d="M26.7011 30.8166L31.1111 35.2435V27.1294C33.5417 24.2796 35 20.6509 35 16.7002C35 7.53791 27.1639 0.108887 17.5 0.108887C7.83611 0.108887 0 7.53791 0 16.7002C0 25.8626 7.83611 33.2916 17.5 33.2916C20.7316 33.302 23.9076 32.4477 26.7011 30.8166Z" fill="white"/>&ndash;&gt;-->
-<!--&lt;!&ndash;                            </svg>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="small-image-1">-->
-<!--                    <img src="img/insta-img-2.png" alt="image instagram"-->
-<!--                </div>-->
-<!--                <div class="small-image-2">-->
-<!--                    <img src="img/insta-img-3.png" alt="image instagram" >-->
-<!--                </div>-->
-<!--                <div class="small-image-3">-->
-<!--                    <img src="img/insta-img-4.png" alt="image instagram" >-->
-<!--                </div>-->
-<!--                <div class="small-image-4">-->
-<!--                    <img src="img/insta-img-5.png" alt="image instagram" >-->
-<!--                </div>-->
-<!--                <div class="big-image-2">-->
-<!--                    <img src="img/insta-img-6.png" alt="image instagram" >-->
-<!--                </div>-->
-<!--            </div>-->
-
-<!--                <a href="#" class="main__instagram-button"><span>@</span>hobbyart_dv</a>-->
-<!--        </div>-->
-<!--    </section>-->
     <section class="main__instagram">
         <div class="container">
             <h2 class="main__instagram-label">
@@ -518,9 +470,6 @@
             </div>
 
             <a href="#" class="main__instagram-button"><span>@</span>hobbyart_dv</a>
-            <!--            <&#45;&#45;Зачем @ в спане?? наверное, чтобы выровнять по вертикале относительно слова. проверить&#45;&#45;!>-->
-
-
         </div>
     </section>
     <section class="main__feedback">
@@ -542,7 +491,7 @@
         </div>
     </section>
 
-</main>
+</div>
 </main>
     <footer class="footer" id="footer">
     <div class="container">
@@ -595,7 +544,7 @@
     </div>
 </footer>
 
-    <script type="text/template" id="login-form-template" defer>
+    <template id="login-form-template">
     <div class="scroll_on" id="login-inner-content" >
         <form action="#" class="modal__registration-form login" id="login-form">
             <h2 class="modal__registration-form-label login">
@@ -627,8 +576,8 @@
             </a>
         </div>
     </div>
-</script>
-<script type="text/template" id="regist-form-template" defer>
+</template>
+<template id="regist-form-template">
     <div class="scroll_on" id="regist-inner-content">
         <form action="#" class="modal__registration-form" id="registration-form">
             <h2 class="modal__registration-form-label">
@@ -657,12 +606,8 @@
             </a>
         </div>
     </div>
-<!--    <div class="loader-block bl-hidden">-->
-<!--        <button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Icon (default)</button>-->
-<!--    </div>-->
-
-</script>
-<script type="text/template" id="forgot-password-form-template" defer>
+</template>
+<template id="forgot-password-form-template">
     <div class="scroll_on" id="forgot-password-inner-content">
         <form action="#" class="modal__registration-form forgot-password" id="forgot-password-form">
             <h2 class="modal__registration-form-label">
@@ -675,13 +620,13 @@
             </a>
         </form>
     </div>
-</script>
-<script type="text/template" id="user-data-template" defer>
+</template>
+<template id="user-data-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page">
             Мои данные
-        <div class="message-block" id="message-block"> </div>
+            <span class="message-block" id="message-block"> </span>
         </p>
 
         <div class="main__user-page-content-block-data" id="block-data-user-info">
@@ -743,8 +688,8 @@
             Сохранить данные
         </a>
     </div>
-</script>
-<script type="text/template" id="bonuses-template" defer>
+</template>
+<template id="bonuses-template">
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page bonuses">
             Бонусный счет
@@ -753,13 +698,13 @@
             На вашем счете <span>{{bonuses}} бонусов</span>, которые вы можете потратить.
         </p>
     </div>
-</script>
-<script type="text/template" id="block-header-template" defer>
+</template>
+<template id="block-header-template">
     <p class="main__user-page-content-user-name data-page story-orders">
         {{header-template}}
     </p>
-</script>
-<script type="text/template" id="mailing-template" defer>
+</template>
+<template id="mailing-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page mailing">
@@ -783,8 +728,8 @@
         </p>
     </div>
 
-</script>
-<script type="text/template" id="no-mailing-template" defer>
+</template>
+<template id="no-mailing-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page mailing">
@@ -802,8 +747,8 @@
 
     </div>
 
-</script>
-<script type="text/template" id="favorites-template" defer>
+</template>
+<template id="favorites-template">
 
         <div class="main__product-page-content-item" id="item-{{id}}">
             <div class="main__product-page-content-item-header">
@@ -860,8 +805,8 @@
                 В корзину
             </a>
         </div>
-</script>
-<script type="text/template" id="story-orders-template" defer>
+</template>
+<template id="story-orders-template">
     <div class="main__user-page-content-story-container" id="block-item-{{id}}">
         <div class="main__user-page-content-story-container-flex">
             <div class="main__user-page-content-story-block">
@@ -881,14 +826,10 @@
                 </a>
             </div>
         </div>
-
-        <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}">
-
-        </div>
-</div>
-</script>
-<script type="text/template" id="order-items-template" defer>
-
+        <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}"></div>
+    </div>
+</template>
+<template id="order-items-template">
     <div class="main__user-page-content-story-container-items " id="story-items-{{id}}" >
         <div class="main__user-page-content-story-container-items-flex">
             <div class="main__user-page-content-story-container-items-block left-block">
@@ -906,14 +847,11 @@
                 <p class="main__user-page-content-story-container-items-price">
                     {{price}} ₽
                 </p>
-
             </div>
         </div>
     </div>
-
-</script>
-<script type="text/template" id="review-template" defer>
-
+</template>
+<template id="review-template">
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page review">
             Мои отзывы
@@ -951,14 +889,11 @@
                     <p>Пряжа трикотажная Arachna «Слинг Принт»</p>
                     <p>Комментарий: <span>Пряжа понравилась, по качеству отличная)</span></p>
                 </div>
-
             </div>
         </div>
     </div>
-
-</script>
-
-<script type="text/template" id="sent-order-template" defer>
+</template>
+<template id="sent-order-template">
     <div class="container">
         <div class="main__basket-order-close">
             <a href="">
@@ -1116,14 +1051,10 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-</script>
-
-<script type="text/template" id="popup-template" defer>
+</template>
+<template id="popup-template">
     <div class="container">
         <form class="popup-form" id="popup-form">
             <p class="popup-text">Комментарий</p>
@@ -1136,22 +1067,8 @@
             <button class="popup-button" id="popup-submit">Отправить</button>
         </form>
     </div>
-</script>
+</template>
 
 <script src="js/app.min.js"></script>
-
-<!--<body >-->
-
-<!--<script src="js/swiper-bundle.min.js"> </script>-->
-<!--<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>-->
-<!--<script src="js/switcher.js"></script>-->
-<!--<script src="js/swiper.js"></script>-->
-<!--<script src="js/burger.js"></script>-->
-<!--<script src="js/likes-counter-insta.js"></script>-->
-
-
-
-<!--<script src="js/modal-registration.js" defer></script>-->
-
 </body>
 </html>

@@ -5,18 +5,13 @@ export function userBasket() {
     let searchPrice = [];
     const regexp = /[^0-9]/g;
 
-
-
     document.addEventListener('DOMContentLoaded', (e) => {
-
         if (document.getElementById('product-details')) {
             const currentPage = document.getElementById('about-details');
             currentPage.addEventListener('click', (e) => {
                 let element = document.querySelector(`[data-name="${e.target.dataset.name}"]>span.result`);
-                //беру из строки сумму товара без обозначения валюты
                 let elPrice = document.querySelector(`[data-name="${e.target.dataset.name}"]+[data-price="basket-item-price"]`);
                 let priceDigit = elPrice.innerText.replace(regexp, "");
-                //записываю в дата атрибут блока изначальную стоимость товара
                 if (!elPrice.dataset.currentCount) {
                     elPrice.dataset.currentCount = priceDigit;
                     dataPrice = elPrice.dataset.currentCount;
@@ -24,7 +19,6 @@ export function userBasket() {
                     dataPrice = elPrice.dataset.currentCount;
                 }
 
-                //считаю + и - и вывожу итоговую сумму по каждому товару
                 if (e.target.dataset.name) {
                     if (e.target.classList.contains('plus')) {
                         element.innerText = ++element.innerText;
@@ -73,13 +67,9 @@ export function userBasket() {
                 totalSumDigit = +0;
 
                 let element = document.querySelector(`[data-name="${dataId}"]>span.result`);
-
-                //беру из строки сумму товара без обозначения валюты
                 let elPrice = document.querySelector(`[data-name="${dataId}"]+[data-price="basket-item-price"]`);
-
-
                 let priceDigit = elPrice.innerText.replace(regexp, "");
-                //записываю в дата атрибут блока изначальную стоимость товара
+
                 if (!elPrice.dataset.currentCount) {
                     elPrice.dataset.currentCount = priceDigit;
                     dataPrice = elPrice.dataset.currentCount;
@@ -87,7 +77,6 @@ export function userBasket() {
                     dataPrice = elPrice.dataset.currentCount
                 }
 
-                //считаю + и - и вывожу итоговую сумму по каждому товару
                 if (e.target.dataset.name) {
                     itemsArray = [...document.querySelectorAll('[data-count="count-block"]')];
                     countButton = [...document.querySelectorAll('button>span.result')];
@@ -125,7 +114,7 @@ export function userBasket() {
                             if (el.dataset.price) {
                                 searchPrice = +el.innerText.replace(regexp, "");
                                 totalSumDigit += +searchPrice;
-                                elTotalSum.innerText = `${totalSumDigit} ₽`;//получила сумму товаров в корзине при загрузке страницы
+                                elTotalSum.innerText = `${totalSumDigit} ₽`;
                                 elTotalSumDiscount.innerText = `${(+deliveryPriceDigit + +totalSumDigit) - discountDigit} ₽`
                             }
                         })

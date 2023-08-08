@@ -34,7 +34,6 @@
       display: flex
       align-items: center
       margin-bottom: 40px
-
   &__registration-closeLink
     position: absolute
     top: 25px
@@ -92,11 +91,13 @@
       &:disabled
         background: darkgray
         cursor: auto
+      @media screen and (max-width: 520px)
+        max-width: 100%
+        display: block
     &-label
       @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
       margin-bottom: 40px
       text-align: center
-
     &:after
       content: ''
       display: block

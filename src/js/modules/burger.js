@@ -1,6 +1,5 @@
 export function callBurgerMenu() {
     $(document).ready(function () {
-
         $("#callBurger").on('click', (event) => {
             $('#burger').toggleClass('show');
             $('body').toggleClass('fixed');
@@ -15,13 +14,11 @@ export function callBurgerMenu() {
         menuBtn.classList.toggle('active');
         menu.classList.toggle('active');
     });
-    console.dir(window)
 }
 
 export function catalogAdapt(){
     const sidebar = document.getElementById('sidebar');
     const sidebarMenu = document.getElementById('sidebar-menu');
-
     if (window.screen.width <= 768 && sidebar) {
         sidebarMenu.classList.add('bl-hidden');
         sidebar.addEventListener('click', (e) => {

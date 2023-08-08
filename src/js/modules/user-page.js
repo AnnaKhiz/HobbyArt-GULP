@@ -1,8 +1,6 @@
 export function loadUserContent() {
     const URL = 'https://anna-khizhniak.site/database/hobbyart/database-json.json';
     const APIURL = 'https://reqres.in/api/users/2';
-    // const URL = 'http://localhost:3000/users';
-    // const APIURL = 'http://localhost:3000/users/2';
     const userDataTemplate = document.getElementById('user-data-template').innerHTML;
     const bonusesTemplate = document.getElementById('bonuses-template').innerHTML;
     const mailingTemplate = document.getElementById('mailing-template').innerHTML;
@@ -24,7 +22,6 @@ export function loadUserContent() {
 
     let newOrdersArr = [];
     let newListArr = [];
-    let newItemListArray = [];
     let viewMoreStoryOrder = [];
 
     if (window.screen.width <= 768 && containerWithData) {
@@ -34,14 +31,11 @@ export function loadUserContent() {
         userPageExit.innerText = '';
         userNameInfoBlock.addEventListener('click', (e) => {
             e.preventDefault();
-            console.log('clicked user name block');
             userMenuList.classList.toggle('bl-hidden');
             userNameInfoBlock.classList.toggle('user-block-header');
         })
     }
 
-
-//get user info - general
     function getUserData() {
         fetch(URL)
             .then(res => res.json())
@@ -88,7 +82,7 @@ export function loadUserContent() {
         editButtonClicked.innerHTML = '<img src="img/edit.svg" alt=\\"\\">';
 
         const saveEditedDataBtn = document.getElementById('save-edited-data-btn');
-        //save editted data (button save)
+
         saveEditedDataBtn.addEventListener('click', (e) => {
             e.preventDefault();
 
@@ -107,7 +101,6 @@ export function loadUserContent() {
                 }),
                 headers: {
                     'content-type': 'application/json',
-
                 }
             })
                 .then(res => {
@@ -119,9 +112,7 @@ export function loadUserContent() {
                         }, 2000);
                     }
                 })
-                .catch(err => {
-                    console.log(err);
-                })
+                .catch(err => console.log(err));
         })
     });
 
@@ -134,17 +125,16 @@ export function loadUserContent() {
                 containerWithData.innerHTML = '';
                 let data = result.users;
                 data.forEach(element => {
-                    console.log(element.bonuses);
                     const newBonusesTemplate = bonusesTemplate.replace('{{bonuses}}', element.bonuses);
                     containerWithData.insertAdjacentHTML('beforeend', `${newBonusesTemplate}`);
                 })
             })
-    })
+    });
 
     favorites.addEventListener('click', (e) => {
         e.preventDefault();
         getFavoritesProducts();
-    })
+    });
 
     function getFavoritesProducts() {
         fetch(URL)
@@ -180,14 +170,16 @@ export function loadUserContent() {
                             e.preventDefault();
                             changeMailingStatus(subscribe, "true", cancelMailing);
                         })
-                    } else {
-                        containerWithData.innerHTML = cancelMailing;
-                        const cancelMailingBtn = document.getElementById('cancel-mailing');
-                        cancelMailingBtn.addEventListener('click', (e) => {
-                            e.preventDefault();
-                            changeMailingStatus(cancelMailingBtn, "false", mailingTemplate);
-                        })
                     }
+                    //фрагмент кода для работы с БД, когда можно изменить данные клиента.
+                    // else {
+                    //     containerWithData.innerHTML = cancelMailing;
+                    //     const cancelMailingBtn = document.getElementById('cancel-mailing');
+                    //     cancelMailingBtn.addEventListener('click', (e) => {
+                    //         e.preventDefault();
+                    //         changeMailingStatus(cancelMailingBtn, "false", mailingTemplate);
+                    //     })
+                    // }
                 })
             })
     }
@@ -201,24 +193,29 @@ export function loadUserContent() {
         fetch(APIURL, {
             method: 'PATCH',
             body: JSON.stringify({
-                mailing: status,
+                // mailing: status,
+                "name": "morpheus",
+                "job": "zion resident"
             }),
             headers: {
                 'content-type': 'application/json'
             }
         })
             .then(res => {
-                containerWithData.innerHTML = template;
-            })
-            .then(res => {
-                if (template == cancelMailing) {
-                    const cancelMailingBtn = document.getElementById('cancel-mailing');
-                    getDataForMailing(cancelMailingBtn);
-                } else {
-                    const subscribe = document.getElementById('subscribe');
-                    getDataForMailing(subscribe);
+                if (res.status === 200) {
+                    containerWithData.innerHTML = template;
                 }
             })
+            //фрагмент кода для работы с БД, когда можно изменить данные клиента.
+            // .then(res => {
+            //     if (template == cancelMailing) {
+            //         const cancelMailingBtn = document.getElementById('cancel-mailing');
+            //         getDataForMailing(cancelMailingBtn);
+            //     } else {
+            //         const subscribe = document.getElementById('subscribe');
+            //         getDataForMailing(subscribe);
+            //     }
+            // })
             .catch(error => console.log(error));
     }
 
@@ -259,10 +256,7 @@ export function loadUserContent() {
 
                 let orderItemsTemplate = document.getElementById('order-items-template').innerHTML;
 
-                //событие на каждую из ссылок подробнее
                 viewMoreStoryOrder.forEach((element, i) => {
-                    //присваиваю стрелке id. беру его из dataset arrow
-
                     let elementChildren = [...element.children]
                     elementChildren.forEach((e, index) => {
                         if (e.localName === 'img') {
@@ -273,28 +267,22 @@ export function loadUserContent() {
                     element.children[elementChildren].id = element.dataset.arrow;
                     let arrow = document.getElementById(`${element.dataset.arrow}`);
 
-                    //вешаю событие клика на каждую из кнопок "подробнее"
                     element.addEventListener('click', (e) => {
                         arrow.classList.toggle("rotate");
                         e.preventDefault();
-
                         fetch(URL)
                             .then(res => res.json())
                             .then(result => {
-                                console.log(result.users);
                                 let data = result.users;
-                                //массив из заказов
                                 newOrdersArr = data.map((element, index) => {
                                     newListArr = element.orders.list;
                                     return [...newListArr];
                                 })
-                                //делаю перебор по содержимому (товары-content) каждого заказа
                                 if (element.dataset.orderItems === `order-items-${i + 1}`) {
                                     orderItemsBlockContent[i].classList.toggle("non-visible")
                                     orderItemsBlockContent[i].innerText = '';
 
                                     newListArr[i].content.forEach(elem => {
-
                                         const newContentTemplate = orderItemsTemplate
                                             .replaceAll('{{id}}', elem.id)
                                             .replace('{{image}}', elem.image)
@@ -311,39 +299,11 @@ export function loadUserContent() {
             });
     })
 
-
-//заголовок раздела
-    // const blockHeaderTemplate = document.getElementById('block-header-template').innerHTML;
-    // const newHeaderTemplate = blockHeaderTemplate
-    //     .replace('{{header-template}}', data[0].orders.header);
-    // containerWithData.insertAdjacentHTML('beforebegin',
-    //     `${newHeaderTemplate}`);
-
-
     reviewButton.addEventListener('click', (e) => {
         e.preventDefault();
         containerWithData.innerHTML = reviewTemplate;
     })
 }
 
-// export function getFavProducts() {
-//     const favProductHeader = document.getElementById('favorite-header');
-//
-//     favProductHeader.addEventListener('click', (e) => {
-//         e.preventDefault();
-//         // console.log('clicked')
-//         if (localStorage.getItem('token')) {
-//             // history.pushState(null, null, 'main-user-page.html')
-//             window.location.replace('main-user-page.html');
-//         } else {
-//
-//             return false
-//         }
-//         // if (location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
-//         //     getFavoritesProducts();
-//         // }
-//
-//     })
-// }
 
 

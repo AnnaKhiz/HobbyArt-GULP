@@ -94,7 +94,7 @@
   box-sizing: border-box;
 }
 
-:focus, :active {
+*:focus, *:active {
   outline: none;
 }
 
@@ -1018,6 +1018,12 @@ body {
 .modal__registration-form-button:disabled, .modal-regist__registration-form-button:disabled {
   background: darkgray;
   cursor: auto;
+}
+@media screen and (max-width: 520px) {
+  .modal__registration-form-button, .modal-regist__registration-form-button {
+    max-width: 100%;
+    display: block;
+  }
 }
 .modal__registration-form-label, .modal-regist__registration-form-label {
   font: 600 normal 1.75rem "Montserrat";
@@ -2579,23 +2585,23 @@ body.bg-white .header__menu-search input {
   color: #424242;
   margin-bottom: 10px;
 }
-.main__product-page-sidebar-block {
+.main__product-page-sidebar-item {
   margin-bottom: 20px;
 }
 @media screen and (max-width: 768px) {
-  .main__product-page-sidebar-block {
+  .main__product-page-sidebar-item {
     display: inline-block;
     width: 24%;
     vertical-align: top;
   }
 }
 @media screen and (max-width: 768px) and (max-width: 540px) {
-  .main__product-page-sidebar-block {
+  .main__product-page-sidebar-item {
     width: 35%;
   }
 }
 @media screen and (max-width: 768px) and (max-width: 385px) {
-  .main__product-page-sidebar-block {
+  .main__product-page-sidebar-item {
     width: 60%;
   }
 }

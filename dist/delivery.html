@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport"
@@ -65,13 +65,11 @@
                     <path d="M25 7L7 25" stroke="#EC6F5D" stroke-width="2"></path>
                 </svg>
             </a>
-            <div class="scroll_on" id="scroll-on-content">
-
-            </div>
-           </div>
-        </div>
+            <div class="scroll_on" id="scroll-on-content"></div>
+       </div>
     </div>
 </div>
+
 </header>
 
 <div class="menu__btn" id="callBurger">
@@ -216,7 +214,7 @@
                             <p class="main__delivery__page-content-text">Оформить заказ в нашем магазине можно и без регистрации, просто заполнив короткую форму для доставки.</p>
                             <p class="main__delivery__page-content-text">После оформления заказа доступна онлайн оплата банковской картой (оплата производится через защищенный онлайн сервис ПАО «Сбербанк»).</p>
                             <p class="main__delivery__page-content-text">Срок сбора и обработки заказа осуществляется в течение 1-2 дней после поступления оплаты.</p>
-                        </p>
+                        </div>
                     </div>
                     <div class="main__delivery__page-content-block">
                         <h2 class="main__delivery__page-content-label">
@@ -297,7 +295,7 @@
     </div>
 </footer>
 
-<script type="text/template" id="login-form-template" defer>
+<template id="login-form-template">
     <div class="scroll_on" id="login-inner-content" >
         <form action="#" class="modal__registration-form login" id="login-form">
             <h2 class="modal__registration-form-label login">
@@ -329,8 +327,8 @@
             </a>
         </div>
     </div>
-</script>
-<script type="text/template" id="regist-form-template" defer>
+</template>
+<template id="regist-form-template">
     <div class="scroll_on" id="regist-inner-content">
         <form action="#" class="modal__registration-form" id="registration-form">
             <h2 class="modal__registration-form-label">
@@ -359,12 +357,8 @@
             </a>
         </div>
     </div>
-<!--    <div class="loader-block bl-hidden">-->
-<!--        <button class="show-page-loading-msg" data-textonly="false" data-textvisible="false" data-msgtext="" data-inline="true">Icon (default)</button>-->
-<!--    </div>-->
-
-</script>
-<script type="text/template" id="forgot-password-form-template" defer>
+</template>
+<template id="forgot-password-form-template">
     <div class="scroll_on" id="forgot-password-inner-content">
         <form action="#" class="modal__registration-form forgot-password" id="forgot-password-form">
             <h2 class="modal__registration-form-label">
@@ -377,13 +371,13 @@
             </a>
         </form>
     </div>
-</script>
-<script type="text/template" id="user-data-template" defer>
+</template>
+<template id="user-data-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page">
             Мои данные
-        <div class="message-block" id="message-block"> </div>
+            <span class="message-block" id="message-block"> </span>
         </p>
 
         <div class="main__user-page-content-block-data" id="block-data-user-info">
@@ -445,8 +439,8 @@
             Сохранить данные
         </a>
     </div>
-</script>
-<script type="text/template" id="bonuses-template" defer>
+</template>
+<template id="bonuses-template">
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page bonuses">
             Бонусный счет
@@ -455,13 +449,13 @@
             На вашем счете <span>{{bonuses}} бонусов</span>, которые вы можете потратить.
         </p>
     </div>
-</script>
-<script type="text/template" id="block-header-template" defer>
+</template>
+<template id="block-header-template">
     <p class="main__user-page-content-user-name data-page story-orders">
         {{header-template}}
     </p>
-</script>
-<script type="text/template" id="mailing-template" defer>
+</template>
+<template id="mailing-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page mailing">
@@ -485,8 +479,8 @@
         </p>
     </div>
 
-</script>
-<script type="text/template" id="no-mailing-template" defer>
+</template>
+<template id="no-mailing-template">
 
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page mailing">
@@ -504,8 +498,8 @@
 
     </div>
 
-</script>
-<script type="text/template" id="favorites-template" defer>
+</template>
+<template id="favorites-template">
 
         <div class="main__product-page-content-item" id="item-{{id}}">
             <div class="main__product-page-content-item-header">
@@ -562,8 +556,8 @@
                 В корзину
             </a>
         </div>
-</script>
-<script type="text/template" id="story-orders-template" defer>
+</template>
+<template id="story-orders-template">
     <div class="main__user-page-content-story-container" id="block-item-{{id}}">
         <div class="main__user-page-content-story-container-flex">
             <div class="main__user-page-content-story-block">
@@ -583,14 +577,10 @@
                 </a>
             </div>
         </div>
-
-        <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}">
-
-        </div>
-</div>
-</script>
-<script type="text/template" id="order-items-template" defer>
-
+        <div class="main__user-page-content-story-container-block non-visible" id="order-items-block-template-{{id}}"></div>
+    </div>
+</template>
+<template id="order-items-template">
     <div class="main__user-page-content-story-container-items " id="story-items-{{id}}" >
         <div class="main__user-page-content-story-container-items-flex">
             <div class="main__user-page-content-story-container-items-block left-block">
@@ -608,14 +598,11 @@
                 <p class="main__user-page-content-story-container-items-price">
                     {{price}} ₽
                 </p>
-
             </div>
         </div>
     </div>
-
-</script>
-<script type="text/template" id="review-template" defer>
-
+</template>
+<template id="review-template">
     <div class="main__user-page-content-editable-content" >
         <p class="main__user-page-content-user-name data-page review">
             Мои отзывы
@@ -653,14 +640,11 @@
                     <p>Пряжа трикотажная Arachna «Слинг Принт»</p>
                     <p>Комментарий: <span>Пряжа понравилась, по качеству отличная)</span></p>
                 </div>
-
             </div>
         </div>
     </div>
-
-</script>
-
-<script type="text/template" id="sent-order-template" defer>
+</template>
+<template id="sent-order-template">
     <div class="container">
         <div class="main__basket-order-close">
             <a href="">
@@ -818,14 +802,10 @@
                     </a>
                 </div>
             </div>
-
         </div>
     </div>
-
-
-</script>
-
-<script type="text/template" id="popup-template" defer>
+</template>
+<template id="popup-template">
     <div class="container">
         <form class="popup-form" id="popup-form">
             <p class="popup-text">Комментарий</p>
@@ -838,7 +818,7 @@
             <button class="popup-button" id="popup-submit">Отправить</button>
         </form>
     </div>
-</script>
+</template>
 
 <script src="js/app.min.js"></script>
 </body>
