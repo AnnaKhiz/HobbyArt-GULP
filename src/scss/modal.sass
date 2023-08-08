@@ -83,15 +83,15 @@
       margin-bottom: 40px
       display: block
       @include textSmall (0.75rem, 0.9375rem, $colorTextMain)
+      &.sec
+        margin-top: -40px
     &-button
       @include button
-      text-align: center
+      margin: 0 auto 20px auto
+      max-width: 80%
       &:disabled
         background: darkgray
         cursor: auto
-      @media screen and (max-width: 520px)
-        display: block
-        margin-bottom: 20px
     &-label
       @include textSmallBold (1.75rem, 2.125rem, $colorTextMain)
       margin-bottom: 40px

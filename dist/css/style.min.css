@@ -992,6 +992,9 @@ body {
   line-height: 0.9375rem;
   color: #424242;
 }
+.modal__registration-form-message.sec, .modal-regist__registration-form-message.sec {
+  margin-top: -40px;
+}
 .modal__registration-form-button, .modal-regist__registration-form-button {
   background: linear-gradient(102.48deg, #976464 -29.03%, #CFA5A5 97.75%);
   border-radius: 49px;
@@ -999,7 +1002,8 @@ body {
   font: 600 normal 1rem/1.5rem "Spectral SC";
   text-transform: uppercase;
   color: #FFFFFF;
-  text-align: center;
+  margin: 0 auto 20px auto;
+  max-width: 80%;
 }
 .modal__registration-form-button:hover, .modal-regist__registration-form-button:hover {
   background: linear-gradient(102.48deg, #7B4646 -29.03%, #BF9191 97.75%);
@@ -1014,12 +1018,6 @@ body {
 .modal__registration-form-button:disabled, .modal-regist__registration-form-button:disabled {
   background: darkgray;
   cursor: auto;
-}
-@media screen and (max-width: 520px) {
-  .modal__registration-form-button, .modal-regist__registration-form-button {
-    display: block;
-    margin-bottom: 20px;
-  }
 }
 .modal__registration-form-label, .modal-regist__registration-form-label {
   font: 600 normal 1.75rem "Montserrat";

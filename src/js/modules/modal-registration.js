@@ -177,7 +177,7 @@ export function logInFunction() {
 
         function validationUserData() {
             const regexName = new RegExp('^[A-Za-zА-Яа-яЁёЁЇїІіЄєҐґ]{2,15}$');
-            const regexTelephone = new RegExp('^[0-9]{12}$');
+            const regexTelephone = new RegExp('^(\\+)[\\d]{10,13}\\d$');
             const regexEmail = new RegExp('^([a-z0-9_-]+\\.)*[a-z0-9_-]+@[a-z0-9_-]+(\\.[a-z0-9_-]+)*\\.[a-z]{2,6}$');
             const regexPassword = new RegExp('^(?=(?:[^A-Z]*[A-Z]){1,}[^A-Z]*$)(?=(?:[^a-z]*[a-z]){1,}[^a-z]*$)(?=(?:\\D*\\d){1,}\\D*$)[A-Za-z\\d]{6,}$');
             const sendRegisteredData = document.getElementById('send-registered-data');
@@ -189,7 +189,6 @@ export function logInFunction() {
             const userPassword = document.getElementById('regist-user-password-reg');
             const userConfirmPassword = document.getElementById('user-confirm-password-reg');
             const regErrorBlock = document.getElementById('reg-error-block');
-            console.log(regErrorBlock)
 
             function checkUserData(field, regex) {
                 field.addEventListener('keyup', (e) => {
@@ -209,19 +208,30 @@ export function logInFunction() {
             checkUserData(userName, regexName);
             checkUserData(userLastName, regexName);
             checkUserData(userSurName, regexName);
-            checkUserData(userPhone, regexTelephone);
+            userPhone.addEventListener('focus', (e) => {
+                e.preventDefault();
+                if (userPhone.value === '') {
+                    userPhone.value = '+';
+                    checkUserData(userPhone, regexTelephone);
+                } else {
+                    checkUserData(userPhone, regexTelephone);
+                }
+            });
             checkUserData(userEmail, regexEmail);
             checkUserData(userPassword, regexPassword);
             checkUserData(userConfirmPassword, regexPassword);
 
             function checkUserPassword() {
                 if (userPassword.value !== '' && userConfirmPassword.value !== '' && userPassword.value.length >= 6 && userConfirmPassword.value.length >= 6) {
-                    if (userPassword.value !== userConfirmPassword.value) {
-                        regErrorBlock.innerText = 'Пароли не совпадают!';
+                    if (userPassword.value !== userConfirmPassword.value && !regexPassword.test(userPassword.value) || !regexPassword.test(userConfirmPassword.value)) {
+                        regErrorBlock.innerText = 'Пароли не совпадают или не соответствуют формату!';
                     } else {
                         regErrorBlock.innerText = 'Пароли совпадают';
                     }
                 }
+                // else if (!regexPassword.test(userPassword.value) && !regexPassword.test(userConfirmPassword.value)){
+                //     regErrorBlock.innerText = 'Пароль не соответствует формату!';
+                // }
             }
 
             function checkFilledFields() {
