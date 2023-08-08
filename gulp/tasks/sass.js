@@ -3,6 +3,7 @@ import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 
 import cleanCss from 'gulp-clean-css'; // Сжатие CSS файла
+import minCss from 'gulp-cssmin';
 import webpcss from 'gulp-webpcss'; // Вывод WEBP изображений
 import autoprefixer from 'gulp-autoprefixer'; // Добавление вендорных префиксов
 import groupCssMediaQueries from 'gulp-group-css-media-queries'; // Групировка медиа запросов
@@ -47,17 +48,10 @@ export const scss = () => {
 				)
 			)
 		)
-		// Раскомментировать если нужен не сжатый дубль файла стилей
-		.pipe(app.gulp.dest(app.path.build.css))
-		.pipe(
-			app.plugins.if(
-				app.isBuild,
-				cleanCss()
-			)
-		)
 		.pipe(rename({
-			extname: ".min.css"
+			extname: ".min.css",
 		}))
+		.pipe(cleanCss())
 		.pipe(app.gulp.dest(app.path.build.css))
 		.pipe(app.plugins.browsersync.stream());
 }

@@ -23,6 +23,7 @@
 		"gulp": "latest",
 		"gulp-autoprefixer": "latest",
 		"gulp-clean-css": "latest",
+		"gulp-cssmin": "^0.2.0",
 		"gulp-file-include": "latest",
 		"gulp-fonter-fix": "latest",
 		"gulp-group-css-media-queries": "latest",

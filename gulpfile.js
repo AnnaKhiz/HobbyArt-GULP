@@ -8,7 +8,7 @@ import { plugins } from "./gulp/config/plugins.js";
 // Передаем значения в глобальную переменную
 global.app = {
 	isBuild: process.argv.includes('--build'),
-	isDev: !process.argv.includes('--build'),
+	isDev: !process.argv.includes('--dev'),
 	path: path,
 	gulp: gulp,
 	plugins: plugins
