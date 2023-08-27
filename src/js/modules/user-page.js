@@ -63,9 +63,9 @@ export function loadUserContent() {
     }
 
 
-    if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite') {
+    if (containerWithData && window.location.href === 'https://anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite') {
         getFavoritesProducts();
-    } else if (containerWithData && window.location.href === 'https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
+    } else if (containerWithData && window.location.href === 'https://anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html') {
         getUserData();
     }
 

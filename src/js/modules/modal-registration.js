@@ -81,7 +81,7 @@ export function logInFunction() {
                 elem.addEventListener('click', (e) => {
                     e.preventDefault();
                     if (localStorage.getItem('token')) {
-                        window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html');
+                        window.location.replace('https://anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html');
                     } else {
                         if (window.screen.width <= 768) {
                             const callBurgerBtn = document.getElementById('callBurger');
@@ -247,7 +247,7 @@ export function logInFunction() {
         favProductHeader.addEventListener('click', (e) => {
             e.preventDefault();
             if (localStorage.getItem('token')) {
-                window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite');
+                window.location.replace('https://anna-khizhniak.site/portfolio/store-HobbyArt/main-user-page.html#favorite');
             } else {
                 openLogInPage(modalCallBtn);
             }
@@ -299,9 +299,9 @@ export function logInFunction() {
                 e.preventDefault();
                 if (localStorage.getItem('token')) {
                     localStorage.removeItem('token');
-                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
+                    window.location.replace('https://anna-khizhniak.site/portfolio/store-HobbyArt/');
                 } else {
-                    window.location.replace('https://www.anna-khizhniak.site/portfolio/store-HobbyArt/');
+                    window.location.replace('https://anna-khizhniak.site/portfolio/store-HobbyArt/');
                 }
             })
         }
