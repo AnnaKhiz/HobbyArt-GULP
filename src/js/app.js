@@ -1,4 +1,5 @@
 import * as flsFunctions from "./modules/functions.js";
+import * as back from './modules/back.js';
 import * as basket from "./modules/basket.js";
 import * as burger from "./modules/burger.js";
 import * as likeCounter from "./modules/likes-counter-insta.js";
@@ -9,22 +10,14 @@ import * as userPage from "./modules/user-page.js";
 import * as linksContent from "./modules/main-menu-pages.js";
 import * as filterSearch from "./modules/filter-tovar.js";
 
-
+back.backToPortfolio();
 flsFunctions.isWebp();
 burger.callBurgerMenu();
 burger.catalogAdapt();
 filterSearch.showFilters();
 filterSearch.editLinkText();
 logInFunc.logInFunction();
-// userPage.getFavProducts();
 
-
-
-
-
-
-
-// popup.funcPopup();
 
 if (document.getElementById('comments-popup')) {
     linksContent.changeMainPageContent();
